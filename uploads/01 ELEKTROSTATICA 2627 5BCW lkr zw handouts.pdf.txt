@@ -1,0 +1,852 @@
+--- p1 ---
+10/10/2026
+1
+ELEKTROSTATICA
+Elektrostatica D1 
+Soorten ladingen, elektrostatische inductie, ladingsverdeling en toepassingen
+1
+2
+--- p2 ---
+10/10/2026
+2
+Lesdoelen
+Na deze les kan je:
+1.Uitleggen wat elektrische lading is en hoe lading kan worden opgewekt
+(wrijving, contact, inductie).
+2.Beschrijven de structuur van een atoom en het verband met 
+elektrische neutraliteit.
+3.Onderscheiden geleiders en isolatoren op basis van hun
+eigenschappen.
+4.Toelichten wat elektrostatische inductie is en hoe een blijvende lading 
+kan ontstaan.
+5.Herkennen toepassingen van elektrostatica in het dagelijks leven (bv. 
+laserprinter, tribo-elektrische reeks).
+ELEKTRISCHE LADINGEN 
+Opwekken van ladingen
+• Elektrische influentie: neutraal voorwerp krijgt lading en wordt aangetrokken. 
+3
+4
+--- p3 ---
+10/10/2026
+3
+De elektroscoop
+• Elektroscoop: toestel dat  elektrische ladingen kan aantonen en de 
+eigenschappen ervan helpt onderzoeken
+Soorten ladingen
+5
+6
+--- p4 ---
+10/10/2026
+4
+De eenheid van lading 
+DE ATOOMSTRUCTUUR
+• Kern: 
+• Protonen (positieve lading) 
+• Neutronen (neutraal)
+• Massa van neutronen en protonen is gelijk.
+• Het aantal protonen bepaalt het atoomnummer.
+• Rondom kern:
+• Elektronen (negatieve lading)
+7
+8
+--- p5 ---
+10/10/2026
+5
+DE ATOOMSTRUCTUUR
+• In een atoom is de hoeveelheid elektronen
+gelijk aan de hoeveelheid protonen. 
+• In absolute waarde is de lading van een proton gelijk aan de lading van 
+een elektron.
+• Een atoom is dus elektrisch neutraal.
+DE ATOOMSTRUCTUUR
+• PVC - wol: door wrijving wippen e- van wol naar PVC  PVC negatief 
+geladen 
+• Glas – papier: door wrijving wippen e- van glas naar papier  glas 
+positief geladen
+• Elementaire lading: lading van een proton
+• Lading elektron: 
+• Elke ladingshoeveelheid bevat een geheel aantal elementaire ladingen.
+9
+10
+--- p6 ---
+10/10/2026
+6
+Geleiders en isolatoren
+Valentie-elektronen
+• Geleider bestaat uit atomen met 1, 2 of 3 valentie-elektronen. 
+• Isolator bestaat uit atomen met 5, 6 of 7 valentie-e-. 
+• Stoffen opgebouwd uit atomen met 4 valentie-e- noemen we 
+halfgeleiders. 
+11
+12
+--- p7 ---
+10/10/2026
+7
+Geleiders
+• De structuur van een geleider bestaat uit een metaalbinding → 
+bevat elektronen die niet stevig aan de kern gebonden zijn → 
+vrije elektronen → geleiding mogelijk.
+Isolatoren
+• Bij een isolator zijn alle elektronen stevig aan de kern 
+gebonden → geen vrije elektronen → geen geleiding mogelijk.
+13
+14
+--- p8 ---
+10/10/2026
+8
+Elektrostatische inductie
+Elektrostatische inductie
+• PVC → negatief geladen;
+• PVC in buurt van elektroscoop → e- in elektroscoop schuiven weg → 
+blaadjes allebei negatief geladen → stoten elkaar af;
+• effect wordt groter als PVC dichter komt;
+• PVC weg → terug oorspronkelijke toestand.
+15
+16
+--- p9 ---
+10/10/2026
+9
+Elektrostatische inductie
+• Elektrostatische inductie:
+• door het verschuiven van e-, als een negatief geladen 
+voorwerp in de buurt komt, krijgt de elektroscoop gelijktijdig 
+twee even grote, maar tegengestelde ladingen 
+(boven + en onder -);
+• de totale lading van de elektroscoop blijft nul.
+Opwekken van een blijvende lading 
+• Door uitwisseling van e- met de grond, wordt de onderzijde van de 
+elektroscoop geneutraliseerd;
+• uitwijking verdwijnt.
+17
+18
+--- p10 ---
+10/10/2026
+10
+Opwekken van een blijvende lading 
+Opwekken van een blijvende lading 
+• Bovenzijde van elektroscoop was geladen, onderzijde was 
+neutraal;
+• PVC weg → resterende e- niet meer weggedrukt → e- verdelen zich;
+• te weinig e- (rest naar grond) → elektroscoop is positief geladen.
+19
+20
+--- p11 ---
+10/10/2026
+11
+Elektrostatische inductie
+Opdracht 1
+21
+22
+--- p12 ---
+10/10/2026
+12
+Opdracht 1
+Opdracht 1
+• (a') De staaf wordt nabij de elektroscoop gebracht (zonder aanraking)
+• Wat gebeurt er?
+• De positieve lading van de staaf trekt elektronen aan uit de 
+elektroscoop.
+• Elektronen bewegen naar boven, richting de knop.
+• De bladeren onderaan verliezen elektronen en worden daardoor 
+positief geladen.
+• Gevolg: De bladeren spreiden uit door onderlinge afstoting van 
+positieve lading.
+23
+24
+--- p13 ---
+10/10/2026
+13
+Opdracht 2
+Opdracht 2
+25
+26
+--- p14 ---
+10/10/2026
+14
+Ladingsverdeling op een geleider
+Ladingsverdeling op een geleider
+27
+28
+--- p15 ---
+10/10/2026
+15
+Ladingsverdeling op een geleider
+Ladingsverdeling op een geleider
+• Oppervlakteladingsdichtheid: 
+• grootheid die aangeeft hoe de lading op een oppervlak 
+verspreid is;
+• ΔQ: ladingshoeveelheid;
+• ΔA: oppervlakte.
+29
+30
+--- p16 ---
+10/10/2026
+16
+Oppervlakteladingsdichtheid
+• SI-eenheid:
+• Bolvormig oppervlak:
+• Q: totale lading van de bol
+Elektrische schermwerking
+31
+32
+--- p17 ---
+10/10/2026
+17
+Kooi van faraday
+• https://www.youtube.com/watch?v=TaFUqDg-O-M
+Elektrische schermwerking:
+toepassing
+• Tunnel van gewapend beton 
+• coaxiale kabel:
+• kabel bestaat uit twee aders;
+• ader in het midden: signaalader (of kern);
+• binnenmantel;
+• tweede ader, omvlochten en dient eveneens als afscherming;
+• omvlechting: van buiten komende storing worden opgeheven;
+• buitenmantel. 
+33
+34
+--- p18 ---
+10/10/2026
+18
+Tribo-elektriciteit
+• Door wrijving met een materiaal kun je het materiaal negatief of positief 
+maken.
+• Het ene materiaal is makkelijker op te laden dan het andere 
+• Soort moleculen, ruwheid en temperatuur spelen een rol.
+• Tribo-elektrische reeks: gerangschikt van heel negatief na wrijving over 
+moeilijk op te laden tot heel positief.
+Tribo-elektrische reeks
+• Materialen gerangschikt 
+van heel negatief na wrijving 
+over moeilijk op te laden tot 
+heel positief.
+35
+36
+--- p19 ---
+10/10/2026
+19
+Tribo-elektriciteit
+• Voor sommige toepassingen is de reeks handig.
+• VOORBEELD: vershoudfolie
+• Als folie van rol verwijderd wordt, is folie opgeladen → door 
+aantrekking met ladingen op kaas wordt een perfecte afsluiting voor 
+lucht gevormd.
+Werking laserprinter
+• Laserprinter gebruikt het laden van niet-geleidende 
+voorwerpen om afbeelding of tekst op papier te krijgen
+• Atomen tegengesteld laden → aantrekking.
+• Laserprinter steunt op dat principe en laat toner 
+aantrekken door papier.
+37
+38
+--- p20 ---
+10/10/2026
+20
+Laserprinter: coronadraad
+• In laserprinter zit coronadraad.
+• Lading op draad is heel hoog → heel sterk elektrisch veld rond 
+draad.
+• Ionen in buurt van draad worden aangetrokken of afgestoten → 
+door de grote snelheid die deze daardoor krijgen, worden ook 
+andere atomen geladen → er ontstaat een lawine aan 
+atomen/ionen
+Laserprinter: trommel
+• Onder coronadraad draait een cirkelvormige buis: trommel
+• Door het draaien krijgt trommel +lading
+• ladingen zijn homogeen verdeeld over de trommel 
+• Spiegeltjes richten geconcentreerd licht uit laser op trommel 
+→ digitale informatie van afbeelding of tekst van computer 
+wordt omgezet in lichtflitsen die door bewegende spiegeltjes 
+heen en weer over trommel schijnen.
+39
+40
+--- p21 ---
+10/10/2026
+21
+Laserprinter: toner
+• Trommel is bedekt met laagje fotogeleidend materiaal
+• Als een lichtdeeltje (foton) op trommel belandt, zal lading daar 
+verdwijnen.
+• Zo tekent de laser de elektrostatische afbeelding of tekst op de 
+trommel.
+• Toner: positief geladen mengsel van pigment en plastic korreltjes 
+• Toner komt op plaatsen waar 
+lading verdwenen is. 
+(afgestoten door rest)
+• Afbeelding of tekst staat nu 
+op trommel.
+Laserprinter: printen
+• Papier wordt negatief geladen.
+• Papier rolt over trommel
+• Positieve tonerdeeltjes op de trommel worden door papier 
+aangetrokken → afbeelding of tekst op papier
+• verwarmingsdraad zorgt 
+dat toner en papiervezels 
+versmelten.
+• Tot slot: ontlading van 
+trommel door flitslamp.
+41
+42
+--- p22 ---
+10/10/2026
+22
+Lesdoelen
+Na deze les kan je:
+1.Uitleggen wat elektrische lading is en hoe lading kan worden opgewekt
+(wrijving, contact, inductie).
+2.Beschrijven de structuur van een atoom en het verband met 
+elektrische neutraliteit.
+3.Onderscheiden geleiders en isolatoren op basis van hun
+eigenschappen.
+4.Toelichten wat elektrostatische inductie is en hoe een blijvende lading 
+kan ontstaan.
+5.Herkennen toepassingen van elektrostatica in het dagelijks leven (bv. 
+laserprinter, tribo-elektrische reeks).
+Toetsdoelen D1
+• Gebruik onderstaande checklist om jezelf te helpen bij het studeren, na de toets en voor het 
+examen. Zo weet je wat je al beheerst en wat je nog moet inoefenen.
+Voor examen ☐Na de toets ☐Tijdens studeren ☐Ik kan …
+☐☐☐Uitleggen wat elektrische lading is en hoe lading kan worden opgewekt (wrijving, 
+contact, inductie).
+☐☐☐Beschrijven de structuur van een atoom en het verband met elektrische neutraliteit.
+☐☐☐Onderscheiden geleiders en isolatoren op basis van hun eigenschappen.
+Toelichten wat elektrostatische inductie is en hoe een blijvende lading kan ontstaan.
+☐☐☐Herkennen toepassingen van elektrostatica in het dagelijks leven (bv. laserprinter, 
+tribo-elektrische reeks).
+43
+44
+--- p23 ---
+10/10/2026
+23
+Elektrostatica D2 
+Krachtwerking tussen ladingen. 
+Wet van Coulomb
+Krachtwerking tussen ladingen. 
+Wet van Coulomb: lesdoelen
+• De leerlingen kunnen de aard van de krachtwerking tussen elektrische 
+ladingen beschrijven.
+• De leerlingen kunnen de Wet van Coulomb verklaren en toepassen in 
+eenvoudige situaties.
+• De leerlingen kunnen de formule van Coulomb correct gebruiken om 
+krachten te berekenen.
+• De leerlingen kunnen het verband uitleggen tussen kracht, lading en 
+afstand.
+45
+46
+--- p24 ---
+10/10/2026
+24
+Krachtwerking tussen ladingen. 
+Wet van Coulomb
+• Twee gelijksoortige ladingen stoten elkaar af. (a)
+• Twee ongelijksoortige ladingen trekken elkaar aan. (b)
+Krachtwerking tussen ladingen. 
+Wet van Coulomb
+• De grootte van de kracht    of     is:
+• bij een bepaalde afstand r tussen de puntladingen recht 
+evenredig met de absolute waarde van elke lading;
+• bij een gegeven waarde van Q en Q’ omgekeerd evenredig 
+met het kwadraat van hun onderlinge afstand.
+47
+48
+--- p25 ---
+10/10/2026
+25
+Krachtwerking tussen ladingen. 
+Wet van Coulomb 
+• In formulevorm:
+Opdracht 3
+49
+50
+--- p26 ---
+10/10/2026
+26
+Opdracht 3
+Opdracht 4
+51
+52
+--- p27 ---
+10/10/2026
+27
+Opdracht 4
+Opdracht 5
+53
+54
+--- p28 ---
+10/10/2026
+28
+Opdracht 5
+Opdracht 6 (extra oef)
+55
+56
+--- p29 ---
+10/10/2026
+29
+Opdracht 6
+Opdracht 7
+57
+58
+--- p30 ---
+10/10/2026
+30
+Opdracht 7
+Opdracht 8
+59
+60
+--- p31 ---
+10/10/2026
+31
+Opdracht 8
+Opdracht 9
+61
+62
+--- p32 ---
+10/10/2026
+32
+Opdracht 9
+Opdracht 9: Q in het midden
+63
+64
+--- p33 ---
+10/10/2026
+33
+Opdracht 9: Q niet in het midden
+Einde 9/9/26
+65
+66
+--- p34 ---
+10/10/2026
+34
+Opdracht 10
+Opdracht 10
+67
+68
+--- p35 ---
+10/10/2026
+35
+Opdracht 10
+Opdracht 10
+69
+70
+--- p36 ---
+10/10/2026
+36
+Opdracht 11
+Opdracht 11
+71
+72
+--- p37 ---
+10/10/2026
+37
+Opdracht 12
+Einde 11/9/26
+73
+74
+--- p38 ---
+10/10/2026
+38
+Opdracht 12
+Opdracht 13
+75
+76
+--- p39 ---
+10/10/2026
+39
+Opdracht 13
+Opdracht 13
+77
+78
+--- p40 ---
+10/10/2026
+40
+Krachtwerking tussen ladingen. 
+Wet van Coulomb: Toetsdoelen
+• Gebruik onderstaande checklist om jezelf te helpen bij het studeren, na de toets en voor het 
+examen. Zo weet je wat je al beheerst en wat je nog moet inoefenen.
+Voor 
+examen ☐
+Na de 
+toets ☐
+Tijdens 
+studeren ☐
+Ik kan …
+☐☐☐… uitleggen dat gelijksoortige ladingen elkaar afstoten en
+ongelijksoortige elkaar aantrekken.
+☐☐☐… de Wet van Coulomb beschrijven en verklaren.
+☐☐☐… de formule van Coulomb correct gebruiken in berekeningen.
+☐☐☐… het verband uitleggen tussen kracht, lading en afstand.
+Elektrostatica D3 
+Elektrisch veld
+79
+80
+--- p41 ---
+10/10/2026
+41
+Lesdoelen
+• Uitleggen wat een elektrisch veld is en hoe het ontstaat rond ladingen.
+• De elektrische veldsterkte berekenen en interpreteren bij puntladingen
+en geladen bollen.
+• Veldlijnen tekenen en hun betekenis uitleggen bij verschillende
+ladingsverdelingen.
+• Verband leggen tussen veldsterkte, krachtwerking en veldlijnen.
+• Praktische toepassingen en experimenten met elektrostatica
+herkennen en verklaren.
+Inhoudsopgave
+1.Elektrisch veld en proeflading
+2.Elektrische veldsterkte: definitie en berekening
+3.Veldsterkte bij puntladingen en bollen
+4.Veldlijnen: betekenis en tekening
+5.Oefeningen en toepassingen
+81
+82
+--- p42 ---
+10/10/2026
+42
+Het elektrisch veld
+Het veldbegrip
+• Proeflading: gekende lading die gebruikt wordt om de eigenschappen 
+van een elektrisch veld te onderzoeken.
+• Elektrische veldkracht: de kracht die een proeflading in een bepaald 
+punt van een elektrisch veld ondervindt.
+83
+84
+--- p43 ---
+10/10/2026
+43
+Elektrische veldsterkte
+• Elektrisch veld wordt opgewekt door een puntlading q;
+• kracht die op tweede puntlading q’ inwerkt:
+• twee delen:
+Elektrische veldsterkte
+• Elektrische veldsterkte    hangt, naast de afstand, enkel af van 
+de verwekkende lading.
+• SI-eenheid:
+85
+86
+--- p44 ---
+10/10/2026
+44
+Veldsterkte bij verschillende ladingsverdelingen: 
+puntlading
+• Elektrische veldsterkte rond een puntlading:
+• Het veld rondom een puntlading is radiaal → even groot in alle punten 
+die even ver van q verwijderd zijn.
+Veldsterkte rond een puntlading
+87
+88
+--- p45 ---
+10/10/2026
+45
+Veldsterkte rondom meerdere puntladingen
+Einde 14/9/26
+89
+90
+--- p46 ---
+10/10/2026
+46
+Veldsterkte rondom een geladen bol
+• Bolvormige geleider gedraagt zich alsof de lading in het middelpunt 
+geconcentreerd is;
+• in punt A, op afstand r, buiten de bol, bedraagt de grootte van de 
+veldsterkte:
+• Bolsymmetrisch veld: veldsterkte is even groot voor alle punten, buiten 
+de bol, die even ver van het middelpunt van de bol verwijderd zijn.
+Veldsterkte rondom een geladen bol
+91
+92
+--- p47 ---
+10/10/2026
+47
+Opdracht 18 
+Opdracht 18
+93
+94
+--- p48 ---
+10/10/2026
+48
+Opdracht 19
+95
+96
+--- p49 ---
+10/10/2026
+49
+97
+98
+--- p50 ---
+10/10/2026
+50
+Opdracht 20
+99
+100
+--- p51 ---
+10/10/2026
+51
+Opdracht 20
+101
+102
+--- p52 ---
+10/10/2026
+52
+Opdracht 20
+Opdracht 21
+103
+104
+--- p53 ---
+10/10/2026
+53
+Opdracht 22
+105
+106
+--- p54 ---
+10/10/2026
+54
+107
+108
+--- p55 ---
+10/10/2026
+55
+Elektrische veldlijnen
+109
+110
+--- p56 ---
+10/10/2026
+56
+Elektrische veldlijnen
+k3
+Elektrische veldlijnen
+• In een elektrisch veld wordt door polarisatie:
+• één uiteinde van elk korreltje positief;
+• één uiteinde van elk korreltje negatief.
+• Ongelijksoortige uiteinden plaatsen zich tegenover elkaar → vormen 
+lijnen.
+111
+112
+--- p57 ---
+Dia 111
+k3 koen 10/09/2014
+griesmeel / bandgenerator / olie
+koen; 10/09/2014
+--- p58 ---
+10/10/2026
+57
+Elektrische veldlijnen rondom een puntvormige of 
+bolvormige elektrode
+Elektrische veldlijnen tussen twee evenwijdige 
+elektroden
+113
+114
+--- p59 ---
+10/10/2026
+58
+Elektrische veldlijnen
+Elektrische veldlijnen
+• Zin: van positieve lading weg, naar negatieve lading toe;
+• door elk punt gaat slechts één veldlijn;
+• veldlijnen staan loodrecht op geleidende oppervlakken.
+115
+116
+--- p60 ---
+10/10/2026
+59
+Toetsdoelen elektrisch veld
+• In deze les heb je gewerkt aan verschillende doelen. Gebruik onderstaande checklist om jezelf te evalueren
+tijdens het studeren, na de toets en ter voorbereiding van het examen. Vink aan wat je beheerst en waar je nog
+extra aandacht aan wil besteden.
+Voor examen Na de toetsTijdens studerenIk kan …
+☐☐☐… uitleggen wat een elektrisch veld is en hoe het ontstaat
+☐☐☐… de elektrische veldsterkte berekenen bij puntladingen en bollen
+☐☐☐… veldlijnen tekenen en hun betekenis uitleggen
+☐☐☐… het verband leggen tussen veldsterkte, krachtwerking en
+veldlijnen
+☐☐☐… toepassingen en experimenten met elektrostatica verklaren
+Elektrostatica D4 
+Elektrisch potentiaal en potentiaal verschil
+117
+118
+--- p61 ---
+10/10/2026
+60
+Lesdoelen
+• Uitleggen wat elektrische potentiaal is en hoe die verband houdt met 
+arbeid en energie.
+• De formule voor arbeid in een radiaal veld afleiden en interpreteren.
+• De elektrische potentiële energie en potentiaal berekenen in een
+radiaal veld.
+• Verband leggen tussen potentiaalverschil en verrichte arbeid.
+• Oefeningen oplossen over potentiaal, arbeid en energie.
+Inhoudsopgave
+1.Elektrische potentiaal
+2.Arbeid in een radiaal veld
+3.Potentiële energie en potentiaal
+4.Verband tussen arbeid en potentiaalverschil
+5.Oefeningen
+6.Toetsdoelen
+119
+120
+--- p62 ---
+10/10/2026
+61
+Elektrische potentiaal
+Wat gebeurt er als een lading zich verplaatst in een elektrisch veld?
+• Een lading 𝑄′ ondervindt een kracht door het elektrisch veld van een
+andere lading 𝑄.
+• Als 𝑄′ zich verplaatst, verricht het veld arbeid op die lading.
+• Die arbeid hangt af van de afstand tot 𝑄 en van de grootte van 𝑄.
+Arbeid in een radiaal veld
+De kracht op 𝑄′ verandert met de afstand𝑟 tot 𝑄:
+• De kracht is niet constant → arbeid berekenen is niet eenvoudig.
+• We gebruiken de oppervlakte onder de kracht-afstand-grafiek.
+• Dit is een integraal:
+• 𝑊 = ∫ 𝐹
+௥ಳ
+௥ಲ 𝑟  𝑑𝑟
+121
+122
+--- p63 ---
+10/10/2026
+62
+TER INFO: integraal oplossen (6BCW)
+1.Haal constante buiten de integraal:
+𝑊 = 𝑘 ⋅ 𝑄 ⋅ 𝑄′ ⋅ න 1𝑟ଶ௥ಳ௥ಲ  𝑑𝑟
+2.Bereken de primitieve functie:
+∫ 1𝑟ଶ  𝑑𝑟 = − 1𝑟
+3.Vul grenzen in:
+𝑊 = 𝑘 ⋅ 𝑄 ⋅ 𝑄′ ⋅ 1𝑟஺ − 1𝑟஻
+𝑊 = න 𝐹
+௥ಳ
+௥ಲ
+𝑟  𝑑𝑟
+Resultaat van de integraal
+De arbeid die het veld verricht bij verplaatsing van 𝑄′ van 𝑟ଵ naar 𝑟ଶ:
+𝑊 = න 𝐹
+஻
+௥ಲ
+𝑟  𝑑𝑟
+𝑊 = 𝑘 ⋅ 𝑄 ⋅ 𝑄′𝑟஺ − 𝑘 ⋅ 𝑄 ⋅ 𝑄′𝑟஻
+• 𝑘 = Coulombconstante (k = 8,99.109 N.m²/C²)
+• Dit is het verschil in potentiële energie tussen twee punten
+123
+124
+--- p64 ---
+10/10/2026
+63
+Interpretatie van de formule
+• De arbeid positief als 𝑟஻ > 𝑟஺ → lading beweegt weg van 𝑄
+• De arbeid is negatief als 𝑟஻ < 𝑟஺ → lading beweegt naar 𝑄
+𝑊 = 𝑘 ⋅ 𝑄 ⋅ 𝑄′𝑟஺ − 𝑘 ⋅ 𝑄 ⋅ 𝑄′𝑟஻
+De potentiaal in een radiaal veld
+• Arbeid door coulombkracht verricht:
+• W is dus verschil van twee waarden van functie
+• Waarde van               hangt af van afstand r die Q’ heeft t.o.v. Q (verwekker 
+elektrisch veld) → elektrische potentiële energie (vergelijkbaar met 
+Ep grav):
+𝑊 = 𝑘 ⋅ 𝑄 ⋅ 𝑄′𝑟஺ − 𝑘 ⋅ 𝑄 ⋅ 𝑄′𝑟஻
+125
+126
+--- p65 ---
+10/10/2026
+64
+Elektrische potentiële energie
+De potentiële energie van een lading 𝑄′ op afstand 𝑟 van een puntlading𝑄:
+𝐸pot 𝑟 = 𝑘 ⋅ 𝑄 ⋅ 𝑄′𝑟
+• Vergelijkbaar met zwaartekracht: 𝐸pot,grav = 𝑚 ⋅ 𝑔 ⋅ ℎ
+Definitie van potentiaal
+• De elektrische potentiaal op een punt is de hoeveelheid elektrische potentiële 
+energie die een eenheidslading 
+(1 C) zou hebben op die plaats in een elektrisch veld.
+• Het is dus een maat voor hoeveel energie een lading op een bepaalde plaats in een elektrisch 
+veld heeft.
+• De elektrische potentiaal op een punt is:
+𝑉 =
+𝐸pot
+𝑄′ = 𝑘 ⋅ 𝑄𝑟
+• 𝑉 hangt af van de plaats in het veld, niet van de testlading 𝑄′
+• Eenheid: volt (V) (= 1 joule per coulomb)
+127
+128
+--- p66 ---
+10/10/2026
+65
+De potentiaal in een radiaal veld
+• Afleiding:
+• Potentiaal in ieder punt rond puntlading q:
+Verband tussen de arbeid verricht door de veldkracht en het 
+potentiaalverschil
+• Arbeid die veldkracht levert om in elektrisch veld lading Q’ te 
+verplaatsen van A naar B:
+• Dan geldt ook: 
+129
+130
+--- p67 ---
+10/10/2026
+66
+Potentiaal opdracht 1
+Een bolletje met een straal van 2,00 cm heeft een lading van 1,00µC. 
+Bereken:
+- de potentiaal op het oppervlak;
+- de potentiaal op 10,0 cm van het middelpunt.
+Potentiaal opdracht 1
+Een bolletje met een straal van 2,00 cm heeft een lading van 1,00µC. Bereken:
+- de potentiaal op het oppervlak;
+- de potentiaal op 10,0 cm van het middelpunt.
+131
+132
+--- p68 ---
+10/10/2026
+67
+Potentiaal opdracht 2
+Hoeveel arbeid wordt er door de coulombkracht geleverd, als ze een 
+lading van 5,0.10-8 C verplaatst van een punt op een potentiaal van 150 V 
+naar een punt op een potentiaal van 40 V?
+Potentiaal opdracht 2
+Hoeveel arbeid wordt er door de coulombkracht geleverd, als ze een 
+lading van 5,0.10-8 C verplaatst van een punt op een potentiaal van 150 V 
+naar een punt op een potentiaal van 40 V?
+133
+134
+--- p69 ---
+10/10/2026
+68
+Potentiaal opdracht 3
+Bepaal de potentiële energie van een lading van 20,0 µC in een punt 
+waar de potentiaal 3,00.104 V bedraagt.
+Potentiaal opdracht 3
+Bepaal de potentiële energie van een lading van 20,0 µC in een punt 
+waar de potentiaal 3,00.104 V bedraagt.
+135
+136
+--- p70 ---
+10/10/2026
+69
+Potentiaal opdracht 4
+De coulombkracht verricht een arbeid van 0,60 J om een lading van 10,0 
+mC in een elektrisch veld tussen twee punten te verplaatsen. Bereken 
+het potentiaalverschil tussen beide punten.
+Potentiaal opdracht 4
+De coulombkracht verricht een arbeid van 0,60 J om een lading van 10,0 
+mC in een elektrisch veld tussen twee punten te verplaatsen. Bereken 
+het potentiaalverschil tussen beide punten.
+137
+138
+--- p71 ---
+10/10/2026
+70
+Toetsdoelen
+☐ Voor 
+examen
+☐ Na de 
+toets
+☐ Tijdens 
+studeren
+Ik kan …
+☐☐☐… uitleggen wat elektrische potentiaal is en hoe die verband 
+houdt met arbeid en energie.
+☐☐☐… de formule voor arbeid in een radiaal veld afleiden en 
+interpreteren.
+☐☐☐… de elektrische potentiële energie en potentiaal berekenen in 
+een radiaal veld.
+☐☐☐… het verband leggen tussen potentiaalverschil en verrichte 
+arbeid.
+☐☐☐… oefeningen oplossen over potentiaal, arbeid en energie.
+139

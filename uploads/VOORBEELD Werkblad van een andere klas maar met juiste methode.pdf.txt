@@ -1,0 +1,141 @@
+--- p1 ---
+LABO: WARMTECAPACITEIT VAN EEN CALORIMETER  
+Wat is de OVUR-methode?  
+O – Oriënteren 
+Je onderzoekt wat je moet doen, waarom je het doet en welke kennis je nodig hebt. Je leest de opdracht en 
+denkt na over het doel. 
+V – Voorbereiden 
+Je maakt een plan: welke stappen ga je uitvoeren, welk materiaal heb je nodig, en hoe werk je veilig en 
+nauwkeurig? 
+U – Uitvoeren 
+Je voert het onderzoek stap voor stap uit. Je meet, noteert, observeert en werkt precies volgens je plan.  
+R – Reflecteren 
+Je kijkt terug op je werk: kloppen je resultaten? Wat kan beter? Welke conclusie kan je trekken?  
+O – ORIËNTEREN  
+CONTEXT  
+In dit practicum bepaal je de warmtecapaciteit 𝐶cal van een calorimeter. 
+Wanneer warm en koud water gemengd worden, bereikt het systeem een evenwichtstemperatuur 𝑇𝑒. 
+Niet alle warmte gaat van het warme naar het koude water: een deel wordt opgenomen door de calorimeter.  
+Om nauwkeurige latere metingen uit te voeren moet 𝐶cal gekend zijn. 
+ 
+DOEL VAN HET ONDERZOEK  
+• De warmtecapaciteit van de calorimeter praktisch bepalen via een warmtebalans.  
+ 
+• Data verzamelen, verwerken en analyseren volgens STEM ‑principes. 
+ 
+• Veilig en nauwkeurig werken met meetinstrumenten. 
+ 
+V – VOORBEREIDEN  
+BENODIGDHEDEN  
+• Calorimeter met deksel 
+• Thermometer of temperatuursensor 
+• Bekerglas 
+• Water (koud + warm) 
+• Weegschaal (bovenweger) 
+• Roerstaaf 
+ 
+ 
+
+--- p2 ---
+THEORIE -OVERZICHT  
+WARMTEHOEVEELHEID  
+De warmtehoeveelheid is: 
+𝑄 = 𝑚 𝑐 𝛥𝑇 
+waarbij: 
+- 𝑚 = massa (kg) 
+- 𝑐 = soortelijke warmtecapaciteit (𝑐water = 4186 J/(kg·K)) 
+- 𝛥𝑇 = temperatuurverandering (K) 
+WARMTEBALANS BIJ MENGEN  
+Warm water koelt af, koud water warmt op: 
+𝑄warm = 𝑄koud + 𝑄cal 
+Uitgeschreven: 
+𝑚. 𝑐. (𝑇2 − 𝑇𝑒) = 𝑚. 𝑐. (𝑇𝑒 − 𝑇1) + 𝐶cal. (𝑇𝑒 − 𝑇1) 
+Oplossing voor 𝐶cal: 
+𝐶cal = 𝑚. 𝑐. (𝑇2 − 𝑇𝑒) − 𝑚. 𝑐. (𝑇𝑒 − 𝑇1)
+𝑇𝑒 − 𝑇1
+ 
+VEILIGHEIDSREGELS  // NAUWKEURIGHEID  
+• Warm water kan brandwonden veroorzaken, wees voorzichtig en gebruik indien nodig hulpmiddelen  
+ 
+• Glaswerk voorzichtig hanteren. 
+ 
+• Werk ordelijk en droog gemorste vloeistoffen onmiddellijk op.  
+ 
+• Lees thermometer steeds op ooghoogte. 
+ 
+U – UITVOEREN  
+PROCEDURE  
+1. Spoel de calorimeter met water op temperatuur 𝑇1. 
+2. Breng een massa koud water 𝑚1 in de calorimeter en meet 𝑇1. 
+3. Verwarm eenzelfde massa warm water 𝑚2 = 𝑚1 tot temperatuur 𝑇2. 
+4. Giet het warme water in de calorimeter. 
+5. Roer voorzichtig en wacht tot de temperatuur stabiel blijft (𝑇𝑒). 
+6. Noteer alle waarden in de tabel. 
+7. Voer de volledige procedure minstens 3–5 keer uit. 
+ 
+
+--- p3 ---
+RESULTATENTABEL  
+Proef 𝑚 (kg) 𝑇1 (°C) 𝑇2 (°C) 𝑇𝑒 (°C) 𝐶cal (J/K) 
+1  
+ 
+    
+2  
+ 
+    
+3  
+ 
+    
+4  
+ 
+    
+5  
+ 
+    
+Gemiddelde warmtecapaciteit: 
+𝐶gem =                    J/K 
+ 
+GRAFISCHE STEM -OPDRACHT  
+Maak een T(t)-grafiek: 
+• x‑as: tijd (s) 
+• y‑as: temperatuur (°C) 
+Analyseer:  
+- Hoe zie je dat evenwicht bereikt is? 
+- Welke waarde lees je het nauwkeurigst af als 𝑇𝑒? 
+ 
+R – REFLECTEREN  
+Beantwoord onderstaande vragen: 
+1. Waarom moet de calorimeter vooraf in thermisch evenwicht worden gebracht met het koude water?  
+2. Hoe verklaart het deeltjesmodel het bereiken van 𝑇𝑒?  
+3. Welke meetonzekerheden beïnvloeden 𝐶cal het meest?  
+4. Waarom is het belangrijk om meerdere metingen te doen?  
+5. Welke aannames maken we over warmteverlies naar de omgeving? Zijn die realistisch?  
+ 
+ 
+ 
+
+--- p4 ---
+ 
+1. Waarom moet de calorimeter vooraf in thermisch evenwicht worden gebracht met het koude water? 
+Omdat de calorimeter zelf warmte kan opnemen of afgeven. Als ze niet dezelfde temperatuur heeft 
+als het koude water, zou ze extra warmte opnemen of afstaan nog vó ór het mengen start, waardoor 
+de meting van 𝑇1 en uiteindelijk 𝐶cal foutief wordt. → We willen alleen warmte-uitwisseling tijdens het 
+mengen meten. 
+2. Hoe verklaart het deeltjesmodel het bereiken van 𝑇𝑒? Volgens het deeltjesmodel botsen warme, 
+snelle deeltjes met koudere, tragere deeltjes. Door die botsingen wordt energie overgedragen tot de 
+gemiddelde bewegingsenergie overal gelijk is. → Er ontstaat een uniforme temperatuur: de 
+evenwichtstemperatuur 𝑇𝑒. 
+3. Welke meetonzekerheden beïnvloeden 𝐶cal het meest? 
+Temperatuurmetingen (𝑇1, 𝑇2, 𝑇𝑒): zelfs 0,1 °C verschil verandert 𝐶cal merkbaar. Massa van het water: fout in 
+het afwegen beïnvloedt het warmteverschil. Afleesreacties (vertraging in thermometer, slecht aflezen). 
+Temperaturen wegen het zwaarst, want ze zitten in alle termen van de formule voor 𝐶cal. 
+4. Waarom is het belangrijk om meerdere metingen te doen? Om toevallige meetfouten (ruis) uit te 
+middelen en zo een veel betrouwbaardere waarde van 𝐶cal te krijgen. Herhalingen laten ons een 
+gemiddelde en spreiding bepalen → kwaliteitscontrole van het experiment. 
+5. Welke aannames maken we over warmteverlies naar de omgeving? Zijn die realistisch? Aannames:  
+Het systeem is thermisch geïsoleerd. Er gaat geen warmte verloren aan lucht, tafel of meetinstrumenten. 
+Alleen koud water, warm water en de calorimeter wisselen warmte uit.  
+Realistisch? → Niet volledig, want elke opstelling verliest altijd een beetje warmte. Maar als de calorimeter 
+goed geïsoleerd is en het experiment snel wordt uitgevoerd, zijn de verliezen klein genoeg om de berekening 
+bruikbaar te maken. 
+ 

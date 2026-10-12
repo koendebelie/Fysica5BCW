@@ -1,0 +1,1010 @@
+--- p1 ---
+Naam : ………………………………………      
+ 
+Opgave : Praktische oefeningen op het schakelen van weerstanden. 
+ 
+ 
+1) Doel  van de proef 
+ 
+Meten en berekenen van de substitutieweerstand van serie- en parallelschakelingen en 
+gemengde schakelingen. 
+Voor we beginnen met het labo, gaan we de substitutieweerstand van de verschillende 
+schakelingen berekenen. De berekende substitutieweerstand wordt links onderaan in de 
+overeenkomstige tabel geschreven. 
+Meet telkens voor drie verschillende spanningen de overeenkomstige stroomsterkte en 
+bereken dan de substitutieweerstand m.b.v. de wet van Ohm. De gemiddelde 
+weerstandswaarde van de schakeling wordt rechts onderaan in de tabel geschreven. 
+ 
+2) Benodigheden 
+ 
+− Plank, weerstanden, spanningsbron, snoeren, brugjes, volt- en ampèremeter 
+ 
+3) Schakelingen 
+ 
+a)       b) 
+    
+ 
+ 
+c) 
+ 
+ 
+d)       e) 
+ 
+ 
+ 
+f)* 
+ 
+ 
+
+
+--- p2 ---
+4) Metingen en berekeningen 
+ 
+a) I (         ) U (         ) R (          ) 
+Meting 1    
+Meting  2    
+Meting  3    
+Berekende 
+substitutieweerstand 
+ 
+ 
+Gemeten 
+substitutieweerstand 
+ 
+ 
+b) I (         ) U (         ) R (          ) 
+Meting 1    
+Meting  2    
+Meting  3    
+Berekende 
+substitutieweerstand 
+ 
+ 
+Gemeten 
+substitutieweerstand 
+ 
+ 
+c) I (         ) U (         ) R (          ) 
+Meting 1    
+Meting  2    
+Meting  3    
+Berekende 
+substitutieweerstand 
+ 
+ 
+Gemeten 
+substitutieweerstand 
+ 
+ 
+d) I (         ) U (         ) R (          ) 
+Meting 1    
+Meting  2    
+Meting  3    
+Berekende 
+substitutieweerstand 
+ 
+ 
+Gemeten 
+substitutieweerstand 
+ 
+ 
+e) I (         ) U (         ) R (          ) 
+Meting 1    
+Meting  2    
+Meting  3    
+Berekende 
+substitutieweerstand 
+ 
+ 
+Gemeten 
+substitutieweerstand 
+ 
+ 
+f) I (         ) U (         ) R (          ) 
+Meting 1    
+Meting  2    
+Meting  3    
+Berekende 
+substitutieweerstand 
+ 
+ 
+Gemeten 
+substitutieweerstand 
+ 
+ 
+
+--- p3 ---
+Praktische oefening op schakelen van weerstanden via black boxen 
+1) Benodigdheden 
+− 7 reeksen black boxen 
+− spanningsbron  
+− snoeren 
+− voltmeter en ampèremeter 
+ 
+2) Doel van de proef 
+Een black box is een doosje waaraan we via twee aansluitingen een spanning kunnen aanleggen. 
+In de black box is een schakeling opgebouwd met weerstanden van dezelfde ongekende 
+waarde. Deze waarde kan op de volgende manier bepaald worden: 
+▪ Uit de gemeten stroom en spanning kunnen we de substitutieweerstand van de 
+schakeling bepalen.  
+▪ De overeenkomstige schakelingen staat hieronder getekend. 
+▪ Door de wetten van serie- en parallelschakeling toe te passen kunnen jullie de 
+weerstanden bepalen. 
+▪ Een black box betekent dus dat de inhoud van de doos moet achterhaald worden via 
+redenering. 
+ 
+3) Schakelingen 
+a)        b) 
+  
+  
+c)        d) 
+ 
+e)        f*) 
+  
+  
+g*) 
+ 
+ 
+4) Verslag 
+Noteer in je verslag nauwkeurig welke stappen je ondernomen hebt en welke berekeningen je 
+hebt uitgevoerd om tot de resultaten te komen. De berekeningen in je verslag mag je schrijven. 
+
+
+--- p4 ---
+
+
+--- p5 ---
+KLEURCODE VOOR WEERSTANDEN 
+Bepaling van de waarde: 
+De waarde van weerstanden wordt gecodeerd door middel van vier of vijf kleurringen.  
+De ring, die de tolerantie aangeeft (%), is steeds iets breder dan de andere ringen. Op deze 
+manier kan men de volgorde van de ringen bepalen.  
+ 
+KLEUR RING 1 
+cijfer 
+RING 2 
+cijfer 
+(RING 3) 
+cijfer 
+RING 4 OF 3 
+vermenigvuldiger 
+ 
+Tolerantie 
+Eventueel 
+Temp. Coëff. 
+Zwart - 0 0 x 1 -  
+Bruin 1 1 1 x 10 1 %  
+Rood 2 2 2 x 100 2 %  
+Oranje 3 3 3 x 1.000 3 %  
+Geel 4 4 4 x 10.000 -  
+Groen 5 5 5 x 100.000 0,5 %  
+Blauw 6 6 6 x 1.000.000 -  
+Violet 7 7 7 - -  
+Grijs 8 8 8 - -  
+Wit 9 9 9 - -  
+Goud - - - x 0,1 5 %  
+Zilver - - - x 0,01 10 %  
+Geen - - - - 20 % 
+ 
+ 
+Opdracht: Bepaal de waarde van vijf weerstanden aan de hand van de kleurcode en 
+controleer het resultaat met een Ω-meter. Ga na of de gemeten waarde binnen de 
+tolerantiegrenzen ligt. 
+ Weerstandswaarde m.b.v. de 
+kleurcode + tolerantie 
+Weerstandswaarde m.b.v. de 
+Ω-meter  
+Binnen tolerantiegrenzen? 
+R1    
+R2    
+R3    
+R4    
+R5    
+ 
+ 
+ 
+
+--- p6 ---
+ 
+
+--- p7 ---
+Naam : ............................................................     Nr. : ........ 
+        
+Opgave : Bepaling van de wet van Pouillet  
+ 
+ 
+1) Benodigdheden 
+Plank met 4 weerstandsdraden, spanningsbron, snoeren, krokodilklem,  V-meter en A-meter. 
+ 
+ 
+2) Doel van de proef 
+We onderzoeken van welke factoren de weerstand van een geleider afhankelijk is.  We 
+onderzoeken de invloed van de ....................... , de ................. en de ............................... 
+ 
+Straks vatten we de 3 besluiten samen. Dit geeft dan aanleiding tot de definitie van een 
+nieuwe grootheid, namelijk de soortelijke weerstand (resistiviteit). De formule voor de 
+weerstand  R  die we dan kunnen schrijven noemen we de wet van Pouillet. 
+ 
+ 
+3) Opstelling en werkwijze 
+ 
+Om de weerstanden te meten doen we beroep op de wet van Ohm: R = ...................... 
+ 
+We moeten dus de spanning over en de stroom door een weerstand meten.  Teken de kring op 
+een cursusblad en laat controleren door de leraar. 
+We regelen telkens de draaiknop van de bron zodanig dat door de weerstands draad de 
+stroomsterkte  I  steeds gelijk is aan 100 mA.  
+ 
+Zo vermijden we grote stroomsterkten door de geleiders en is het rekenwerk zeer eenvoudig. 
+Bij onderzoek van één van de 3 factoren moeten we de 2 andere factoren constant houden. 
+ 
+ 
+a) Invloed van de lengte ( l ): 
+ 
+M.b.v. een krokodillenklem bepalen we voor 8 à 10 verschillende lengten van een ..... -draad 
+met diameter  d = ....... mm  de weerstand. 
+ 
+ 
+b) Invloed van de doorsnede ( A ): 
+ 
+We bepalen de weerstand van 3 ..... -draden met lengte  l = ...... m, maar met verschillende 
+doorsnede ( d = ........ mm / d = ........ mm / d = ........ mm ). 
+ 
+Merk op:  A = …………………. 
+ 
+ 
+c) Invloed van de soort stof: 
+ 
+We bepalen en vergelijken de weerstand van een ........- en een ......-draad met  l = ...... m 
+en d = ...... mm. 
+ 
+
+--- p8 ---
+4) Metingen 
+ 
+a) Invloed van de lengte: 
+l ( m ) 
+ 
+U (    ) 
+ 
+I ( A ) 
+ 
+R (    ) 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+BESLUIT (a) : Vergelijk de lengte  l  met  R !  We vermoeden dat  ....................... 
+ 
+Dit betekent dat ......... = Cte.  Controleer dit in de opengelaten kolom. 
+ 
+b) Invloed van de doorsnede: 
+d (mm) 
+ 
+A (    ) 
+ 
+U (    ) 
+ 
+I ( A  ) 
+ 
+R (    ) 
+  
+ 
+ 
+ 
+ 
+ 
+     
+ 
+BESLUIT (b) : Vergelijk  A  met  R !  We vermoeden dat  ....................... 
+ 
+Dit zou betekent dat .......... = Cte.  Controleer dit in de laatste kolom. 
+c) Invloed van de soort stof: 
+ 
+soort stof 
+ 
+U (    ) 
+ 
+I ( A  ) 
+ 
+R (    ) 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+BESLUIT (c) : .............................................................................................. 
+ 
+
+--- p9 ---
+Opgave: Bepaling van de temperatuurcoëfficiënt van een weerstand. 
+ 
+1) Benodigdheden:  - Regelbare spanningsbron. 
+   - 2 multimeters (A-meter en V-meter). 
+   - Bekerglas met gedestilleerd water. 
+   - Thermometer. 
+   - Elektrische verwarmingplaat 
+- Magnetisch roerstaafje 
+- Op een isolator gewonden ijzerdraad (d = …….. ; l = ………..) 
+              Koperdraad (d = …….. ; l = ………..)  
+- Weerstand van 100 Ω  
+ 
+2) Opstelling. 
+ 
+Bouw een stroomkring met de regelbare spanningsbron, de ijzedraad/koperdraad/weerstand 
+100 Ω, de A- meter en de V-meter. Dompel de weerstandsdraad onder in het bekerglas met 
+gedestilleerd water.   
+ 
+   
+3) Werkwijze. 
+ 
+Stel de bron in op 2,0 V en lees de stroomsterkte en de temperatuur af. 
+Verwarm nu het water met de weerstandsdraad geleidelijk tot 80 °C. Noteer per 5 °C de 
+temperatuur, de spanning en de stroomsterkte. Bereken telkens de weerstand. 
+ 
+4) Meetresultaten. 
+a. ijzerdraad 
+T (°C) U (V) I (A) R () 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+
+--- p10 ---
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+b. koperdraad 
+T (°C) U (V) I (A) R () 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+c. weerstand 100 Ω  
+T (°C) U (V) I (A) R () 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+5) Grafische voorstelling. 
+ 
+Maak een grafiek van de weerstand i.f.v. de temperatuur. Wat is de vorm van de grafiek? 
+ 
+6) Temperatuurcoëfficiënt. 
+
+--- p11 ---
+ 
+Buiten de grootheden lengte, doorsnede en soortelijke weerstand is de weerstand van een 
+geleider ook afhankelijk van de temperatuur. Voor niet te hoge of te lage temperatuur 
+benadert het verloop van de weerstand van een geleider als functie van de temperatuur een 
+rechte.  Het verband tussen weerstand en temperatuur in het gebied (T1 ,T2) kan dan 
+geschreven worden als: 
+21 .(1 . )R R T = + 
+ 
+ 
+Hierbij is  de temperatuurcoëfficiënt. 
+Bereken met de gegevens uit de proef de temperatuurcoëfficiënt van ijzer. 
+Neem hiervoor de begin en eindtemperatuur met de respectievelijke weerstand: 
+ 
+21
+1.
+RR
+RT −= 
+ 
+ 
+
+--- p12 ---
+Inleidend Labo Elektromagnetisme 
+Doel van het labo 
+Ontdekken hoe magnetische en elektromagnetische fenomenen werken door onderzoekend leren: zelf 
+vragen stellen, hypothesen formuleren, experimenten uitvoeren  en conclusies trekken. 
+Veiligheid 
+• Controleer elke opstelling vóór gebruik. 
+• Beperk stroomsterkte tot 
+  van de spoel. 
+Onderzoeksopdrachten 
+• Voer alle proefjes om de beurt uit.  
+• Laat alle opstellingen eerst controleren door de leerkracht.  
+• Maak gebruik van de blauwe spanningsbronnen.   
+1. Magnetische eigenschappen van metalen en andere materialen 
+Onderzoeksvraag: Welke metalen worden aangetrokken door een permanente magneet?  
+Hypothese: 
+Uitvoering: 
+Test koper, ijzer en aluminium en twee Andere materialen. 
+Waarneming: 
+koper    
+ijzer    
+aluminium    
+  
+  
+Foto:  
+ 
+ 
+ 
+ 
+ 
+Conclusie: 
+ 
+ 
+ 
+
+--- p13 ---
+2. Elektromagneet bouwen 
+Onderzoeksvraag: Hoe beïnvloeden stroom en kernmateriaal het magnetisme?  
+Hypothese: 
+ 
+Uitvoering: 
+- Plaats een spoel rond een weekijzeren kern.  
+- Sluit aan op een spanningsbron (
+ ).  BELANGRIJK: De stroomsterkte mag niet 
+groter zijn dan Imax van de spoel.  
+- Observeer aantrekking en demagnetisatie. 
+Foto:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reflectie: 
+Wat gebeurt er met de kern als de stroom wordt uitgeschakeld? 
+3. Magnetisch veld visualiseren 
+Onderzoeksvraag: Hoe ziet het veld rond een permanente magneet (staafmagneet en U -vormige 
+magnet) eruit? 
+Hypothese: 
+ 
+ 
+ 
+ 
+ 
+
+--- p14 ---
+Uitvoering: 
+A) Onderzoek het magnetisch veld van een staafmagneet en van een U-vormige magneet 
+m.b.v. één of meerdere doorschijnende plaatjes met daarin kleine (roterende) ijzeren       
+staafjes. Plaats er enkele kleine kompasnaaldjes bij om de zin van de veldlijnen te bepalen.  
+B) Herhaal deze proefjes, maar gebruik nu ijzervijlsel (en kompasnaaldjes). Contact tussen       
+een permanente magneet en ijzervijlsel kan je best vermijden. Trek een foto van beide       
+magnetische velden.  
+Foto:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Analyse: 
+Welke patronen herken je? Hoe bepaal je de zin van de veldlijnen? 
+ 
+ 
+ 
+
+--- p15 ---
+ 
+4. Werking van een elektrische bel 
+Onderzoeksvraag: Hoe zorgt een elektromagneet voor beweging in een bel?  
+Hypothese: 
+Uitvoering: 
+- Sluit de bel aan op 
+  gelijkspanning.  
+- Observeer de werking. 
+Foto:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Uitleg: 
+Teken een schema en leg uit hoe het mechanisme werkt. 
+ 
+5. 
+Lorentzkrac
+ht op een 
+stroomvoer
+ende 
+geleider 
+Onderzoeksvr
+aag: Van welke 
+factoren hangt 
+de richting van 
+de kracht af? 
+Hypothese: 
+ 
+ 
+ 
+ 
+
+--- p16 ---
+Uitvoering: 
+- Plaats een lintgeleider in een magnetisch veld.  
+- Varieer stroomrichting en veldrichting.  
+- Beperk 
+  tot 
+ . 
+Foto:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reflectie: 
+Hoe verandert de kracht bij omkering van stroom of veld?  
+ 
+ 
+ 
+ 
+ 
+
+--- p17 ---
+ 
+6. Relais en schakeling 
+Onderzoeksvraag: Hoe kan een relais een lamp schakelen? 
+Hypothese: 
+ 
+Uitvoering: 
+- Zoek online de werking van een relais.  
+- Bouw een schakeling waarmee je een lampje aan/uit zet via een relais. 
+Foto:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Conclusie: 
+ 
+ 
+ 
+ 
+ 
+
+--- p18 ---
+ 
+7. Magnetisch veld bij een spoel 
+Onderzoeksvraag: Hoe ziet het veld rond een spoel eruit? 
+Hypothese: 
+ 
+Uitvoering: 
+- Gebruik kompasnaaldjes rond een stroomvoerende spoel.  
+ 
+Foto:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Analyse: 
+Vergelijk met het veld van een permanente magneet. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- p19 ---
+Maatschappelijke linK (STEM in de MAATSCHAPPIJ) 
+Voorbeelden uit de praktijk 
+• Relais: gebruikt in auto’s (startmotor), liften, industriële machines, slimme schakelingen. 
+• Elektromagneten: in kranen om schroot te verplaatsen, in MRI-scanners, in luidsprekers. 
+• Elektromotoren: in elektrische fietsen, auto’s, treinen, huishoudtoestellen. 
+Reflectievragen 
+1. Hoe heb je in dit labo gezien dat een elektromagneet werkt? 
+→ Leg uit waarom dit principe nuttig is in een kraan die metalen optilt. 
+ 
+ 
+ 
+2. Waarom is een relais handig in een elektrische schakeling? 
+→ Geef een voorbeeld uit de maatschappij waar een relais veiligheid of comfort 
+verhoogt. 
+ 
+ 
+ 
+ 
+3. Elektromagnetische krachtwerking (krachtwerking op doorstroomde geleider in 
+magnetisch veld). Denk aan elektromagnetische krachtwerking in de electromotor van 
+elektrische auto’s: waarom gebruiken die elektromotoren in plaats van 
+verbrandingsmotoren? Hoe draagt dat bij aan minder CO₂-uitstoot en een duurzamere 
+samenleving? 
+ 
+ 
+4. Welke ontdekking uit het labo vind jij het meest nuttig voor toepassingen in het 
+dagelijks leven? 
+ 
+ 
+5. Hoe zou je jouw kennis van elektromagnetisme inzetten om een probleem op te 
+lossen? 
+ 
+ 
+ 
+
+--- p20 ---
+ 
+Labo: Experimentele bepaling van de Lorentzkracht 
+Benodigdheden: Blauwe stroombron, 2 blauwe kabels, 1 rode kabel, multimeter, statief, 
+elektronische balans, magneet, geleiders om lorentzkracht te bepalen, bevestigingsstuk voor 
+de geleiders. 
+Werkwijze:  
+Als men door een geleider met lengte l in een magnetisch veld een stroom stuurt, ontstaat er 
+een aantrekkings- of afstotingskracht tussen de magneet en de geleider. Deze kracht resulteert 
+in een massaverschil dat we m.b.v. de elektronische balans kunnen bepalen. Bij aantrekking 
+gaat er een kleinere massa afgelezen worden op de elektronische balans, bij afstoting een 
+grotere (bij de opstelling die in het boek besproken wordt is dit net omgekeerd). Als we dit 
+massaverschil vermenigvuldigen met g (9,81 m/s²), kunnen we de grootte van de 
+Lorentzkracht bepalen. 
+In deze proef gaan we twee verbanden bepalen: 
+ 1)Het verband tussen stroomsterkte en Lorentzkracht  
+               Stel een stroomsterkte in van 0 tot 4 A in stappen van 0,5A. DE 
+STROOMSTERKTE MAG  
+               NOOIT GROTER ZIJN DAN 5A. In kolom 1 van tabel 1 wordt deze 
+stroomsterkte genoteerd, in  
+               kolom 2 het overeenkomstige massaverschil en in kolom 3 de Lorentzkracht. 
+Gebruik voor    
+               deze proef de langste geleider. 
+ 2) Het verband tussen de (horizontale) lengte van de geleider en de Lorentzkracht 
+ Meet voor de verschillende geleiders het overeenkomstige massaverschil bij een 
+constante  
+              stroomsterkte (bv. 3 A). NOOIT MEER DAN 5A. Bepaal de Lorentzkracht voor 
+elke lengte. 
+Tabellen: 
+1)Het verband tussen stroomsterkte en Lorentzkracht 
+stroomsterkte (     ) ∆m (        ) FL (       ) 
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+2) Het verband tussen de lengte van de geleider en de Lorentzkracht 
+lengte (     ) ∆m (        ) FL (       ) 
+   
+   
+   
+   
+ 
+Grafieken: 
+GRAFIEK 1: Stel het verband tussen stroomsterkte(x-as) en Lorentzkracht(y-as) grafisch 
+voor. 
+
+--- p21 ---
+GRAFIEK 2: Stel Het verband tussen de lengte van de geleider  (x-as) en de Lorentzkracht 
+(y-as) grafisch voor. 
+Bespreking:  
+Leid uit deze verbanden een formule af om de Lorentzkracht bij een doorstroomde geleider in 
+een magnetisch veld te bepalen. Eén factor hebben we niet besproken in dit practicum, deze 
+zal ook vermeld moeten worden in het besluit. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- p22 ---
+LABO: De Fluxverandering als Oorzaak van Spanning 
+1) Doel van de Proef 
+Het doel van deze proeven is om de relatie tussen fluxverandering en inductiespanning te 
+onderzoeken, evenals de invloed van verschillende configuraties van magneten en spoelen op 
+dit fenomeen. Daarnaast wordt ook de nauwkeurigheid van metingen met een Pasco Voltage 
+Sensor en Capstone-software geëvalueerd. 
+2) Benodigdheden 
+• Drie spoelen 
+• Staafmagneet 
+• Weerstand 
+• Weekijzeren kern 
+• Twee multimeters 
+• Regelbare spanningsbron 
+• Snoeren 
+• Pasco Voltage Sensor 
+• Pasco Interface 
+• Laptop met Pasco 
+Capstone-software 
+Opmerking: De A-meter wordt op dezelfde manier geschakeld als de V-meter, aangezien de 
+stroomsterkte zeer beperkt is, is er geen weerstand in serie noodzakelijk. 
+3) Werkwijze 
+Proef 1: Meting van Inductiespanning met Multimeters 
+1. Verbind de spoel met de weerstand, de voltmeter (V-meter) en de ampèremeter (A-meter) 
+zoals aangegeven in het schema. 
+2. Schuif de magneet met de noordpool naar de spoel toe, steek de magneet in de spoel, houd 
+de magneet even stil en trek deze er vervolgens weer uit. 
+3. Laat één persoon de V-meter observeren. Beschrijf nauwkeurig wat je op de voltmeter ziet 
+tijdens elke handeling. 
+4. Voer dezelfde handelingen uit terwijl een andere persoon de A-meter observeert. Beschrijf 
+nauwkeurig wat je op de ampèremeter ziet tijdens elke handeling. 
+5. Herhaal de proef met de zuidpool van de magneet. Noteer eventuele verschillen. 
+6. Probeer nu gelijktijdig twee magneten (zuidpolen samen en noordpolen samen) in de spoel 
+te steken. Merk je een verschil ten opzichte van één magneet? 
+7. Documenteer de resultaten in het blanco Excel document voor verslagen. 
+Proef 2: Meting van Inductiespanning bij Elektromagneet met 
+Multimeters 
+1. Breng een elektromagneet (spoel/weekijzeren kern en spanningsbron) in de buurt van de 
+spoel. 
+2. Zet de spanningsbron aan, laat deze even aanstaan en schakel hem daarna weer uit. 
+3. Laat één persoon de V-meter observeren. Beschrijf nauwkeurig wat je op de voltmeter ziet 
+tijdens elke handeling. 
+4. Voer dezelfde handelingen uit terwijl een andere persoon de A-meter observeert. Beschrijf 
+nauwkeurig wat je op de ampèremeter ziet tijdens elke handeling. 
+5. Herhaal de proef met een andere elektromagneet (spoel met een groter aantal windingen). 
+6. Documenteer de resultaten in het blanco Excel document voor verslagen. 
+
+
+--- p23 ---
+Proef 3: Meting van Inductiespanning met Pasco Voltage Sensor en 
+Capstone-software 
+ (verwijzen naar documenten ‘Werken met Pasco Capstone en 
+sensoren’) 
+1. Herhaal de stappen van Proef 1, waarbij de fluxverandering wordt veroorzaakt door het 
+bewegen van de magneet ten opzichte van de spoel. 
+2. Gebruik in plaats van de voltmeter (V-meter) de Pasco Voltage Sensor om de 
+inductiespanning te meten. Sluit de Pasco Voltage Sensor aan op de spoel en de Pasco 
+Interface via Bluetooth. 
+3. Start de Pasco Capstone-software op de laptop en maak een nieuw project aan. 
+4. Voer de metingen uit terwijl de magneet in de spoel wordt bewogen en de fluxverandering 
+wordt veroorzaakt. Ga ook na wat er gebeurt als de magneet even in de spoel ligt. 
+5. Tijdens het uitvoeren van de metingen, zullen de gegevens van de inductiespanning worden 
+weergegeven in real-time op het scherm van de Capstone-software. Zorg ervoor dat de 
+sensor correct is geconfigureerd in Capstone en dat de metingen duidelijk worden 
+vastgelegd. 
+6. Maak schermafbeeldingen van alle metingen die worden uitgevoerd. Zorg ervoor dat de 
+schermafbeeldingen de relevante gegevens tonen, zoals de spanningspieken van 
+inductiespanningen. 
+7. Voorzie elke schermafbeelding van een korte uitleg waarin wordt beschreven wat er te zien 
+is. Benadruk de waargenomen spanningspieken en leg uit hoe deze verband houden met de 
+fluxverandering in de spoel. 
+8. Documenteer alle metingen en observaties in een Word-document of PDF en voeg de 
+schermafbeeldingen toe, samen met de uitleg. 
+Proef 4: Meting van Inductiespanning bij Elektromagneet met Pasco 
+Voltage Sensor 
+1. Herhaal de stappen van Proef 2, waarbij een elektromagneet in de buurt van de spoel wordt 
+gebracht om een fluxverandering te veroorzaken. 
+2. Gebruik in plaats van de voltmeter (V-meter) de Pasco Voltage Sensor om de 
+inductiespanning te meten. Sluit de Pasco Voltage Sensor aan op de spoel en de Pasco 
+Interface via Bluetooth. 
+3. Gebruik opnieuw de Pasco Capstone-software op de laptop. 
+4. Voer de metingen uit terwijl de elektromagneet wordt geactiveerd en gedeactiveerd. Ga ook 
+na wat er gebeurt als de elektromagneet even aan of uit staat. 
+5. Maak schermafbeeldingen van alle metingen die worden uitgevoerd, met daarbij een korte 
+uitleg over wat er te zien is op de schermafbeeldingen (bijvoorbeeld verschillende 
+spanningspieken van inductiespanningen). 
+ 
+Opmerkingen 
+Gebruik de blanco Excel documenten voor verslagen (Samrtschool) voor van Proef 1 en 
+Proef 2, voor deze proeven maak je dus een echt verslag met een onderzoeksvraag, metingen, 
+besluit,.. (geen grafieken). 
+Het Word-document of PDF met schermafbeeldingen en uitleg dient als ‘verslag’ voor Proef 
+3 en Proef 4. 
+
+--- p24 ---
+Labo: Elektromagnetische krachtwerking 
+1. A) Zoek op internet op hoe een gelijkstroommotor werkt (eventueel aan de hand van een 
+applet). En noteer het hier in eigen woorden. 
+B) Sluit de gelijkstroommotor aan op een blauwe bron en laat deze draaien (eerst laten 
+controleren door lkr.). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2. A) Zoek op internet op hoe een luidspreker werkt (eventueel aan de hand van een applet). 
+En noteer het hier in eigen woorden. 
+B) Sluit de luidspreker aan op de frequentiegenerator en stel verschillende frequenties in 
+(eerst laten controleren door lkr.). Noteer je waarnemingen. 
+ 
+ 
+ 
+ 
+ 
+ 
+3. Maak een opstelling waarbij twee lintgeleiders kort bij elkaar hangen, maar elkaar niet 
+raken. Zorg dat in beide geleiders een stroom vloeit met dezelfde zin (max. 1A!, eerst laten 
+controleren door lkr.). Noteer je waarneming. 
+ 
+ 
+ 
+4. Maak een opstelling waarbij twee lintgeleiders kort bij elkaar hangen, maar elkaar niet 
+raken. Zorg dat in beide geleiders een stroom vloeit met tegengestelde zin (max. 1A!, eerst 
+laten controleren door lkr.). Noteer je waarneming. 
+ 
+ 
+      
+ 
+
+--- p25 ---
+LABO: De transformator 
+ 
+1) Doel van de proef 
+De werking van de transformator onderzoeken. 
+ 
+2) Benodigdheden 
+Drie spoelen (met een verschillend aantal windingen), U-vormige weekijzeren kern, sluitstuk, 
+twee multimeters, regelbare wisselspanningsbron, weerstand, snoeren. 
+ 
+3) Werkwijze 
+ 
+Proef 1 
+Schuif twee spoelen over de U-vormige weekijzeren kern en leg het sluitstuk op de 
+weekijzeren kern. Sluit de wisselspanningsbron aan op de spoel met het minst aantal 
+windingen. Sluit de multimeters en de weerstand aan zoals afgebeeld. Meet de stroomsterkte 
+en de spanning aan de ingang (kant van de wisselspanningsbron) en aan de uitgang (kant van 
+de weerstand). Noteer de meetwaarden in de eerste tabel.  
+ 
+Proef 2 
+Sluit de wisselspanningsbron aan op de spoel met het meest aantal windingen. Sluit de 
+multimeters en de weerstand aan zoals afgebeeld. Meet de stroomsterkte en de spanning aan 
+de ingang (kant van de wisselspanningsbron) en aan de uitgang (kant van de weerstand). 
+Noteer de meetwaarden in de tweede tabel. 
+ 
+Proef 3 
+Vervang één van de spoelen door een andere spoel. Sluit de multimeters en de weerstand aan 
+zoals afgebeeld. Meet de stroomsterkte en de spanning aan de ingang (kant van de 
+wisselspanningsbron) en aan de uitgang (kant van de weerstand). Noteer de meetwaarden in 
+de tweede tabel. 
+ 
+4) Schakeling 
+Meten van de ingangs- en uitgangsspanning  
+        
+          
+  
+ 
+Meten van de ingangs- en uitgangsstroom 
+       
+  
+ 
+
+--- p26 ---
+5) Metingen 
+ 
+Proef 1 
+Uingang  
+Iingang  
+Uuitgang  
+Iuitgang  
+ 
+Proef 2 
+Uingang  
+Iingang  
+Uuitgang  
+Iuitgang  
+ 
+Proef 3 
+Uingang  
+Iingang  
+Uuitgang  
+Iuitgang  
+ 
+6) Besluit 
+ 
+Proef 1 
+▪ Wat merk je als je de ingangs- en uitgangsspanning met elkaar vergelijkt? 
+▪ Wat merk je als je de ingangs- en uitgangsstroom met elkaar vergelijkt? 
+▪ Wat kan je hieruit besluiten? 
+ 
+Proef 2 
+▪ Wat merk je als je de ingangs- en uitgangsspanning met elkaar vergelijkt? 
+▪ Wat merk je als je de ingangs- en uitgangsstroom met elkaar vergelijkt? 
+▪ Wat kan je hieruit besluiten? 
+ 
+Proef 3 
+▪ Wat merk je als je de ingangs- en uitgangsspanning met de resultaten van 
+proef 1 en 2 vergelijkt? 
+▪ Wat merk je als je de ingangs- en uitgangsstroom met de resultaten van proef 
+1 en 2 vergelijkt? 
+▪ Wat kan je hieruit besluiten? (de verhouding tussen het aantal windingen van 
+de ingang en de uitgang noemt men de wikkelverhouding) 
+ 
+Algemeen 
+▪ Kan je een formule vinden die het verband uitdrukt tussen de spanning aan in- 
+en uitgang van de transformator en het aantal windingen van beide spoelen? 
+▪ Kan je een formule vinden die het verband uitdrukt tussen de stroomsterkte 
+aan in- en uitgang van de transformator en het aantal windingen van beide 
+spoelen? 
+▪ Is de transfo die jullie gebruikt hebben een ideale transfo? Leg uit. 
+ 
+ 
+ 
