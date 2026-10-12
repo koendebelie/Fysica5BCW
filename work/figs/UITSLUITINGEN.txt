@@ -1,0 +1,7 @@
+Niet als losse distributie-asset opgenomen uit het 118-pagina's tellende bronbestand:
+- p016_1 en p059_1: dezelfde foto met herkenbare leerlingen. Vervangen door een eigen schema; geen extra kopieën van leerlingbeelden verspreiden.
+- p062_1: verouderde dia met instructie om een CD te bekrassen en de reflectielaag te verwijderen. De onderzoeksvraag is behouden, maar dit beeld is om veiligheidsredenen vervangen door sch_cd_sporen.png en een expliciete waarschuwing.
+- p062_2, p062_3, p063_1, p063_2: volledig zwarte rasterblokken zonder leesbare inhoud.
+- p078_1: duplicaat van de grafiek op p026_1, die wel in de cursus is opgenomen.
+- p043_1 en p046_1: behouden in work/figs als rasterpagina's met tekst voor broncontrole; relevante vragen zijn als bewerkbare tekst opgenomen in labo 9.
+Het originele PDF-bronbestand blijft ongewijzigd bewaard.

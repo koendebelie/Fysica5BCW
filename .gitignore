@@ -1,1 +1,7 @@
 uploads/Verslag_vakvergadering_BCSW_15092026.pdf.txt
+
+# Lokale Python-buildcache en PDF-renderhulpbestanden
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
