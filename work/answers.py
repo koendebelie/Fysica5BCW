@@ -396,3 +396,13 @@ ANSWERS['L10:docent'] += ['BELANGRIJKE correctie: bij T²(l) is rico 4π²/g en 
 ANSWERS['L9:docent'] += ['Gerasterde pagina 9 van de aangevulde proef visueel gecontroleerd: gebruik carbonlint dat door de elektromagnetische triller getrokken wordt; markeer y=0 in evenwicht, y positief erboven/negatief eronder en schakel triller in vóór loslaten.']
 ANSWERS['L8:deel1:vraag1']='ECB is een eenparige cirkelvormige, dus periodieke beweging als T constant is. Twee mogelijke beperkingen: de trein moet eerst optrekken (wisselende T) en de aandrijving/wrijving kan snelheid laten variëren; ook de platenspeler kan slingeren of niet exact gelijkmatig draaien.'
 ANSWERS['L13:deel1:vraag4']='Geluid is een mechanische longitudinale drukgolf in een medium; amplitude hangt samen met geluidssterkte/luidheid, frequentie met toonhoogte, λ met afstand tussen drukmaxima, en golfsnelheid met het medium. v=λf.'
+
+# Eindcontrole: elke nieuwe leerlingvraag heeft een apart modelantwoord.
+from review_data import REFLECTIE
+from labs import LABOS
+for (thema,deel),paren in REFLECTIE.items():
+    aantal=len(LABOS[thema-1]['delen'][deel-1]['vragen'])-len(paren)
+    for i,(_,antwoord) in enumerate(paren,aantal+1):
+        sleutel=f'L{thema}:deel{deel}:vraag{i}'
+        assert sleutel not in ANSWERS,sleutel
+        ANSWERS[sleutel]=antwoord

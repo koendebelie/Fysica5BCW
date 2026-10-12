@@ -103,7 +103,9 @@ def build(doc,teacher,sheets):
     K.p(doc,'Bijlage A geeft het herkenbare verslagoverzicht en een checklist. De oorspronkelijke lege '
         '5BCW-Exceltemplate is niet meegeleverd; het beschikbare bestand '
         '“Blanco_verslag_6BCW_CONCEPT.xlsx” is nadrukkelijk een voorlopig invulblad. De leerkracht '
-        'bevestigt vóór het eerste verslag welke schooltemplate, uploadzone en deadline gelden. '
+        'bevestigt vóór het eerste verslag de schooltemplate en Smartschool-uploadzone. Naar het '
+        '5BCW-voorbeeld lever je één week na het labo uiterlijk om 23.59 u in; de leerkracht geeft '
+        'de concrete datum en meldt vooraf eventuele schoolspecifieke afwijkingen. '
         'Bij een korte observatieproef kan het ingevulde werkblad volstaan; bij metingen en grafieken '
         'is een Excel-verslag passend. Het werkblad vermeldt het te verwachten product.')
     K.tabel(doc,['Verslagonderdeel','Wat komt erin?'],[
@@ -117,8 +119,11 @@ def build(doc,teacher,sheets):
     K.p(doc,'Werk met één gedeeld groepsbestand, maak taakafspraken en lees ELKAARS resultaat na. '
         'Houd ieder een kopie van de ruwe meetgegevens. De leerkracht beoordeelt het product als '
         'groepswerk (60 %) en het eigen proces/attitude (40 %) met de ongewijzigde 5BCW-rubric '
-        'in Bijlage C; criteria en voorbeeldfeedback staan in Bijlage B. Bijlage D geeft zelfreflectie '
-        'en een peerfiche indien die vooraf is aangekondigd.')
+        'in Bijlage C; criteria en voorbeeldfeedback staan in Bijlage B. Het product (/10) telt '
+        'voor 60 %, het individueel geobserveerde proces (/10) voor 40 %: bv. product 8 en '
+        'proces 7 geven samen 0,6 × 8 + 0,4 × 7 = 7,6/10. De 2 productpunten voor '
+        'verzorging en tijdig indienen meten NIET nogmaals je houding tijdens het labo. '
+        'Bijlage D geeft zelfreflectie en een peerfiche indien die vooraf is aangekondigd.')
     K.kader(doc,'MINICHECK VÓÓR INDIENEN',[
         'Kan een andere leerling met jouw beschrijving de proef veilig herhalen?',
         'Staan de ruwe gegevens, eenheden, twee voorbeeldberekeningen en de gevraagde grafiek erbij?',

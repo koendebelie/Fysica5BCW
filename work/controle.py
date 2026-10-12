@@ -6,12 +6,16 @@ from zipfile import ZipFile
 from docx import Document
 from openpyxl import load_workbook
 import pymupdf
-from course_sheets import SHEETS, SHEET_MATERIAL
+from course_sheets import SHEETS, SHEET_MATERIAL, rows
 from course_guidance import G, FORMULAS, FORMULA_DISPLAY, SMART_EXAMPLES
 from course_sheets import SHEET_SAFETY
 from labs import LABOS
 from answers import ANSWERS
 from rubric_data import RUBRIC
+from review_data import PRODUCTBEWIJS, REFLECTIE, WERKBLAD_PDF
+from build import FIG_BEST, FIG_SHEET, EXTRA_FIGS
+from docx.oxml.ns import qn
+import hashlib
 
 ROOT=Path(__file__).resolve().parent.parent
 assert len(SHEETS)==len(G)==len(SMART_EXAMPLES)==25 and len({title for _,_,title in SHEETS})==25
@@ -62,6 +66,31 @@ for n,parts,_ in SHEETS:
 assert all(len(LABOS[4]['delen'][k]['extra_tabellen'][0]['rijen'])>=8 for k in (0,1))
 assert 'v₀' in ' '.join(LABOS[1]['delen'][0]['grafieken'])
 assert len(ANSWERS)>=170
+# Tabelinhoud, minimaal één concrete reflectievraag per deelproef, afzonderlijke
+# docentsleutel en 25 didactisch passende (niet alleen bestaande) figuren.
+assert len(PRODUCTBEWIJS)==25 and len(REFLECTIE)>=14
+assert len(LABOS[11]['delen'][0]['rijen'])==10
+assert len(LABOS[11]['delen'][0]['extra_tabellen'][-1]['rijen'])==5
+assert FIG_SHEET[14][0]=='sch_halve_trilling_tijdtikker.png'
+assert FIG_SHEET[19][0]=='sch_melde.png'
+assert FIG_SHEET[23][0]=='sch_witlicht_spectra.png'
+assert FIG_SHEET[25][0]=='sch_open_onderzoek.png'
+figure_files=[]
+for idx,(n,parts,title) in enumerate(SHEETS,1):
+ for j in parts:
+  p=LABOS[n-1]['delen'][j-1]
+  assert p.get('vragen'),(idx,j,'geen reflectie')
+  for k in range(1,len(p['vragen'])+1):
+   assert ANSWERS.get(f'L{n}:deel{j}:vraag{k}'),(idx,j,k)
+  for tab in [p]+p.get('extra_tabellen',[]):
+   assert tab['kop'] and rows(tab['kop'],tab['rijen']),(idx,j,'lege tabel')
+   assert all(len(r)==len(tab['kop']) for r in rows(tab['kop'],tab['rijen'])),(idx,j,'rijlengte')
+  figs=EXTRA_FIGS.get((n,j),[])
+  if not figs and j==parts[0]:figs=[FIG_SHEET.get(idx,FIG_BEST[n])]
+  for filename,_ in figs:
+   assert (ROOT/'work/figs'/filename).is_file(),(idx,filename)
+   figure_files.append(filename)
+assert len(figure_files)==25
 # Verifieer ook de data tegen de ECHTE 5BCW-DOCX, niet alleen tegen de Python-constante.
 source=Document(ROOT/'Labocursus_5BCW_LEERLING.docx')
 assert any([[c.text for c in row.cells] for row in t.rows]==RUBRIC for t in source.tables), '5BCW-rubric wijkt af van de referentie'
@@ -72,7 +101,24 @@ for label in ('LEERLING','LEERKRACHT'):
  headings=[p.text for p in d.paragraphs if p.style.name.startswith('Heading 1') and re.match(r'^LABO \d{2} –',p.text)]
  assert len(headings)==25,headings
  for i,(_,_,title) in enumerate(SHEETS,1):assert headings[i-1]==f'LABO {i:02d} – {title}'
- assert len(d.inline_shapes)>=24
+ assert len(d.inline_shapes)==25
+ # De afzonderlijke leerling- en docentfiguren moeten in werkbladvolgorde
+ # daadwerkelijk de correcte rasterinhoud dragen, niet alleen een bijschrift.
+ for inline,filename in zip(d.inline_shapes,figure_files):
+  rid=inline._inline.xpath('.//a:blip')[0].get(qn('r:embed'))
+  actual=d.part.related_parts[rid].blob
+  assert hashlib.sha256(actual).digest()==hashlib.sha256((ROOT/'work/figs'/filename).read_bytes()).digest(),(label,filename)
+ # Elk werkblad heeft één OVUR-cyclus, ook bij twee of drie deelproeven.
+ chapter=[];cycles=[]
+ for para in d.paragraphs:
+  if para.style.name=='Heading 1' and re.match(r'^LABO \d{2} –',para.text):
+   if chapter:cycles.append(chapter)
+   chapter=[]
+  elif para.style.name=='Heading 2' and para.text in ('O – ORIËNTEREN','V – VOORBEREIDEN','U – UITVOEREN','R – REFLECTEREN'):
+   chapter.append(para.text)
+ if chapter:cycles.append(chapter)
+ assert len(cycles)==25 and all(c==['O – ORIËNTEREN','V – VOORBEREIDEN','U – UITVOEREN','R – REFLECTEREN'] for c in cycles),cycles
+ assert sum('EVALUATIE EN INDIENEN – WAT, HOE EN WANNEER' in t.cell(0,0).text for t in d.tables if t.rows)==25
  text='\n'.join(p.text for p in d.paragraphs)+'\n'+'\n'.join(' | '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
  assert 'BRONPRACTICA' not in text.upper() and 'oorspronkelijk practicum' not in text.lower()
  assert 'Bron: Labocursus' not in text and 'Soundry' not in text
@@ -84,6 +130,7 @@ for label in ('LEERLING','LEERKRACHT'):
  assert 'TWINTIG rondjes' in text and 'krijtstreepjes' in text and 'motorkop' in text
  assert '1.1 De OVUR-methode' in text and '1.4 Het verslag' in text and '1.5 Overzicht' in text
  assert 'Blanco_verslag_6BCW_CONCEPT.xlsx' in text and 'De leerkracht bevestigt' in text
+ assert 'één week na het labo' in text and '23.59 u' in text and 'product + 0,40 × proces' in text
  assert sum(p.text=='Context' and p.style.name=='Heading 3' for p in d.paragraphs)==25
  assert sum(p.text.startswith('Toepassen: wat zeggen') for p in d.paragraphs)==25
  assert sum(p.text=='Oriëntatievragen (vóór je begint)' for p in d.paragraphs)==25
@@ -115,10 +162,13 @@ for label in ('LEERLING','LEERKRACHT'):
  assert any(p.rect.width>p.rect.height for p in pdfdoc)
  pdftext=' '.join(p.get_text() for p in pdfdoc)
  assert 'LABO 25' in pdftext and 'Bijlage F' in pdftext
+ assert any('puntbron lage f' in page.get_text() and 'situatie' in page.get_text() for page in pdfdoc), 'Golfbaktabel is gesplitst zonder kop'
  assert ('modelantwoord' not in pdftext.lower()) if label=='LEERLING' else ('modelantwoord' in pdftext.lower())
  print(f'{label}: {len(headings)} labo’s, {len(d.tables)} tabellen, {len(FORMULAS)} OfficeMath-formules, {len(d.inline_shapes)} figuren, PDF {len(pdfdoc)} pagina’s; rubric letterlijk.')
 
 report=load_workbook(ROOT/'Blanco_verslag_6BCW_CONCEPT.xlsx')
 assert report.active['B2'].value.startswith('TOEGEPASTE FYSICA')
 assert report.active['B3'].value.startswith('Niet identiek')
-print('OK — acht aanvullende proeven in acht zelfstandige werkbladen gecontroleerd; 5BCW-Exceltemplate en rest van 118-pagina-audit blijven open')
+assert report.active['E86'].value=='=SUM(E82:E85)'
+assert 'Smartschool' in report.active['B88'].value
+print('OK — 25 tabelsets/OVUR-cycli, alle reflecties en antwoordsets, passende figuren en evaluatiekaders gecontroleerd; schoolvoorraad en volledige 118-pagina-bronvergelijking blijven open')

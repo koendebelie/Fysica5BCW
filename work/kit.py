@@ -298,6 +298,11 @@ def tabel(doc, headers, rows, widths=None, size=10, header_fill=HEAD_FILL,
     _grid(tbl, widths)
 
     hr = tbl.add_row()
+    # Bij een paginabreuk moet Word de kopregel opnieuw tonen; nooit alleen
+    # een voortgezette meettabel zonder kolomnaam en eenheid.
+    header_tag = OxmlElement('w:tblHeader')
+    header_tag.set(qn('w:val'),'true')
+    hr._tr.get_or_add_trPr().append(header_tag)
     for i, htxt in enumerate(headers):
         cell = hr.cells[i]
         cell.width = Twips(int(widths[i]))

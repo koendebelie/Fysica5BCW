@@ -1912,3 +1912,39 @@ LABOS[7]['delen'][0]['vragen'][0]='Waarvoor staat ECB? Is dit periodiek? Noem TW
 LABOS[12]['delen'][0]['stappen'].insert(3,
  'Probeer naast 437/443 Hz minstens twee ANDERE paren frequenties op veilig laag volume. Vergelijk in de schematische golfweergave en met f_zweving=|f₂−f₁| of de hoorbare trage variatie sneller of langzamer wordt.')
 LABOS[12]['delen'][0]['vragen'].append('Noem eigenschappen van een geluidsgolf (zoals amplitude, frequentie, golflengte en voortplantingssnelheid). Welke bepalen vooral luidheid en toonhoogte?')
+
+# Eindcontrole: reflectie per deelproef en expliciete registratieruimte voor
+# ALLE appletbeelden én de vijf fysieke golfbakexperimenten.
+from review_data import REFLECTIE
+for (thema,deel),paren in REFLECTIE.items():
+    LABOS[thema-1]['delen'][deel-1].setdefault('vragen',[]).extend(vraag for vraag,_ in paren)
+_golf=LABOS[11]['delen'][0]
+_golf['rijen']=[
+ ['puntbron lage f','','','','',''],['puntbron hoge f','','','','',''],
+ ['vlakke golf','','','','',''],['10 puntbronnen','','','','',''],
+ ['20 puntbronnen','','','','',''],['Huygens smal','','','','',''],
+ ['Huygens breed','','','','',''],['coherent in fase','','','','',''],
+ ['coherent tegenfase','','','','',''],['niet-coherent','','','','',''],
+]
+_golf.setdefault('extra_tabellen',[]).append({
+ 'titel':'FYSIEKE GOLFBAK – registreer elk van de vijf experimenten afzonderlijk (foto of schets bewaren)',
+ 'kop':['experiment','bron / opening','f (Hz)','λ (cm)','projectieschaal','foto / schets en verklaring'],
+ 'rijen':[[str(i),'','','','',''] for i in range(1,6)]
+})
+_golf['tabel_uitleg']='De eerste tabel bevat TIEN afzonderlijke appletsituaties; de tweede tabel registreert experiment 1 t/m 5 met de echte golfbak. Onmeetbare grootheid? Noteer “n.v.t.” en leg kort uit waarom.'
+
+# Specifiek voor het y(t)-werkblad: een generieke x(t)-tijdtikkeras zou de
+# harmonische-trillingsleerling een verkeerde kolom laten selecteren.
+half['tabel_uitleg']=(
+ 'Kopieer voor y(t) de aangrenzende kolommen t en GETEKENDE y (boven y=0 positief, '
+ 'eronder negatief). Bereken Δy tussen twee opeenvolgende stippen en '
+ 'v=Δy/0,020 s. Het TIJDSTIP van v is t′=(t_begin+t_eind)/2, niet Δt en niet Δv. '
+ 'In de tabel staat t′ direct LINKS van v: selecteer deze twee kolommen voor de '
+ 'XY-spreidingsgrafiek v(t′). De laatste stip zonder volgend stipinterval heeft geen v.'
+)
+_spec=LABOS[13]['delen'][2]
+_spec['rijen']=[[rooster,kleur,'1','','','','','']
+                for rooster in ('A','B') for kleur in ('violet','blauw/groen','geel','rood')]
+_spec['tabel_uitleg']='A en B zijn de twee gekozen roosters; schrijf hun echte lijnendichtheid en a boven de tabel. Meet in de eerste orde voor elk rooster de vier kleurgebieden links en rechts. Schets daarnaast het lijnenspectrum; de kleurgrenzen zijn schattingen.'
+_open_data=LABOS[15]['delen'][1]
+_open_data['tabel_uitleg']='Vervang de KOPPEN “O (eenheid)” en “A (eenheid)” door je eigen grootheden en eenheden. Kies minstens vijf vooraf geplande O-waarden en doe minstens drie afzonderlijke herhalingen per waarde; behoud ook afwijkende ruwe resultaten.'

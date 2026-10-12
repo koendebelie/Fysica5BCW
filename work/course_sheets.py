@@ -162,7 +162,7 @@ def smart(doc, idx, lab, parts, teacher):
 
 def build(doc,teacher):
     # Dezelfde inhoudsdata voeden leerling- en leerkrachtversie.
-    from build import FIG_BEST,EXTRA_FIGS
+    from build import FIG_BEST,FIG_SHEET,EXTRA_FIGS
     intro(doc,teacher)
     for idx,(n,parts,title) in enumerate(SHEETS,1):
         lab=LABOS[n-1]
@@ -206,7 +206,7 @@ def build(doc,teacher):
             heading=re.sub(r'^Deel \d+\s*[–-]\s*', '',heading).replace('practicum:','').replace('OPEN :','')
             K.h3(doc,heading.strip(' –:'))
             images=EXTRA_FIGS.get((n,j),[])
-            if not images and j==parts[0]:images=[FIG_BEST[n]]
+            if not images and j==parts[0]:images=[FIG_SHEET.get(idx,FIG_BEST[n])]
             for fname,caption in images[:2]:
                 # Geen herkomstetiketten bij een figuur. Alleen nuttige labels behouden.
                 K.figuur(doc,fname,clean(caption.split('(bron:')[0].split('(schema naar')[0].strip(' .'))+'.',breedte_cm=7.8)
@@ -224,24 +224,37 @@ def build(doc,teacher):
             for graph in p.get('grafieken',[]):K.p(doc,'Excel/grafiek: '+clean(graph),size=9.2,color='1F4E79')
             K.p(doc,'Verwerking: '+clean(p['verwerking']),size=9.2)
             K.p(doc,'Bewaar ruwe data en meetbewijs (bandje, schets, foto of video waar van toepassing):');K.invul(doc,regels=2)
-            K.h2(doc,'R – REFLECTEREN')
+        K.h2(doc,'R – REFLECTEREN')
+        # Alle deelproeven worden eerst uitgevoerd. Daarna volgt één duidelijke
+        # reflectiefase met afzonderlijke vragen en een deelbesluit per proef.
+        for j in parts:
+            p=lab['delen'][j-1]
+            if len(parts)>1:
+                K.h3(doc,'Deel '+str(j)+' – reflectie op '+clean(p['titel']).split('–',1)[-1].strip())
             for qnum,q in enumerate(p.get('vragen',[]),1):
                 K.vraag(doc,qnum,clean(q),size=9.5);K.invul(doc,regels=2)
                 if teacher:K.modelantwoord(doc,clean(ANSWERS[f'L{n}:deel{j}:vraag{qnum}']))
-            # Bij iedere deelproef een echt besluit vóór de volgende proef start.
-            K.p(doc,'Besluit bij deze proef: toets je hypothese met concrete meetwaarden, grafiek en onzekerheid.')
+            K.p(doc,'Deelbesluit: toets je hypothese met je meetwaarden en grafiek; bespreek onzekerheid en een mogelijke verbetering.')
             K.invul(doc,regels=3)
+        if len(parts)>1:
+            K.p(doc,'Synthese: wat leren de deelproeven samen over de onderzoeksvraag?')
+            K.invul(doc,regels=2)
         K.h3(doc,'Toepassen: wat zeggen jouw gegevens buiten dit labo?')
         K.p(doc,guide.transfer[0],size=9.4,bold=True);K.invul(doc,regels=2)
         if teacher:K.modelantwoord(doc,guide.transfer[1],label='Mogelijke toepassing')
-        product=('poster (PDF) én bestand met de ruwe meetgegevens' if idx==25 else
-                 'ingevuld werkblad met waarnemingen en schetsen als één PDF' if idx in (10,18,19,20) else
-                 'Excel-verslag (.xlsx) met de gevraagde meettabel/grafiek en besluit')
-        K.kader(doc,'EVALUATIE EN INDIENEN',[
-            'PRODUCT (60 %): '+product+'. Lever complete ruwe gegevens, berekeningen en het onderbouwde besluit aan; controleer het door de leerkracht bevestigde verslagbestand en de deadline.',
-            'PROCES & ATTITUDE (40 %): voorbereiding, veilig werken, meetnauwkeurigheid, rolwisseling, samenwerken en opruimen; zie de ongewijzigde 5BCW-rubric in Bijlage C.',
-            'Bij een open onderzoek telt ook het vooraf goedgekeurde eigen werkplan. Vul eerst de minicheck van Deel 1 in; gebruik Bijlagen A en B voor verslag/feedback.'
-        ],soort='eval',size=9)
+        from review_data import PRODUCTBEWIJS, WERKBLAD_PDF
+        bestand=('poster (PDF) én originele ruwe meetgegevens (Excel .xlsx of ingevuld datablad als PDF)' if idx==25 else
+                 'ingevuld werkblad met schetsen/foto’s als één PDF' if idx in WERKBLAD_PDF else
+                 'groepsverslag als Excel-bestand (.xlsx); voeg meetbewijs als foto/bijlage toe')
+        K.kader(doc,'EVALUATIE EN INDIENEN – WAT, HOE EN WANNEER',[
+            'WAT? '+PRODUCTBEWIJS[idx-1]+' In te dienen: '+bestand+'.',
+            'HOE? Product = één groepspunt /10 (Bijlage B: vraag/plan 2, metingen/grafieken 3, besluit 3, verzorging/indienen 2) × 60 %. '
+            'Proces = individueel punt /10 (10 thema’s, Bijlage C) × 40 %. Eindpunt = 0,60 × product + 0,40 × proces.',
+            'WANNEER? Lever als groep één bestand per gevraagd type in via de Smartschool-uploadzone uiterlijk één week na het labo om 23.59 u. '
+            'De leerkracht bevestigt de concrete lesdatum, uploadzone en welke schooltemplate gebruikt wordt; het beschikbare Excel-bestand heet CONCEPT.',
+            'FEEDBACK: groepsproduct schriftelijk in het feedbackblok (of bij de werkblad-PDF/poster); proces individueel na observatie tijdens het labo. '
+            'Peerfactor uitsluitend indien vooraf aangekondigd. Beantwoord ook de reflectievragen.'
+        ],soort='eval',size=8.9)
         if teacher:
             K.teacher_note(doc,['Gebruik het aanwezige schoolmateriaal; vervang de beproefde opstelling niet zonder bespreking.',
                                 'Vergelijk cijferwaarden met de echte opstelling en bewaar het bewijs van de ruwe meting.']

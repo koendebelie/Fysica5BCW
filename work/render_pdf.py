@@ -105,6 +105,13 @@ def _html(docx):
         formula='<p class="formula">'+html.escape(FORMULA_DISPLAY[n])+'</p>'
         parts[i+1]=parts[i+1][:match.end()]+formula+parts[i+1][match.end():]
     raw=''.join(parts)
+    # Bij de golfbak is de applet-tabel breed/lang: xhtml2pdf plaatste eerder
+    # alleen de kop op de vorige pagina en alle 10 rijen pas op de volgende.
+    # Een bewuste pagina-overgang houdt kop en data samen in de PDF-leesversie.
+    bits=re.split(r'(<h1>LABO 18 – .*?</h1>)',raw)
+    if len(bits)==3:
+        bits[2]=bits[2].replace('<h3>Metingen</h3>', '<div style="page-break-before:always"></div><h3>Metingen</h3>',1)
+        raw=''.join(bits)
     def expand_blank_row(m):
         tr=m.group(0)
         cells=re.findall(r'<td[^>]*>(.*?)</td>',tr,flags=re.S)

@@ -49,6 +49,15 @@ FIG_BEST = {
 }
 
 
+# Werkbladnummer is niet hetzelfde als het nummer van het oorspronkelijke themalabo.
+# Deze vier bladen vragen een specifiek schema, niet de standaardfiguur van hun thema.
+FIG_SHEET = {
+ 14:('sch_halve_trilling_tijdtikker.png','Massa, veer, getekend carbonlint en 50 Hz-triller bij een halve trilling.'),
+ 19:('sch_melde.png','Staande golf op een touw: knopen en buiken.'),
+ 23:('sch_witlicht_spectra.png','Wit licht geeft een continu spectrum; een gasontlading afzonderlijke lijnen.'),
+ 25:('sch_open_onderzoek.png','Van eigen onderzoeksvraag naar controleerbaar bewijs en poster.'),
+}
+
 def _start_appendix(doc, text):
     K.pagebreak(doc);K.h1(doc,text)
 
@@ -81,6 +90,7 @@ def appendices(doc, teacher):
         ['3. Concluderen','3','Beantwoord de vraag uit meetgegevens, koppel aan theorie, toets hypothese, bespreek meetfouten, reflectievragen.','Geen meetgegevens in besluit • hypothese niet getoetst • foutenanalyse te vaag'],
         ['4. Attitude en verzorging','2','Gevraagde bestandssoort, op tijd ingediend, feedbackblok bewaard, verzorgd en aantoonbaar als groep.','Verkeerd sjabloon • te laat • instructietekst niet verwijderd']
     ],widths=[2200,600,4438,2400],size=8.8)
+    K.p(doc,'De 2 productpunten voor bestandsvorm, tijdigheid en verzorging beoordelen het INGELEVERDE product; de individuele werkhouding tijdens het practicum staat uitsluitend in Bijlage C. Product- en procespunten worden elk eerst /10 berekend: eindpunt = 0,60 × product + 0,40 × proces.',size=9.5)
     K.p(doc,'Bij het open onderzoek telt bij onderdeel 1 de eigen vraag en het plan; bij onderdeel 3 de kwaliteit '
             'van de wetenschappelijke poster. Een peerfactor kan alleen worden toegepast wanneer de leerkracht dit vooraf aankondigt.',size=9.5)
 

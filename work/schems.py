@@ -558,11 +558,80 @@ def ecb_intro():
     return f.save('sch_ecb_trein_plaat.png')
 
 
+def half_oscillation_ticker():
+    """Schematische relatieve plaatsing; echte triller/voeding docentcontrole."""
+    f=Fig()
+    f.line((120,65),(510,65),INK,5)
+    f.line((270,65),(270,92),INK,3)
+    import math
+    pts=[(270+24*(-1)**i,92+i*17) for i in range(9)]
+    f.d.line(pts,fill=ACC,width=4)
+    f.line((270,228),(270,252),INK,3)
+    f.rect((228,252,312,308),fill='#FFF0C2')
+    f.text((270,280),'massa',FS,anchor='mm')
+    f.dash((75,280),(600,280),GREY,2)
+    f.text((580,264),'y = 0 (evenwicht)',FS,GREY,anchor='rm')
+    f.rect((260,308,280,399),fill='#E8F1FA',outline=ACC,w=1)
+    for y in range(318,393,12):f.ellipse((268,y,273,y+5),fill=INK)
+    f.rect((220,397,320,432),fill='#DCE6F1',outline=ACC)
+    f.text((270,415),'50 Hz',FS,ACC,anchor='mm')
+    f.text((455,345),'carbonlint met stippen',FS,ACC)
+    f.arrow((450,358),(281,358),ACC,2)
+    f.text((735,106),'Veer en massa',FB,ACC,anchor='mm')
+    f.text((735,146),'noteer y boven/onder',FS,anchor='mm')
+    f.text((735,173),'de evenwichtsstand',FS,anchor='mm')
+    f.text((735,274),'t′ links van v',FB,GREEN,anchor='mm')
+    f.text((735,305),'elke stip: 0,020 s',FS,anchor='mm')
+    return f.save('sch_halve_trilling_tijdtikker.png')
+
+
+def white_light_spectra():
+    f=Fig()
+    f.rect((55,135,158,193),fill='#FFF0C2')
+    f.text((106,162),'wit licht',FS,anchor='mm')
+    f.line((164,163),(255,163),ACC,5)
+    f.rect((254,111,266,215),fill='#DCE6F1')
+    f.text((260,87),'gleuf',FS,ACC,anchor='mm')
+    f.line((267,163),(405,163),ACC,4)
+    f.rect((405,94,420,232),fill='#DCE6F1')
+    for y in range(101,226,13):f.line((405,y),(420,y),ACC,1)
+    f.text((413,68),'rooster',FS,ACC,anchor='mm')
+    f.rect((739,42,765,282),fill='#EEF1F4')
+    for y,color in [(68,'#D32F2F'),(82,'#FF9800'),(98,'#FDD835'),(114,'#2E7D32'),(130,'#1976D2'),(144,'#6A1B9A'),
+                    (182,'#6A1B9A'),(198,'#1976D2'),(214,'#2E7D32'),(230,'#FDD835'),(246,'#FF9800'),(262,'#D32F2F')]:
+        f.line((420,163),(739,y),color,2)
+        f.rect((742,y-6,762,y+6),fill=color,outline=color)
+    f.rect((740,157,764,169),fill='#FFFFFF',outline=INK)
+    f.text((782,66),'rood',FS,RED)
+    f.text((782,182),'violet',FS,'#6A1B9A')
+    f.text((782,157),'0de orde',FS)
+    f.text((455,299),'Continu spectrum: kleurband bij wit licht',FB,ACC)
+    f.text((455,339),'Lijnenspectrum: losse lichtlijnen (docentdemo)',FS,ACC)
+    for x,col in [(690,'#6A1B9A'),(716,'#2E7D32'),(735,'#FDD835'),(755,'#FDD835')]:
+        f.line((x,362),(x,400),col,5)
+    f.text((451,421),'schematisch: geen ijkschaal of exacte kwiklijnen',FS,GREY)
+    return f.save('sch_witlicht_spectra.png')
+
+
+def research_cycle():
+    f=Fig()
+    names=['Eigen vraag','Veilig plan','Ruwe data','Grafiek','Conclusie']
+    for i,name in enumerate(names):
+        x=25+i*180
+        f.rect((x,160,x+151,235),fill='#E8F1FA' if i%2==0 else '#E8F5E9',outline=ACC,w=2)
+        f.text((x+75,198),name,FS,ACC,anchor='mm')
+        if i<4:f.arrow((x+154,197),(x+176,197),ACC,3)
+    f.text((450,75),'Van eigen onderzoeksvraag naar toetsbaar bewijs',FB,ACC,anchor='mm')
+    f.text((450,318),'Voor de meting: leerkracht keurt vraag, meetplan en risico’s goed.',FS,anchor='mm')
+    f.text((450,356),'In je poster: onderscheid meting, interpretatie en onzekerheid.',FS,anchor='mm')
+    return f.save('sch_open_onderzoek.png')
+
+
 ALL = [helling_sensor, worp, kracht_wagentje, wrijving, val_fluïdum, veerpistool,
        conische_slinger, massa_veer, slinger, golfbak, melde, resonantie,
        geluid_buis, rooster, energie_achtbaan, valproef, lichtbreking, hefboom,
        geluid, cd_sporen, verticale_worp_tweecamera, luchtbel_twee_standen,
-       tijdtikker_wagentje, ecb_intro]
+       tijdtikker_wagentje, ecb_intro, half_oscillation_ticker, white_light_spectra, research_cycle]
 
 if __name__ == '__main__':
     for fn in ALL:
