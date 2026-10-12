@@ -192,7 +192,7 @@ for label in ('LEERLING','LEERKRACHT'):
   assert 'LESDOELEN – na dit labo' in sections[i] and 'DOELCHECK' in sections[i],(label,i)
  assert all(x in sections[7] for x in ('STEM 4 S – ontwerp vóór de worp','test en verbeter je opvangontwerp','hertoets aan video'))
  assert all(x in sections[20] for x in ('STEM 5 S – maatschappelijke vraag','dB','passieve demping','actieve ruisonderdrukking'))
- assert all(x in sections[25] for x in ('STEM 6 S – bewijs','Onderzoeksmethode','Gegevensverzameling','Rapportering / poster'))
+ assert all(x in sections[25] for x in ('STEM 6 S – bewijs','Onderzoeksmethode','Gegevensverzameling','Rapportering / poster','Schoolafspraak 6 S (#)','Gekozen inhoud + F-LPD'))
  print(f'{label}: {len(headings)} labo’s, {len(d.tables)} tabellen, {len(FORMULAS)} OfficeMath-formules, {len(d.inline_shapes)} figuren, PDF {len(pdfdoc)} pagina’s; rubric letterlijk.')
 
 report=load_workbook(ROOT/'Blanco_verslag_6BCW_CONCEPT.xlsx')

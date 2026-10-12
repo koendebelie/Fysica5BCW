@@ -211,6 +211,15 @@ def build(doc,teacher):
         K.p(doc,'Schets de opstelling; noteer je variabelen, meetinstrumenten, aantal herhalingen en veilige grenzen:')
         K.invul(doc,regels=3)
         K.tabel(doc,['O – onafhankelijk','A – afhankelijk','C – constant','Meetwijze / eenheid'],[['','','','']],size=9)
+        if idx==25:
+            K.kader(doc,'LPD 6 S (#) – onderwerp én schoolafspraak vóór de uitvoering',[
+                'Kies een specifieke fysica-inhoud uit dit leerplan (bijvoorbeeld kinematica, dynamica, trillingen of golven). '
+                'Noteer een inhoudelijk F-LPD dat bij jouw vraag past; de docent controleert die koppeling vooraf.',
+                'De onderzoekscompetentie (#) vraagt een afspraak van vakgroep/school over waar ze formeel wordt afgetekend. '
+                'Een ingevulde poster zonder goedgekeurd F-doel en volledige cyclus is niet automatisch voldoende.'
+            ],soort='stem',size=8.8)
+            K.tabel(doc,['Gekozen inhoud + F-LPD','Vraag / methode / veiligheid akkoord (docent + datum)',
+                         'Schoolafspraak 6 S (#) bevestigd (docent + datum)'],[['','','']],size=8.2)
         if idx==7:
             K.kader(doc,'STEM 4 S – ontwerp vóór de worp een VEILIGE opvangoplossing',[
                 'Behoud de bestaande horizontale-worp- en Trackeropstelling. Bereken de voorspelde landingsafstand x≈v₀√(2h/g) '
@@ -303,7 +312,9 @@ def build(doc,teacher):
                                       'Analyse','Conclusie + onzekerheid','Rapportering / poster')],size=8)
             if teacher:K.modelantwoord(doc,'LPD 6 S #: kijk of elke fase aantoonbaar is en samenhangt met een gekozen '
                 'fysica-inhoud. De poster bevat de vraag, gekende grenzen, vijf O-waarden, drie ruwe herhalingen '
-                'per waarde, analyse, conclusie en open bespreking van afwijkingen.',label='Modelantwoord STEM 6 S')
+                'per waarde, analyse, conclusie en open bespreking van afwijkingen. Controleer ook de vooraf '
+                'goedgekeurde inhoudelijke F-LPD en de door school/vakgroep vastgelegde plaats van de onderzoekscompetentie; '
+                'zonder deze afstemming geen formele 6 S (#)-aftekening.',label='Modelantwoord STEM 6 S')
         K.h3(doc,'Toepassen: wat zeggen jouw gegevens buiten dit labo?')
         K.p(doc,guide.transfer[0],size=9.4,bold=True);K.invul(doc,regels=2)
         if teacher:K.modelantwoord(doc,guide.transfer[1],label='Mogelijke toepassing')
@@ -321,7 +332,7 @@ def build(doc,teacher):
             'Peerfactor uitsluitend indien vooraf aangekondigd. Beantwoord ook de reflectievragen.',
             ('SPECIFIEK DOELBEWIJS: '+('STEM 4 S: beide ontwerpen, berekening, videotoets en bijsturing.' if idx==7 else
                                       'STEM 5 S: dB-berekening en onderbouwde maatschappelijke keuze.' if idx==20 else
-                                      'STEM 6 S: zeven fasen met bewijs in plan, data en poster.' if idx==25 else
+                                      'STEM 6 S (#): zeven fasen met bewijs in plan, data en poster én goedgekeurd F-LPD; formele aftekening volgens de schoolafspraak.' if idx==25 else
                                       'Toon de twee controlepunten bovenaan aan met je ruwe data en besluit.')+
              ' Dit telt binnen de bestaande /10-criteria, niet als extra punten.')
         ],soort='eval',size=8.9)

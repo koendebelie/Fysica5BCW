@@ -88,7 +88,7 @@ verplicht={
  3:'Labo 05/12/21/25: veilige opstelling, betrouwbaar meetbewijs en duurzaam opruimen.',
  4:'Labo 07: twee opvangontwerpen, model, videotoets en hertoets na bijsturing.',
  5:'Labo 20: dB-berekening en twee maatschappelijke perspectieven op geluidsbeperking.',
- 6:'Labo 25: alle zeven fasen in plan, ruwe data en poster.'
+ 6:'Labo 25: zeven fasen, vooraf goedgekeurd inhoudelijk F-LPD en schoolafspraak (#).'
 }
 for k,betekenis in STEM.items():
  r=k+2

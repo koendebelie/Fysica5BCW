@@ -94,7 +94,7 @@ def appendices(doc, teacher):
     K.p(doc,'De 2 productpunten voor bestandsvorm, tijdigheid en verzorging beoordelen het INGELEVERDE product; de individuele werkhouding tijdens het practicum staat uitsluitend in Bijlage C. Product- en procespunten worden elk eerst /10 berekend: eindpunt = 0,60 × product + 0,40 × proces.',size=9.5)
     K.h3(doc,'STEM-doelbewijs binnen deze /10, geen bonuspuntentabel')
     K.tabel(doc,['STEM-doel','Waar beoordeel je het productbewijs?','Wat is minimaal zichtbaar?'],[
-        ['1 S + 6 S','/2 vraag/plan en /3 besluit','Een toetsbare eigen vraag en een controleerbare conclusie; bij labo 25 alle zeven onderzoeksfasen.'],
+        ['1 S + 6 S','/2 vraag/plan en /3 besluit','Een toetsbare eigen vraag en een controleerbare conclusie; bij labo 25 zeven fasen, vooraf goedgekeurd inhoudelijk F-LPD en schoolafspraak over #.'],
         ['2 S + 3 S','/3 uitvoeren, en individueel proces in Bijlage C','Originele meetreeks met SI, beduidende cijfers, nauwkeurigheid; veilige opstelling en echte observatie. Geen dubbel procespunt.'],
         ['4 S – labo 07','/2 model/keuze; /3 test; /3 besluit/bijsturing','Twee opvangvarianten met x≈v₀√(2h/g), twee keer getoetst aan originele video (voor en na bijsturing).'],
         ['5 S – labo 20','/3 analyse; /3 afgewogen besluit','dB-rekenstap, twee maatregelen, twee betrokkenen en minstens één beperking.'],
@@ -222,7 +222,7 @@ def appendices(doc, teacher):
         3:'Veiligheidscontrole, juist meetinstrument, duurzaam opruimen en brondata (o.a. 05, 12, 21).',
         4:'Labo 07: twee opvangvarianten, formule/model, videotoets, bijsturing en hertoets.',
         5:'Labo 20: geluidsadvies met dB-getallen, techniek, twee betrokkenen en beperking.',
-        6:'Labo 25: plan, goedkeuring, data, analyse, conclusie en poster; zeven fasen.',
+        6:'Labo 25: zeven fasen, passend goedgekeurd F-LPD, schoolafspraak, ruwe data en poster.',
     }
     K.tabel(doc,['LPD','Verplicht zichtbaar bewijs','Vindplaats in mijn werk','Status + datum','Feedforward'],[
         [f'{k} S',evidence[k],'','',''] for k in STEM
@@ -234,7 +234,7 @@ def appendices(doc, teacher):
                             'een observeerbaar sterk punt en verbeteractie. Status is bewijsgericht, '
                             'geen nieuw cijfer buiten product 60 % / proces 40 %.',
                             '4 S vereist een ontwikkellus, 5 S een maatschappelijke afweging en '
-                            '6 S een volledige cyclus. Ontbrekend werk uit andere wetenschapsvakken '
+                            '6 S een volledige cyclus plus vooraf bevestigde F-inhoud en schoolafspraak over de onderzoekscompetentie (#). Ontbrekend werk uit andere wetenschapsvakken '
                             'niet automatisch als behaald aftekenen.'])
 
 

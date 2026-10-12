@@ -32,6 +32,8 @@ python3 work/package.py                  # bouw ZIP pas na controle
 
 `render_pdf.py` gebruikt Mammoth/xhtml2pdf en het ingesloten DejaVu-lettertype. PDF- en Word-paginering hoeven niet precies overeen te komen. `controle.py` test 25 koppen, vier lesdoelen + doelcheck per blad, doelbewijs voor STEM 1–6 en precies één O/V/U/R-cyclus per blad, alle meettabelrijen/antwoordsets en de 25 werkelijk ingebedde passende figuren, 22 echte OfficeMath-formules én hun PDF-equivalenten, gescheiden antwoorden, alle t′/v-kolomparen, het onveranderde 5BCW-rubric, PDF-inhoud en het gemarkeerde spreadsheet; dit is **geen inhoudelijke aftekening** van de volledige 118 pagina’s of de daadwerkelijke schoolvoorraad. De evaluatie volgt de 5BCW-verhouding (60% groepsproduct, 40% individueel proces; standaard één week, 23.59 u) met concrete per-blad-producten; de leerkracht bevestigt datum, uploadzone en schooltemplate.
 
+Bij labo 25 vereist 6 S (#) bovendien vóór het experiment een goedgekeurd inhoudelijk F-doel en een vastgelegde schoolafspraak over de formele onderzoekscompetentie; de leerkracht tekent dit aan op het werkblad.
+
 `bronaftekening_ecb.md` tekent de acht proeven van de extra GitHub-PDF (18 blz.) afzonderlijk af, waaronder de gerasterde halve-trillingpagina’s. De aanvullende PDF is mee verpakt. `bronaftekening.md` koppelt de proeven aan de voorlopige 6BCW-cursus en documenteert wat is aangepast/geschrapt. `broninventaris.md` en `figs/UITSLUITINGEN.txt` bevatten nog niet gecontroleerde vectorfiguren/uitgesloten foto's. Theorieonderwerpen volgen de PDF-volgorde in `leerstof 6BCW/`, maar de werkbladen geven bewust geen dianummers of externe links.
 
 ## Leerplan, beoordeling en beperking
