@@ -17,6 +17,7 @@ from rubric_data import RUBRIC
 ROOT = Path(__file__).resolve().parent.parent
 
 EXTRA_FIGS = {
+ (8,1):[('sch_ecb_trein_plaat.png','Speelgoedtrein op spoor én platenspeler met twee gemarkeerde stralen.')],
  (1,2):[('sch_tijdtikker_wagentje.png','Eigen elektrisch wagentje met 50 Hz-tijdtikker, papierbandje en 6 V~-voeding (schema naar bron blz. 68–72).')],
  (2,2):[('bron_p086_2.png','Wagentje op stijgende helling (bron: voorlopige cursus blz. 86).')],
  (3,2):[('sch_verticale_worp_tweecamera.png','Twee camera’s: één filmt de loslaathoogte, één het hoogste punt; hetzelfde meetlatvlak (eigen schema naar bron blz. 16–18).')],

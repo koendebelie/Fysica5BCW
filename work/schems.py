@@ -533,11 +533,36 @@ def tijdtikker_wagentje():
     f.save('sch_tijdtikker_wagentje.png')
 
 
+def ecb_intro():
+    """Twee werkelijke opstellingen van het inleidende ECB-labo, zonder bronfoto."""
+    f=Fig(900,430)
+    f.text((220,28),'speelgoedtrein op spoor',FB,ACC,anchor='mm')
+    f.ellipse((80,70,390,375),outline=INK,w=7)
+    f.ellipse((129,117,342,328),outline='#DDE6F0',w=2)
+    f.ellipse((216,217,245,246),fill=GREY,outline=INK)
+    f.rect((317,190,373,230),fill='#FFF0C2',outline=INK)
+    f.arrow((230,230),(335,210),GREEN,3)
+    f.text((275,267),'r trein',FS,ACC,anchor='mm')
+    f.text((220,405),'na 20 opwarmrondjes meten',FS,anchor='mm')
+    f.text((675,28),'platenspeler',FB,ACC,anchor='mm')
+    f.ellipse((515,70,825,375),outline=INK,w=5)
+    f.ellipse((572,127,769,319),outline=GREY,w=2)
+    f.ellipse((652,205,684,237),fill=GREY,outline=INK)
+    f.ellipse((708,205,722,219),fill=RED,outline=RED)
+    f.ellipse((794,205,808,219),fill=GREEN,outline=GREEN)
+    f.arrow((668,221),(715,213),RED,3)
+    f.arrow((668,235),(798,235),GREEN,3)
+    f.text((685,168),'r binnen',FS,RED,anchor='mm')
+    f.text((766,272),'r buiten',FS,GREEN,anchor='mm')
+    f.text((675,405),'zelfde T en ω, andere v',FS,anchor='mm')
+    return f.save('sch_ecb_trein_plaat.png')
+
+
 ALL = [helling_sensor, worp, kracht_wagentje, wrijving, val_fluïdum, veerpistool,
        conische_slinger, massa_veer, slinger, golfbak, melde, resonantie,
        geluid_buis, rooster, energie_achtbaan, valproef, lichtbreking, hefboom,
        geluid, cd_sporen, verticale_worp_tweecamera, luchtbel_twee_standen,
-       tijdtikker_wagentje]
+       tijdtikker_wagentje, ecb_intro]
 
 if __name__ == '__main__':
     for fn in ALL:

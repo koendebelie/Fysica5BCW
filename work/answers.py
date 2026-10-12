@@ -373,3 +373,26 @@ ANSWERS.update({
 })
 ANSWERS['L5:docent'] += ['Zet klasoverzicht vóór aanvang klaar: verdeel 2,3,4,5 hangschijfjes en 50,100,150,200 g ballast over de groepen. Elke groep meet minimaal twee bandjes per toegewezen conditie en deelt F, m_tot, a₁, a₂ en a_gem; bespreek spreiding vóór het a(F)- en a(1/m)-besluit.']
 ANSWERS['L8:docent'] += ['ECB-inleiding uit eigen lespraktijk: trein minstens twintig rondjes laten opwarmen, trein én platenspeler vergelijken, twee radiale markeringen op de plaat. Alleen optioneel fietswiel.']
+
+# Modelantwoorden bij de detailvergelijking met de aangevulde 18-pagina's-PDF.
+ANSWERS.update({
+ 'L8:deel1:vraag5': 'De totale tijd over vele rondes vermindert de relatieve stopwatchreactietijdfout. Spreiding tussen herhalingen, straalmeting en eventuele snelheidsschommelingen blijven; een 50 Hz-tijdtikker heeft vaste tijdintervallen en kan nauwkeuriger zijn voor een bewegingsgrafiek. Vergelijk met de eigen meetdata.',
+ 'L8:deel2:vraag1': 'De benodigde nettokracht is naar het middelpunt gericht. Zonder voldoende middelpuntzoekende kracht verandert de snelheidsvector niet voortdurend van richting en volgt de stop ongeveer de raaklijn.',
+ 'L8:deel2:vraag2': 'F_cp=mω²r (of mv²/r), F_z=m′g. Procentuele afwijking =100|F_cp−F_z|/F_z. Draadwrijving in het buisje, schuine baan, instabiele omlooptijd en verkeerde straal veroorzaken verschillen.',
+ 'L8:deel2:vraag3': 'De effectieve lengte/straal verandert. Omdat F_cp=mω²r uit gemeten ω en r volgt, vergelijk je dan onbedoeld verschillende baaninstellingen en kan ook de hangmassa meebewegen.',
+ 'L9:deel1:vraag1': 'Veer 1: 30, 60, 90, 120, 150 g. Veer 2: 50, 100, 150, 200, 250 g. Ze zijn verschillend stug, dus elk heeft een eigen gemiddelde k uit F/Δy en eigen voorspelde periode.',
+ 'L9:deel1:vraag2': 'De mee trillende veermassa wordt relatief belangrijk bij kleine m, terwijl de eenvoudige formule die negeert. Stopwatchreactietijd en onzekerheid in de kleine statische uitrekking kunnen ook relatief sterker doorwegen.',
+ 'L9:deel3:vraag6': 'Lees t′ van de rij met de grootste |v| (of schat tussen de twee aangrenzende t′-stippen). y ligt dan nabij nul: het evenwicht. Een kleine afwijking is mogelijk door eindige tikinterval en afleesfout.',
+ 'L9:deel3:vraag7': 'y is de GETEKENDE positie ten opzichte van de gekozen evenwichtsoorsprong; onder de nulmarkering is y negatief. De gemeten lengte tussen twee fysieke strepen blijft natuurlijk positief.',
+ 'L10:deel3:vraag1': 'De kleinehoekformule T=2π√(l/g) bevat √l. Kwadrateren geeft T²=(4π²/g)l: een rechte, T²/l ongeveer constant.',
+ 'L10:deel3:vraag2': 'Bij de grafiek T² tegen l is de rico a=4π²/g in s²/m. Dus g=4π²/a, met eenheid m/s². Afwijking van 9,81 m/s² komt o.a. door lengte tot massamiddelpunt, amplitude en stopwatchfout.',
+ 'L11:deel2:vraag1': 'Een overgangstrilling moet eerst uitdempen; pas dan is de stationaire amplitude bij de nieuwe aandrijffrequentie meetbaar.',
+ 'L11:deel2:vraag2': 'A(f) groeit naar een resonantiepiek nabij de eigenfrequentie en daalt weer; demping kan de piek verschuiven. Afleesfout bij B/O, variabele watertemperatuur/-diepte en onnauwkeurige tijdmeting tellen mee; herhaal fijner rondom de piek.',
+ 'L13:deel1:vraag3': 'Bij afzonderlijk beluisteren verschillen 437 en 443 Hz maar weinig. Samen hoor je ongeveer 6 zwevingen per seconde; twee exact gelijke tonen in tegenfase kunnen bij gelijk volume juist uitdoven. Zwevingen vereisen een kleine frequentieVERSCHIL.',
+ 'L13:deel2:vraag1': 'Vóór een naderende bron zitten golffronten dichter bijeen (kortere λ en hogere waargenomen f); achteraan verder uiteen (lagere f).',
+ 'L13:deel2:vraag2': 'Bij bronsnelheid groter dan de geluidssnelheid haalt de bron eerder uitgezonden fronten in; hun omhullende vormt een schokfront/Mach-kegel (sonische knal). Dit is niet slechts een kleine toonhoogteverschuiving.',
+})
+ANSWERS['L10:docent'] += ['BELANGRIJKE correctie: bij T²(l) is rico 4π²/g en g=4π²/rico; de oude formule 2π/√g hoort alleen bij een grafiek T(√l).']
+ANSWERS['L9:docent'] += ['Gerasterde pagina 9 van de aangevulde proef visueel gecontroleerd: gebruik carbonlint dat door de elektromagnetische triller getrokken wordt; markeer y=0 in evenwicht, y positief erboven/negatief eronder en schakel triller in vóór loslaten.']
+ANSWERS['L8:deel1:vraag1']='ECB is een eenparige cirkelvormige, dus periodieke beweging als T constant is. Twee mogelijke beperkingen: de trein moet eerst optrekken (wisselende T) en de aandrijving/wrijving kan snelheid laten variëren; ook de platenspeler kan slingeren of niet exact gelijkmatig draaien.'
+ANSWERS['L13:deel1:vraag4']='Geluid is een mechanische longitudinale drukgolf in een medium; amplitude hangt samen met geluidssterkte/luidheid, frequentie met toonhoogte, λ met afstand tussen drukmaxima, en golfsnelheid met het medium. v=λf.'

@@ -1,6 +1,6 @@
 # Inhoudskaart · ongeordende voorlopige 6BCW-cursus (intern)
 
-`leerstof 6BCW/Labocursus 6BCW voorlopig.pdf` telt 118 pagina's. Deze kaart is alleen voor inhoudelijke controle door de vakgroep; bronpagina's worden niet op leerlingwerkbladen vermeld. Zie `bronaftekening.md` voor de koppeling met de 25 zelfstandige labo's en de wijzigingen aan de proeven; `broninventaris.md` bevat alle 118 pagina's met open controlevakjes.
+`leerstof 6BCW/Labocursus 6BCW voorlopig.pdf` telt 118 pagina's. Deze kaart is alleen voor inhoudelijke controle door de vakgroep; bronpagina's worden niet op leerlingwerkbladen vermeld. De extra PDF `labocursus ECB tril golven.pdf` bevat acht proeven die allemaal een eigen werkblad in de cursus hebben; zie `bronaftekening_ecb.md` voor de 18-pagina-audit. Zie `bronaftekening.md` voor de koppeling met de 25 zelfstandige labo's en de wijzigingen aan de proeven; `broninventaris.md` bevat alle 118 pagina's met open controlevakjes.
 
 | Bronpagina's | Inhoud en bijbehorend nieuw labo |
 |---|---|

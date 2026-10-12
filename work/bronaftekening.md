@@ -1,6 +1,6 @@
 # Traceerbaarheid van de 6BCW-proeven — uitsluitend voor de vakgroep
 
-De leerling- en leerkrachtwerkbladen bevatten bewust **geen bronpagina's of aanduiding ‘oorspronkelijk practicum’**. Dit interne bestand verantwoordt de keuze van 25 zelfstandige labo's uit `leerstof 6BCW/Labocursus 6BCW voorlopig.pdf` (118 blz.). De bronnen zijn nog niet bladzijde voor bladzijde of figuur voor figuur volledig afgetekend. `broninventaris.md` bevat de uitgebreidere pagina-inventaris; het 6BCW-leerplan is `leerstof 6BCW/III-BCSW-d_juni_24.pdf`.
+De leerling- en leerkrachtwerkbladen bevatten bewust **geen bronpagina's of aanduiding ‘oorspronkelijk practicum’**. Dit interne bestand verantwoordt de keuze van 25 zelfstandige labo's uit `leerstof 6BCW/Labocursus 6BCW voorlopig.pdf` (118 blz.). De bronnen zijn nog niet bladzijde voor bladzijde of figuur voor figuur volledig afgetekend. `broninventaris.md` bevat de uitgebreidere pagina-inventaris; de eveneens aangeleverde 18-pagina's-PDF met acht ECB-/trilling-/geluidsproeven is afzonderlijk gecontroleerd in `bronaftekening_ecb.md`; het 6BCW-leerplan is `leerstof 6BCW/III-BCSW-d_juni_24.pdf`.
 
 | Bronpagina’s | Proef in deze cursus | Opmerking |
 |---|---|---|
@@ -17,7 +17,7 @@ De leerling- en leerkrachtwerkbladen bevatten bewust **geen bronpagina's of aand
 | 29–31 | 11 · ECB-inleiding | Speelgoedtrein minstens twintig toeren opwarmen én platenspeler met twee stralen; fietswiel optioneel. |
 | 31–36 | 12 · Centripetale kracht | Rubberstop en hangmassa. |
 | 36–39 | 13 · Periode veersysteem | Bestaande twee veerreeksen. |
-| 43–46 | 14 · Halve harmonische trilling | Tijdtikker; tekst op blz. 43/46 is gerasterd en vereist manuele eindcontrole. |
+| 43–46 | 14 · Halve harmonische trilling | 50 Hz-triller en carbonlint; de gerasterde tekst is nu visueel gecontroleerd tegen de aanvullende PDF (blz. 9/12). |
 | 40–41 | 15 · Onbekende massa | Zelfstandige onderzoeksopdracht met aanwezige veeropstelling. |
 | 47–50 | 16 · Slinger | Variatie amplitude, massa, lengte, twintig perioden; T(l) en T²(l). |
 | 51–55 | 17 · Resonantie | Gedempte veer. |
@@ -38,6 +38,8 @@ De meetopstellingen van beweging, val, worpen, veer, slinger en cirkelbeweging z
 **Tijdtikker:** `t′` is het middentijdstip (bij 50 Hz: 0,010/0,030… s of bij om-de-twee-stippen 0,020/0,060… s), direct links van `v` voor Excel-`v(t′)`. `Δt` is de vensterduur; `Δv` betekent snelheidsverschil en mag niet als naam van de tijdkolom dienen.
 
 ## Referentie uit 5BCW
+
+De bijkomende PDF bevat acht proeven, allemaal als afzonderlijke werkbladen aanwezig; zie `bronaftekening_ecb.md` voor een proef-voor-proef audit, veiligheidskeuzes en de correctie van de T²(l)-rico.
 
 De proces-/attituderubric in Bijlage C van **beide** 6BCW-cursussen is een cel-voor-cel kopie van de 10×5-rubric uit `Labocursus_5BCW_LEERLING.docx` (`rubric_data.py`); bestaande verwijzingen naar A-/V-meters blijven daarom staan. Het letterlijke **blanco 5BCW-Excelverslag** is NIET in de repository of uploads aangetroffen: de referentiecursus verwijst hiervoor naar Smartschool. Het meegeleverde `Blanco_verslag_6BCW_CONCEPT.xlsx` is daarom uitdrukkelijk **geen letterlijke kopie**. Vervang het na ontvangst van het originele bestand. Bijlage A beschrijft de herkenbare verslagrubrieken.
 

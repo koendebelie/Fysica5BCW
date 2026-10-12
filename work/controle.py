@@ -6,7 +6,7 @@ from zipfile import ZipFile
 from docx import Document
 from openpyxl import load_workbook
 import pymupdf
-from course_sheets import SHEETS
+from course_sheets import SHEETS, SHEET_MATERIAL
 from labs import LABOS
 from answers import ANSWERS
 from rubric_data import RUBRIC
@@ -20,6 +20,31 @@ assert [p for n,p,_ in SHEETS if n==9]==[(1,),(3,),(2,)]
 assert 'twintig' in ' '.join(LABOS[7]['delen'][0]['stappen']).lower()
 assert 'geluidlab.html' in LABOS[12]['delen'][2]['materiaal_deel']
 assert (ROOT/'geluidlab.html').is_file()
+
+# De aanvullende 18-pagina's-GitHub-PDF: acht verschillende practica, niet acht
+# extra duplicaatwerkbladen. Paginanummers zijn 1-based; 8 is leeg en 9/12
+# bevatten als beeld gerasterde instructietekst (handmatig visueel nagekeken).
+extra=pymupdf.open(ROOT/'leerstof 6BCW/labocursus ECB tril golven.pdf')
+assert len(extra)==18
+source_blocks=[
+ (1,2,'Inleidend labo',11,(8,(1,))),
+ (3,4,'centripetale kracht',12,(8,(2,))),
+ (5,6,'periode van een massa aan een veer',13,(9,(1,))),
+ (7,8,'onbekende massa',15,(9,(2,))),
+ (9,12,'halve periode',14,(9,(3,))),
+ (13,14,'periode van de slinger',16,(10,(1,2,3))),
+ (15,16,'Resonantie van een massa',17,(11,(1,2))),
+ (17,18,'437',20,(13,(1,2,3))),
+]
+for first,last,keyword,sheet,(labno,parts) in source_blocks:
+ body=' '.join(extra[i].get_text() for i in range(first-1,last))
+ assert keyword.lower() in body.lower(),(first,last,keyword)
+ assert SHEETS[sheet-1][:2]==(labno,parts),(sheet,labno,parts)
+assert len(extra[8].get_images()) and len(extra[11].get_images())
+assert 'carbonlint' in ' '.join(LABOS[8]['delen'][2]['stappen']).lower()
+assert '4π²/g' in LABOS[9]['delen'][2]['verwerking'] and '4π²/rico' in LABOS[9]['delen'][2]['verwerking']
+assert '2π/√g' not in LABOS[9]['delen'][2]['verwerking']
+assert 'balans' in SHEET_MATERIAL[(8,(2,))][0] and 'géén balans' in SHEET_MATERIAL[(9,(2,))][0]
 
 # Niet alleen de eerste rij maar ELKE aangetroffen tijdtikkertabel: t′ direct vóór v.
 for n,parts,_ in SHEETS:
@@ -52,6 +77,8 @@ for label in ('LEERLING','LEERKRACHT'):
  assert 'LUCHTBEL' in text.upper() and 'KLASOVERZICHT a(F)' in text and 'KLASOVERZICHT a(m)' in text
  assert 'v₀' in text and '−v₀/a' in text and 't′' in text
  assert 'A. Wat gebeurt er met een wagen' in text and 'Vanaf labo 3' in text
+ assert 'CARBONLINT' in text and '4π²/rico' in text and 'Mach-kegel' in text
+ assert 'TWINTIG rondjes' in text and 'krijtstreepjes' in text and 'motorkop' in text
  for t in d.tables:
   if not t.rows:continue
   header=[c.text for c in t.rows[0].cells]
@@ -76,4 +103,4 @@ for label in ('LEERLING','LEERKRACHT'):
 report=load_workbook(ROOT/'Blanco_verslag_6BCW_CONCEPT.xlsx')
 assert report.active['B2'].value.startswith('TOEGEPASTE FYSICA')
 assert report.active['B3'].value.startswith('Niet identiek')
-print('OK — technische controles; originele 5BCW-Exceltemplate en volledige vakinhoudelijke audit blijven open')
+print('OK — acht aanvullende proeven in acht zelfstandige werkbladen gecontroleerd; 5BCW-Exceltemplate en rest van 118-pagina-audit blijven open')

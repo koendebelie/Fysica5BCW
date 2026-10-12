@@ -1823,3 +1823,92 @@ LABOS[12]['veiligheid']=[
  'Open de meegeleverde offline HTML-pagina lokaal in een moderne browser; er is geen account, netwerk of installatie nodig.',
  'Geen microfoonopnames van medeleerlingen zonder toestemming. Ultrasoon wordt niet afgespeeld.'
 ]
+
+# Detailaudit van de nieuw beschikbare PDF "labocursus ECB tril golven.pdf".
+# Zelfde acht proeven als op de voorlopige cursus, maar de gerasterde pagina's
+# over de halve trilling zijn nu visueel gecontroleerd. Wijzigingen hier houden
+# de bestaande toestellen, massareeksen en variabelen expliciet intact.
+intro_ecb=LABOS[7]['delen'][0]
+intro_ecb['stappen']=[
+ 'Verklaar vooraf ECB, periode T (s), frequentie f (Hz), baansnelheid v (m/s) en hoeksnelheid ω (rad/s). Bedenk zelf een meetplan voor r en de tijd van meerdere omwentelingen; laat het door de leerkracht goedkeuren.',
+ 'Laat de speelgoedtrein minstens TWINTIG rondjes rijden vóór de eerste meting: controleer dat de beweging stabiel is en geen slepend geluid maakt.',
+ 'Meet bij de speelgoedtrein meerdere keren de tijd voor een afgesproken aantal volledige rondes en de baanstraal. Bereken telkens T=t/N, f=1/T, ω=2π/T en v=ωr. Vergelijk de herhalingen.',
+ 'Wissel ook naar de platenspeler. Markeer met twee krijtstreepjes een binnen- en een buitenstraal; meet r en de tijd van meerdere omwentelingen herhaaldelijk. Bepaal voor BEIDE streepjes ω en v.',
+ 'Vergelijk de nauwkeurigheid van deze meting met een eerdere tijdtikkerproef. Alleen indien het aanwezige materiaal en de tijd het toelaten, meet je ook bij een fietswiel de snelheid van het MIDDEN van de reflector; beschrijf de afremming.'
+]
+intro_ecb['rijen']=[['trein 1','','','','','','',''],['trein 2','','','','','','',''],
+                     ['trein 3','','','','','','',''],['schijf binnen 1','','','','','','',''],
+                     ['schijf buiten 1','','','','','','',''],['schijf binnen 2','','','','','','',''],
+                     ['schijf buiten 2','','','','','','','']]
+intro_ecb['vragen'].append('Welke bronnen van onzekerheid hebben deze omlooptijdmetingen, en zijn ze nauwkeuriger dan je eerdere tijdtikkerproef? Onderbouw je vergelijking.')
+
+cp=LABOS[7]['delen'][1]
+cp['stappen']=[
+ 'Laat het glazen buisje met afgeronde randen, de nylondraad (ongeveer 90 cm), de rubberstop en de vrije draai-cirkel door de leerkracht controleren. Bepaal VOORAF de massa m van de rubberstop met de bestaande balans.',
+ 'Monteer de hangmassa m′ onderaan de draad. Breng op de draad én op het buisje een merkteken aan; houd die tegenover elkaar om de baanstraal tijdens elke meting constant te houden.',
+ 'Draai de stop in een zo horizontaal mogelijke, eenparige cirkelbaan. Meet de tijd van bijvoorbeeld 30 volledige toeren. Stop volledig voordat je een andere hangmassa of baanstraal kiest.',
+ 'Meet NADAT het draaien gestopt is de straal r van de baan tot aan het massamiddelpunt van de stop; noteer wanneer r door rek of een verschoven merkteken veranderde.',
+ 'Herhaal voor de aanwezige 60, 80, 100, 120 en 140 g hangmassa, maar uitsluitend indien elke instelling na controle veilig uitvoerbaar is.',
+ 'Bereken f=N/t, ω=2πf, F_cp=mω²r en F_z=m′g. Noteer ook de procentuele afwijking 100·|F_cp−F_z|/F_z.'
+]
+cp['vragen']=[
+ 'Welke richting heeft de netto kracht op de rubberstop? Waarom blijft de stop niet vanzelf op een cirkelbaan?',
+ 'Vergelijk F_cp en het gewicht F_z van de hangmassa met een procentuele afwijking. Waarom zijn ze slechts bij benadering gelijk?',
+ 'Wat is het gevolg als de twee merktekens tijdens de meting niet tegenover elkaar blijven staan?'
+]
+
+spr=LABOS[8]['delen'][0]
+spr['vragen']=[
+ 'Welke massa’s gebruik je om k₁ en k₂ te bepalen? Waarom bepaal je de gemiddelde k van ELKE veer apart vóór je T_berek berekent?',
+ 'Waarom kan de procentuele afwijking tussen T_gemeten en T_berekend bij de lichtste massa relatief groot zijn? Noem minstens twee concrete oorzaken.'
+]
+spr['stappen'][1]='Meet per massa de tijd van hetzelfde afgesproken aantal (bijvoorbeeld 20) kleine volledige trillingen; bepaal T_gem, bereken eerst de GEMIDDELDE k₁ uit de statische metingen en dan T_berek = 2π√(m/k₁), en vergelijk met een procentuele afwijking.'
+
+half=LABOS[8]['delen'][2]
+half['stappen']=[
+ 'Hang een geschikte, voldoende zware massa veilig aan de veer. Verbind de massa met het aanwezige CARBONLINT en voer dit lint recht onder de elektromagnetische triller/tijdtikker door; laat leerkracht de voeding controleren.',
+ 'Markeer bij stilstaande massa de evenwichtspositie op het carbonlint. Kies y=0 bij dit merkteken: afstanden BOVEN de evenwichtsstand zijn positief en eronder negatief. Controleer dat de massa vrij omhoog en omlaag kan bewegen.',
+ 'Trek de massa een veilige afstand uit evenwicht. Zet EERST de 50 Hz-triller aan en laat pas daarna de massa ZONDER duw los; registreer de halve periode. Eén tikinterval duurt 0,020 s.',
+ 'Nummer de stippen en meet per stip de GETEKENDE uitwijking y tot de evenwichtsmarkering. Zet t en y met eenheid in Excel; bereken Δy en v=Δy/0,020 s met een formule. Gebruik het tussentijdstip t′ links van v.',
+ 'Maak aparte XY-spreidingsgrafieken y(t) en v(t′) met losse punten. Zoek in tabel én grafiek het tijdstip en de grootte van de maximale |v|; controleer op de y(t)-grafiek in welke positie de massa zich dan bevindt.'
+]
+half['vragen'] += [
+ 'Welk tijdstip hoort volgens je tabel bij de maximale |v|? Welke GETEKENDE uitwijking lees je daar ongeveer af, en klopt die met de evenwichtsmarkering?',
+ 'Waarom moeten afstandswaarden onder de evenwichtsstand een minteken krijgen, terwijl het bandje zelf alleen positieve afstanden heeft?'
+]
+half['verwerking']='Bepaal A, T en v_max uit de grafieken; vergelijk gemeten en voorspelde v_max. Bewaar de getekende y-waarden en het originele carbonlint als bewijs.'
+
+unknown=LABOS[8]['delen'][1]
+unknown['stappen'][1]='Houd de onbekende massa te ALLEN TIJDE aan dezelfde veer; voeg de vier aanwezige gekende massa’s van 50,0 g achtereenvolgens toe (of een door jou gemotiveerde combinatie), meet met chronometer telkens dezelfde gekozen hoeveelheid volledige trillingen en noteer de ruwe tijden.'
+unknown['verwerking']='T² is in eerste benadering (4π²/k)·(m_onbekend + m_toegevoegd). Het negatieve snijpunt met de mass-as schat m_onbekend alleen als de effectieve meegedragen veermassa verwaarloosbaar is; bespreek die systematische fout.'
+unknown['stappen'][2]='Bepaal zonder balans de onbekende massa uit je eigen meetplan, bijvoorbeeld via T² tegen toegevoegde massa of via een uit de metingen afgeleide veerconstante. Noteer elke rekenstap én een onzekerheid; neem de veermassa als mogelijke systematische afwijking mee.'
+
+pend=LABOS[9]['delen'][2]
+pend['verwerking']='Voor de T²(l)-grafiek geldt volgens T=2π√(l/g): T²=(4π²/g)·l. De RICO is 4π²/g (s²/m), dus g=4π²/rico (m/s²). Vergelijk dit met de gemiddelde g per rij en 9,81 m/s²; motiveer verschillen.'
+pend['vragen']=[
+ 'Waarom is T(l) geen rechte, maar T²(l) bij kleine hoeken wel? Welke verhouding blijft dan ongeveer constant?',
+ 'Leid uit de rico van T²(l) een formule voor g af. Controleer de eenheid en vergelijk met 9,81 m/s².'
+]
+
+res=LABOS[10]['delen'][1]
+res['stappen']=[
+ 'Laat de motor met excenter, touw, wiel, veer, massa en de waterbak door de leerkracht veilig opstellen: motor en voeding blijven droog. Meet de vrije eigenfrequentie eerst in deel 1.',
+ 'Stel een LAGE aandrijffrequentie in; laat het systeem na iedere verandering enige tijd uittrillen voordat je de stand van de massa afleest.',
+ 'Meet met de chronometer de tijd voor bijvoorbeeld 10 of 20 omwentelingen van het excentrische staafje op de motorkop en bereken voor elke instelling de aandrijffrequentie f=N/t.',
+ 'Meet bij dezelfde instelling de bovenste stand B en onderste stand O van de massa met de meetlat. Bereken A=(B−O)/2 en houd de waterdiepte gelijk.',
+ 'Herhaal op minstens acht oplopende frequenties met kleinere frequentiestappen rond de piek; meet B, O en f telkens op dezelfde wijze. Zet A(f) als losse punten uit en vergelijk de top met de eerder bepaalde eigenfrequentie.'
+]
+res['vragen']=[
+ 'Waarom wacht je na een verandering van het motortoerental voor je de amplitude afleest?',
+ 'Wat kun je uit de vorm van A(f) en de vergelijking van topfrequentie met de vrije eigenfrequentie besluiten? Noem twee meetfouten en een verbetering.'
+]
+
+sound=LABOS[12]['delen'][1]
+sound['stappen'][2]='Stel de STILLE golffrontschets ook boven 100% van de geluidssnelheid in en teken de Mach-kegel/schokfront. Speel geen gevaarlijke luide toon af en laat niets werkelijk supersonisch bewegen.'
+sound['vragen']=['Waar zijn golffronten dichter bijeen als de bron naar rechts beweegt? Wat volgt daaruit voor de waargenomen toonhoogte vóór en achter de bron?',
+                 'Teken en leg uit wat verandert als een vliegtuig sneller beweegt dan geluid; waarom is dit NIET te vergelijken met alleen een iets hogere toon?']
+LABOS[12]['delen'][0]['vragen'].append('Hoe onderscheid je twee bijna gelijke frequenties met je gehoor? Waarom zijn twee verschillende tonen tegelijk niet hetzelfde als exact gelijke tonen in tegenfase?')
+LABOS[7]['delen'][0]['vragen'][0]='Waarvoor staat ECB? Is dit periodiek? Noem TWEE redenen waarom trein of platenspeler slechts bij benadering een ECB uitvoert.'
+LABOS[12]['delen'][0]['stappen'].insert(3,
+ 'Probeer naast 437/443 Hz minstens twee ANDERE paren frequenties op veilig laag volume. Vergelijk in de schematische golfweergave en met f_zweving=|f₂−f₁| of de hoorbare trage variatie sneller of langzamer wordt.')
+LABOS[12]['delen'][0]['vragen'].append('Noem eigenschappen van een geluidsgolf (zoals amplitude, frequentie, golflengte en voortplantingssnelheid). Welke bepalen vooral luidheid en toonhoogte?')

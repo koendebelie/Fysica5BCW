@@ -9,7 +9,7 @@ De leerling- en leerkrachtenversies zijn verschillende uitgaven van **dezelfde c
 - `Blanco_verslag_6BCW_CONCEPT.xlsx` — **voorlopig invulbaar verslag, géén letterlijke 5BCW-kopie**. De oorspronkelijke lege 5BCW-Exceltemplate staat volgens de referentiecursus op Smartschool, maar was niet meegeleverd. Vervang dit concept na ontvangst.
 - `geluidlab.html` — zelfstandig, offline geluidshulpmiddel voor labo 20. Open lokaal in een browser; test geluid op de schoollaptop met laag volume.
 - `Bestellijst_nieuw_materiaal_6BCW.docx` / `.pdf` — indicatieve checklist; voorraad/prijzen niet bevestigd.
-- `Eindrapport_6BCW_fase1.md`, `work/bronaftekening.md` — wijzigingen in beproefde practica, open controlepunten en brontraceerbaarheid (niet voor leerlingen).
+- `Eindrapport_6BCW_fase1.md`, `work/bronaftekening.md`, `work/bronaftekening_ecb.md` — wijzigingen in beproefde practica, open controlepunten en brontraceerbaarheid (niet voor leerlingen).
 
 ## Herbouw vanuit de repositoryhoofdmap (Python 3.11+)
 
@@ -32,4 +32,4 @@ python3 work/package.py                  # bouw ZIP pas na controle
 
 `render_pdf.py` gebruikt Mammoth/xhtml2pdf en het ingesloten DejaVu-lettertype. PDF- en Word-paginering hoeven niet precies overeen te komen. `controle.py` test 25 koppen, gescheiden antwoorden, alle t′/v-kolomparen, het onveranderde 5BCW-rubric, PDF-inhoud en het gemarkeerde spreadsheet; dit is **geen inhoudelijke aftekening** van de volledige 118 pagina’s of de daadwerkelijke schoolvoorraad.
 
-`bronaftekening.md` koppelt de proeven aan de voorlopige 6BCW-cursus en documenteert wat is aangepast/geschrapt. `broninventaris.md` en `figs/UITSLUITINGEN.txt` bevatten nog niet gecontroleerde vectorfiguren/uitgesloten foto's. Theorieonderwerpen volgen de PDF-volgorde in `leerstof 6BCW/`, maar de werkbladen geven bewust geen dianummers of externe links.
+`bronaftekening_ecb.md` tekent de acht proeven van de extra GitHub-PDF (18 blz.) afzonderlijk af, waaronder de gerasterde halve-trillingpagina’s. De aanvullende PDF is mee verpakt. `bronaftekening.md` koppelt de proeven aan de voorlopige 6BCW-cursus en documenteert wat is aangepast/geschrapt. `broninventaris.md` en `figs/UITSLUITINGEN.txt` bevatten nog niet gecontroleerde vectorfiguren/uitgesloten foto's. Theorieonderwerpen volgen de PDF-volgorde in `leerstof 6BCW/`, maar de werkbladen geven bewust geen dianummers of externe links.

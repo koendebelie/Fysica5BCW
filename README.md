@@ -24,3 +24,13 @@ soffice --headless --convert-to pdf --outdir .. ../Labocursus_5BCW_*.docx
 python3 capture.py && python3 make_ppt.py            # presentaties
 python3 docs_extra.py                                # lesfiches, evaluatiefiches, overzicht, peer, bestellijst
 ```
+
+## 6BCW · afzonderlijke OVUR-labocursus
+
+Voor Toegepaste fysica **6BCW** staan de 25 zelfstandige practica in
+`Labocursus_6BCW_LEERLING.docx/.pdf` en `Labocursus_6BCW_LEERKRACHT.docx/.pdf`.
+Het volledige lespakket staat in `Fysica6BCW_fase1_download.zip`.
+`work/README.md` beschrijft de 6BCW-generator en controles; de acht proeven
+uit `leerstof 6BCW/labocursus ECB tril golven.pdf` zijn afzonderlijk nagekeken
+in `work/bronaftekening_ecb.md`. Het aanvullende PDF zelf is mee verpakt.
+De bovenstaande oude 5BCW-herbouwinstructies zijn **niet** bedoeld voor 6BCW.

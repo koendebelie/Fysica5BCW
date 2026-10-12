@@ -12,6 +12,7 @@ REQUIRED=[
  'Bestellijst_nieuw_materiaal_6BCW.docx','Bestellijst_nieuw_materiaal_6BCW.pdf',
  'Eindrapport_6BCW_fase1.md',
  'leerstof 6BCW/Labocursus 6BCW voorlopig.pdf',
+ 'leerstof 6BCW/labocursus ECB tril golven.pdf',
  'leerstof 6BCW/III-BCSW-d_juni_24.pdf',
  'Labocursus_5BCW_LEERLING.docx',  # origineel voor de rubric-reproductiecontrole
 ]
