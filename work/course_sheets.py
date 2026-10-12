@@ -12,6 +12,7 @@ from labs import LABOS
 from answers import ANSWERS
 from course_guidance import G, FORMULAS, SMART_EXAMPLES
 from learning_targets import T
+from goal_evidence import EVIDENCE
 
 ROOT=Path(__file__).resolve().parent.parent
 # (data uit labs.py, onderdelen 1-based, titel voor de leerlingen)
@@ -186,10 +187,18 @@ def build(doc,teacher):
         K.p(doc,'CONTROLEER ZELF – hoe toon je deze lesdoelen aan?',bold=True,size=9)
         K.bullets(doc,list(target.checks),size=9)
         K.h3(doc,'DOELCHECK – toon je vier lesdoelen aan (geen extra punten)')
-        K.p(doc,'Vul dit tijdens of na het meten in. Verwijs per nummer naar een meetrij, grafiek, ontwerp of besluit. De leerkracht noteert '
-                'nog niet / op weg / aangetoond met één volgende stap; gebruik Bijlage G voor de zes STEM-doelen.',size=8.9)
-        K.tabel(doc,['Lesdoel hierboven','Mijn vindplaats / meetgegeven','Status + feedback leerkracht'],
-                [[str(i),'',''] for i in range(1,5)],widths=[1550,4400,3688],size=8.3)
+        K.p(doc,'Bewijs ieder doel afzonderlijk met je eigen werk. Schrijf een vindplaats of meetrij op; de leerkracht noteert '
+                'nog niet / op weg / aangetoond en een volgende stap. Een groepspunt bewijst geen individuele beheersing. '
+                'Gebruik Bijlage G voor de zes STEM-doelen.',size=8.9)
+        K.tabel(doc,['Doel + wat telt als bewijs','Vindplaats in mijn werk','Status + feedback leerkracht'],
+                [[f'{i}. '+evidence,'',''] for i,evidence in enumerate(EVIDENCE[idx-1],1)],
+                widths=[4700,2370,2568],size=8.1,min_row_twips=500)
+        if teacher:
+            K.teacher_note(doc,['Doelgerichte tussenstop vóór of tijdens het meten: '+target.checkpoint,
+                'Vul na het werk per rij de status en een concrete volgende stap in. Bij “nog niet” of “op weg”: '
+                'vraag herberekening, heranalyse of een korte individuele toelichting op basis van echte ruwe data. '
+                'Herbeoordeel dát bewijs; vink geen doel af op grond van het groepscijfer alleen.'],
+                title='LEERKRACHTENINFO – LESDOELEN')
         K.h3(doc,'Oriëntatievragen (vóór je begint)')
         for number,(question,answer) in enumerate(guide.prior,1):
             K.vraag(doc,number,question,size=9.3);K.invul(doc,regels=1)
@@ -315,6 +324,30 @@ def build(doc,teacher):
                 'per waarde, analyse, conclusie en open bespreking van afwijkingen. Controleer ook de vooraf '
                 'goedgekeurde inhoudelijke F-LPD en de door school/vakgroep vastgelegde plaats van de onderzoekscompetentie; '
                 'zonder deze afstemming geen formele 6 S (#)-aftekening.',label='Modelantwoord STEM 6 S')
+        if idx in (7,20,25):
+            if idx==7:K.pagebreak(doc)  # vraag en invultabel mogen niet op verschillende pagina’s vallen
+            vraag={
+                7:'Welk getal uit jullie model bepaalde jouw opvangkeuze? Leg met de eigen video uit wat jij aan A of B zou veranderen.',
+                20:'Hoeveel keer verandert de intensiteit van 60 naar 80 dB? Kies zelf een maatregel en noem één nadeel voor een andere betrokkene.',
+                25:'Welke keuze uit jouw meetplan kon je na feedback behouden of moest je bijsturen? Toon met één echte meetrij wat dit voor je besluit betekent.'
+            }[idx]
+            K.h3(doc,f'INDIVIDUEEL DOELBEWIJS – STEM { {7:4,20:5,25:6}[idx] } S')
+            K.p(doc,'Elk groepslid antwoordt kort met eigen cijfers of een eigen bijdrage. Dit is geen extra cijfer; '
+                    'de docent gebruikt je toelichting samen met het groepsproduct en de geobserveerde bijdrage '
+                    'om de doelstatus per leerling te bepalen.',size=9)
+            K.p(doc,vraag,bold=True,size=9)
+            K.tabel(doc,['Naam leerling','Mijn uitleg / verwijzing naar mijn gegevens'],[['',''] for _ in range(3)],
+                    widths=[2300,7338],size=8.7,min_row_twips=800)
+            if teacher:
+                antwoorden={
+                    7:'Vereis h, v₀ en de berekende afstand of marge; laat het leerlingantwoord aansluiten bij echte videometing. '
+                      'Een mooie schets zonder toets/bijsturing geeft nog geen aangetoond 4 S.',
+                    20:'80−60=20 dB, dus 100× intensiteit, niet 100× ervaren luidheid. Vereis eigen keuze, fysisch principe '
+                       'en een nadeel voor een andere betrokkene; geen verzonnen geluidsmeting.',
+                    25:'Vereis een benoemde eigen meet- of plankeuze (ook een gemotiveerd behouden plan is mogelijk), originele data en verklaring van het effect. '
+                       'Toets alle zeven fasen en de schoolafspraak afzonderlijk; groepsposter alleen volstaat niet voor individuele aftekening.'
+                }
+                K.modelantwoord(doc,antwoorden[idx],label='Docentcheck individueel STEM-bewijs')
         K.h3(doc,'Toepassen: wat zeggen jouw gegevens buiten dit labo?')
         K.p(doc,guide.transfer[0],size=9.4,bold=True);K.invul(doc,regels=2)
         if teacher:K.modelantwoord(doc,guide.transfer[1],label='Mogelijke toepassing')

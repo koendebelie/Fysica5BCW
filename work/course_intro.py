@@ -96,6 +96,10 @@ def build(doc,teacher,sheets):
         ['Rico en afsnede','Noem de eenheid én betekenis: v₀ is de y-asafsnede van v(t′), a de rico; bij T²(l) is de rico 4π²/g. Extrapolatie is geen meetpunt.'],
         ['Onzekerheid','Bespreek minstens één concrete bron: tikinterval, bandwrijving, reactietijd, schaal/parallax, scheve opstelling of meetspreiding. Zeg welke richting/omvang het effect heeft.'],
     ],widths=[2300,7338],size=9)
+    K.p(doc,'Gebruik een externe bron uitsluitend waar een werkblad om bronnen vraagt (bijvoorbeeld bij de poster): '
+        'noteer auteur/organisatie, titel en raadpleegdatum. Scheid broninformatie van de eigen meetgegevens. '
+        'Laat geen AI-hulpmiddel meetwaarden, een berekening, grafiek, verklaring of eigen reflectie verzinnen of '
+        'het antwoord in jouw plaats schrijven. Volg daarnaast de actuele schoolafspraken over bronnen en AI.',size=9.4)
     K.kader(doc,'TIJDTIKKER → EXCEL: t′ STAAT DIRECT LINKS VAN v',[
         'Bij 50 Hz ligt elke tik 0,020 s later. Kies je om de twee stippen een meetpunt, dan is het venster Δt=0,040 s.',
         'Een uit Δx/Δt berekende snelheid hoort bij het MIDDENTIJDSTIP t′=(t_begin+t_eind)/2. t′ is geen duur Δt en geen snelheidsverschil Δv.',
@@ -148,6 +152,11 @@ def build(doc,teacher,sheets):
                          '; zie ook de concrete doelen op ieder werkblad.'))]
         for k in STEM
     ],widths=[900,4170,4568],size=8.2)
+    K.p(doc,'Bij labo 07, 20 en 25 geeft elk groepslid onder de STEM-opdracht een korte eigen toelichting '
+        'met een getal of meetrij. De leerkracht gebruikt die en de individuele labo-observatie bij de '
+        'doelstatus; het groepsproduct alleen bewijst geen individuele beheersing. Bij “nog niet” of “op weg” '
+        'volgt een gerichte verbeteropdracht, bijvoorbeeld een berekening opnieuw uitleggen of een '
+        'meetrij opnieuw analyseren. De leerkracht beoordeelt vervolgens het nieuwe bewijs. Geen extra punten.',size=9.3)
     K.p(doc,'Onderzoek is GEEN star recept: een observatie kan een nieuwe vraag opleveren; je mag een '
         'hypothese eerlijk herzien als je het originele bewijs bewaart. Labo 07 vereist naast de eigen '
         'horizontale-worpmeting een kleine veilige ontwerp-/testlus (4 S), labo 20 een maatschappelijke '
@@ -159,7 +168,7 @@ def build(doc,teacher,sheets):
         ['Vooraf, formatief','Vraag, hypothese, variabelen, veiligheids- en ontwerpplan; bij labo 07 beide opvangvarianten.','De leerkracht geeft gerichte feedback en keurt risico’s goed vóór meten. Een fout verbeteren is hier leren, nog geen apart cijfer.'],
         ['Tijdens, formatief + observatie','Ruwe data, meetresolutie, SI, machten van tien, veilige samenwerking; één tussentijds meetpunt controleren.','Bijsturen met een volgende actie; individueel geobserveerd proces volgens de ONGEWIJZIGDE rubric C (/10, 40 %).'],
         ['Na afloop, product','Onderzoeksvraag/plan; tabellen/grafiek/ontwerptest; conclusie/maatschappelijke keuze of postercyclus.','Groepsproduct /10: verkennen 2, uitvoeren 3, concluderen 3, verzorging/indienen 2 (Bijlage B); dit telt voor 60 %. 4 S, 5 S en 6 S zitten IN deze punten.'],
-        ['Feedforward','Bespreek met de twee controlepunten bovenaan je blad welk bewijs ontbreekt of overtuigt.','Schriftelijke productfeedback en individuele procesfeedback: benoem een sterk punt, een tekort én een haalbare volgende stap; peerfiche alleen indien aangekondigd.'],
+        ['Feedforward','Gebruik de vier genummerde bewijscriteria in je doelcheck en de individuele toelichting bij 07/20/25.','Schriftelijke productfeedback en individuele procesfeedback: benoem een sterk punt, een tekort én een haalbare volgende stap; peerfiche alleen indien aangekondigd.'],
     ],widths=[1750,3990,3898],size=8.4)
     K.p(doc,'Differentiatie: gebruik bij een moeilijkere opgave het voorbeeld van een tabel, een '
         'rekenstap of gerichte docentfeedback; wie sneller werkt onderzoekt een extra onzekerheid of '

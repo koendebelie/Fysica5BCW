@@ -99,6 +99,19 @@ def appendices(doc, teacher):
         ['4 S – labo 07','/2 model/keuze; /3 test; /3 besluit/bijsturing','Twee opvangvarianten met x≈v₀√(2h/g), twee keer getoetst aan originele video (voor en na bijsturing).'],
         ['5 S – labo 20','/3 analyse; /3 afgewogen besluit','dB-rekenstap, twee maatregelen, twee betrokkenen en minstens één beperking.'],
     ],widths=[1450,2330,5858],size=8.2)
+    K.h3(doc,'Beslisregels voor aantonen en opnieuw proberen (zonder extra punten)')
+    K.tabel(doc,['STEM-doel','Aangetoond als ...','Als bewijs nog ontbreekt ...'],[
+        ['1 S','een toetsbare vraag, eerlijk origineel meetbewijs en een conclusie die de data niet tegenspreekt samenhang vertonen','stel vraag/variabelen scherper en herleid één besluit opnieuw uit data'],
+        ['2 S','symbool, SI, resolutie en passende beduidende cijfers bij ruwe data én berekening kloppen; schaalomzetting waar relevant','herbereken één representatieve rij inclusief eenheid, 10-macht en afronding'],
+        ['3 S','veiligheidsakkoord, geschikt toestel, duurzame werkwijze en echte ruwe data door de docent zijn geobserveerd','voer een veilige herdemonstratie uit; fabriceer geen achteraf verzonnen observatie'],
+        ['4 S','twee opvangvarianten, model, echte videotoets, aantoonbare bijsturing en hertoets én eigen toelichting aanwezig zijn','toon de modelberekening opnieuw en toets de aangepaste marge aan het echte meetinterval'],
+        ['5 S','dB-intensiteitsfactor, twee technieken, twee betrokkenen, nadeel én eigen afweging samenhangen','maak een nieuw advies met correcte getallen en een tegenargument vanuit andere betrokkene'],
+        ['6 S (#)','zeven fasen, originele data, passende F-inhoud en schoolafspraak samen met eigen onderzoeksverantwoording aanwezig zijn','vul ontbrekende fase met werkelijk bewijs aan en licht de eigen planwijziging toe; school bepaalt formele aftekening'],
+    ],widths=[900,4370,4368],size=8.0)
+    K.p(doc,'Deze criteria begeleiden de status per LEERLING: controleer bij 4 S, 5 S en 6 S zowel het groepsproduct '
+            'als diens korte eigen toelichting en tijdens het werk geobserveerde bijdrage. Vorm de product- en '
+            'procespunten nog steeds alleen met Bijlage B/C. Laat bij ontbrekend bewijs de status open en '
+            'geef een concrete gelegenheid tot bijsturen; “nog niet” is geen automatisch extra cijfer.',size=9)
     K.p(doc,'De docent noteert per doel in Bijlage G aangetoond / op weg / nog niet, citeert het bewijs en '
             'geeft één volgende stap. Het hele STEM-leerplan omvat ook andere vakken: deze cursus '
             'tekent uitsluitend de hier zichtbare fysica-gerelateerde doelbewijzen af.',size=9.2)
@@ -212,10 +225,11 @@ def appendices(doc, teacher):
 
 
     _start_appendix(doc,'Bijlage G – STEM-doelkaart: bewijs, feedback en volgende stap')
-    K.p(doc,'Groep: ………………………  Klas: ………  Periode: ………………  Leerkracht: ………………………',size=9.5)
+    K.p(doc,'Naam leerling: ………………………  Groep: ……………  Klas: ………  Periode: ………………  Leerkracht: ………………………',size=9.5)
     K.p(doc,'De zes STEM-doelen zijn leerplandoelen, geen zes bijkomende punten. Schrijf per doel '
             'waar het bewijs in je werk staat. De leerkracht noteert nog niet / op weg / aangetoond '
-            'en één concrete volgende stap. Een doel is niet automatisch behaald omdat het op een blad staat.',size=9.5)
+            'en één concrete volgende stap. Maak dit blad per leerling: gebruik groepsproduct én de eigen '
+            'toelichting/individuele observatie. Een doel is niet automatisch behaald omdat het op een blad staat.',size=9.5)
     evidence={
         1:'Onderzoeksvraag, hypothese, ruwe data, onderbouwd besluit (o.a. 04, 07, 15, 25).',
         2:'Symbool, SI, resolutie, beduidende cijfers, machten van tien (o.a. 02, 09, 21).',

@@ -286,7 +286,7 @@ def _grid(tbl, widths):
 
 
 def tabel(doc, headers, rows, widths=None, size=10, header_fill=HEAD_FILL,
-          align=None, first_col_bold=False):
+          align=None, first_col_bold=False, min_row_twips=330):
     """Tabel met rasterlijnen, lichtblauwe kopregel en vaste kolombreedtes."""
     ncol = len(headers)
     if widths is None:
@@ -316,7 +316,7 @@ def tabel(doc, headers, rows, widths=None, size=10, header_fill=HEAD_FILL,
         row = tbl.add_row()
         # Ruimte voor met de hand in te vullen meetwaarden: ook lege Word-cellen
         # moeten bij afdrukken minstens ongeveer 5,8 mm hoog blijven.
-        row.height = Twips(330)
+        row.height = Twips(min_row_twips)
         row.height_rule = WD_ROW_HEIGHT_RULE.AT_LEAST
         for i, val in enumerate(r):
             cell = row.cells[i]

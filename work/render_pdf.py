@@ -48,7 +48,6 @@ li {margin:1.5pt 0;}
 table {border: .45pt solid #999; border-collapse:collapse; width:100%; margin:3pt 0 7pt 0; font-size:8.4pt;}
 td, th {border:.45pt solid #999; padding:3pt 4pt; vertical-align:top;}
 th {background:#D9E2F3; font-weight:bold;}
-tr:first-child td {background:#D9E2F3; font-weight:bold;}
 table.box tr:first-child td {background:inherit;font-weight:normal;}
 table.box td {border:.5pt solid #9DB6CF;}
 table.doel td {background:#E8F5E9;}
@@ -62,6 +61,7 @@ table.box.lkr tr:first-child td,table.box.antw tr:first-child td {background:#FF
 table.fill {border:1pt solid #888;height:1.2cm;}
 table.fill td {height:1.2cm;}
 table.fill tr:first-child td {background:white;}
+table.individual td {height:1.2cm;}
 p.formula {font-size:11pt;text-align:center;color:#1F4E79;margin:7pt 0;}
 img {max-width:12cm;max-height:7cm;display:block;margin:4pt auto;}
 a {color:#1F4E79;}
@@ -78,6 +78,7 @@ def _html(docx):
         first=txt[:135]
         cls=''
         if not txt.strip(): cls='fill'
+        elif 'Mijn uitleg / verwijzing naar mijn gegevens' in first: cls='individual'
         elif any(x in first.lower() for x in ('modelantwoord','didactische aanwijzing',
                  'verwachte interpretatie','voorbeeldvraag en variabelen')):
             cls='box antw'
@@ -105,6 +106,10 @@ def _html(docx):
         formula='<p class="formula">'+html.escape(FORMULA_DISPLAY[n])+'</p>'
         parts[i+1]=parts[i+1][:match.end()]+formula+parts[i+1][match.end():]
     raw=''.join(parts)
+    # Mammoth negeert de Word-paginabreuk vlak voor de individuele 4 S-check;
+    # zonder PDF-overgang valt de vraag op de vorige bladzijde en de invultabel erna.
+    raw=raw.replace('<h3>INDIVIDUEEL DOELBEWIJS – STEM 4 S</h3>',
+                    '<div style="page-break-before:always"></div><h3>INDIVIDUEEL DOELBEWIJS – STEM 4 S</h3>')
     # Bij de golfbak is de applet-tabel breed/lang: xhtml2pdf plaatste eerder
     # alleen de kop op de vorige pagina en alle 10 rijen pas op de volgende.
     # Een bewuste pagina-overgang houdt kop en data samen in de PDF-leesversie.

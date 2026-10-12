@@ -101,12 +101,16 @@ for c in kaart[2]:
  c.font=Font(bold=True,color=DARK);c.fill=PatternFill('solid',fgColor=BLUE)
  c.alignment=Alignment(wrap_text=True,vertical='top')
 kaart.row_dimensions[2].height=32
+kaart.merge_cells('A12:F12')
+kaart['A12']='Kopieer deze doelkaart per leerling. Noteer naam: ……………  ·  De status volgt uit groepsproduct én individuele uitleg/observatie.'
+kaart['A12'].alignment=Alignment(wrap_text=True)
+kaart.row_dimensions[12].height=30
 kaart.merge_cells('A10:F10')
 kaart['A10']='De docent kent geen zes bonuspunten toe: zie product /10 (60 %) en proces /10 (40 %) in Bijlage B/C.'
 kaart['A10'].alignment=Alignment(wrap_text=True)
 kaart.sheet_properties.pageSetUpPr.fitToPage=True
 kaart.page_setup.orientation='landscape';kaart.page_setup.paperSize=kaart.PAPERSIZE_A3
 kaart.page_setup.fitToWidth=1;kaart.page_setup.fitToHeight=1
-kaart.print_area='A1:F10'
+kaart.print_area='A1:F12'
 w.save(OUT)
 print(OUT)

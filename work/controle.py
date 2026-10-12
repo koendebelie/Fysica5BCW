@@ -13,6 +13,7 @@ from labs import LABOS
 from answers import ANSWERS
 from rubric_data import RUBRIC
 from learning_targets import STEM, STEM_BORGING, T
+from goal_evidence import EVIDENCE
 from review_data import PRODUCTBEWIJS, REFLECTIE, WERKBLAD_PDF
 from build import FIG_BEST, FIG_SHEET, EXTRA_FIGS
 from docx.oxml.ns import qn
@@ -22,6 +23,8 @@ ROOT=Path(__file__).resolve().parent.parent
 assert len(SHEETS)==len(G)==len(SMART_EXAMPLES)==25 and len({title for _,_,title in SHEETS})==25
 assert len(FORMULAS)>=20 and all(len(g.prior)==2 and all(g.transfer) for g in G)
 assert len(T)==25 and set().union(*(set(t.stem) for t in T))==set(STEM)==set(range(1,7))
+assert len(EVIDENCE)==25 and all(len(row)==4 and all(row) for row in EVIDENCE)
+assert all(len(g.goals)==2 and all(goal.endswith('.') and not goal.startswith(('Meet ','Bepaal ','Teken ','Kies ','Maak ','Vergelijk ','Vul ','Schrijf ')) for goal in g.goals) for g in G)
 assert all(len(t.additions)==len(t.checks)==2 and t.physics and t.physics_meaning and t.checkpoint for t in T)
 assert STEM_BORGING[4]==(7,) and STEM_BORGING[5]==(20,) and STEM_BORGING[6]==(25,)
 assert not any(n in (6,7) for n,_,_ in SHEETS), 'Arbeid/momenten opnieuw opgenomen'
@@ -142,6 +145,14 @@ for label in ('LEERLING','LEERKRACHT'):
  assert sum(t.cell(0,0).text.startswith('LESDOELEN – na dit labo kan je') for t in d.tables if t.rows)==25
  assert sum(t.cell(0,0).text.startswith('LEERPLANDOELEN – wat oefen je hier?') for t in d.tables if t.rows)==25
  assert sum('CONTROLEER ZELF – hoe toon je deze lesdoelen aan?' in p.text for p in d.paragraphs)==25
+ goal_tables=[t for t in d.tables if t.rows and t.cell(0,0).text=='Doel + wat telt als bewijs']
+ assert len(goal_tables)==25
+ for idx,(table,criteriums) in enumerate(zip(goal_tables,EVIDENCE),1):
+  assert len(table.rows)==5,(label,idx)
+  assert all(table.cell(i,0).text==f'{i}. '+criterium for i,criterium in enumerate(criteriums,1)),(label,idx)
+ assert text.count('INDIVIDUEEL DOELBEWIJS – STEM')==3
+ assert 'Beslisregels voor aantonen en opnieuw proberen' in text and 'Maak dit blad per leerling' in text
+ assert 'geen AI-hulpmiddel' in text
  assert 'STEM 4 S – ontwerp vóór de worp' in text and 'STEM 5 S – maatschappelijke vraag' in text and 'STEM 6 S – bewijs van de volledige onderzoekscyclus' in text
  assert 'Bijlage G – STEM-doelkaart' in text
  assert 'dezelfde originele videodata' in text.lower() and 'passieve demping' in text and 'zeven onderzoeksfasen' in text
@@ -193,6 +204,9 @@ for label in ('LEERLING','LEERKRACHT'):
  assert all(x in sections[7] for x in ('STEM 4 S – ontwerp vóór de worp','test en verbeter je opvangontwerp','hertoets aan video'))
  assert all(x in sections[20] for x in ('STEM 5 S – maatschappelijke vraag','dB','passieve demping','actieve ruisonderdrukking'))
  assert all(x in sections[25] for x in ('STEM 6 S – bewijs','Onderzoeksmethode','Gegevensverzameling','Rapportering / poster','Schoolafspraak 6 S (#)','Gekozen inhoud + F-LPD'))
+ for lab,code in ((7,4),(20,5),(25,6)):
+  assert f'INDIVIDUEEL DOELBEWIJS – STEM {code} S' in sections[lab],(label,lab)
+  assert any(f'INDIVIDUEEL DOELBEWIJS – STEM {code} S' in pg.get_text() and 'Naam leerling' in pg.get_text() for pg in pdfdoc),(label,lab,'vraag gescheiden van invultabel')
  print(f'{label}: {len(headings)} labo’s, {len(d.tables)} tabellen, {len(FORMULAS)} OfficeMath-formules, {len(d.inline_shapes)} figuren, PDF {len(pdfdoc)} pagina’s; rubric letterlijk.')
 
 report=load_workbook(ROOT/'Blanco_verslag_6BCW_CONCEPT.xlsx')
@@ -202,4 +216,5 @@ assert report.active['E86'].value=='=SUM(E82:E85)'
 assert 'Smartschool' in report.active['B88'].value
 assert 'STEM-doelkaart' in report.sheetnames
 assert [report['STEM-doelkaart'].cell(r,1).value for r in range(3,9)]==[f'{k} S' for k in range(1,7)]
-print('OK — 25 werkbladen met 4 lesdoelen en 2 controlepunten, zes STEM-bewijslijnen inclusief 4 S/5 S/6 S, 25 OVUR-cycli en rubric intact; fysieke validatie blijft open')
+assert 'per leerling' in report['STEM-doelkaart']['A12'].value
+print('OK — 25 werkbladen met 100 doelcriteria en individuele STEM-checks, zes STEM-bewijslijnen inclusief 4 S/5 S/6 S, 25 OVUR-cycli en rubric intact; fysieke validatie blijft open')
