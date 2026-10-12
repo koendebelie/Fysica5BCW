@@ -1616,7 +1616,7 @@ p.update(stappen=[
   rijen=[['veer 1',str(m),'','','','','','',''] for m in (30,60,90,120,150)] +
         [['veer 2',str(m),'','','','','','',''] for m in (50,100,150,200,250)])
 p=LABOS[8]['delen'][1]
-p.update(open_opdracht=['Bepaal een onbekende massa zonder balans. De onbekende massa mag NIET van de veer gehaald worden. Je mag gekende massa’s toevoegen (bron: vier maal 50,0 g), een veer, chronometer en meetlat gebruiken. Maak EERST jouw eigen instructieblad en voer het DAARNA zelf uit.'],
+p.update(open_opdracht=['Bepaal een onbekende massa zonder balans. De onbekende massa mag NIET van de veer gehaald worden. Je mag de vier aanwezige gekende massa’s van 50,0 g toevoegen en een veer, chronometer en meetlat gebruiken. Maak EERST jouw eigen instructieblad en voer het DAARNA zelf uit.'],
          tabel_uitleg='De onbekende massa blijft de hele tijd aan de veer; voeg telkens alleen een gekende massa toe.',
          stappen=['Schrijf je eigen instructieblad met meetplan, veiligheid, voorbeeldberekening en tabel; laat goedkeuren.',
                   'Houd de onbekende massa steeds aan dezelfde veer, voeg achtereenvolgens gekende massa’s toe en meet T per stap.',
@@ -1728,3 +1728,98 @@ LABOS[2]['delen'][2]['materiaal_deel']='computer met Tracker, smartphone/camera 
 LABOS[3]['delen'][0]['materiaal_deel']='computer met Tracker, camera/smartphone, tennisbal, statief of stabiel oppervlak en stevige cm-meetlat (p. 56–57).'
 LABOS[3]['delen'][1]['materiaal_deel']='houten plank circa 45 × 55 cm, blokken, valgeul, grote metalen kogel, papier, weinig afwasbare verf, tekenlat en driehoek (p. 93).'
 LABOS[12]['delen'][2]['materiaal_deel']='historische Soundry-/harmonics-app indien bereikbaar, anders een vooraf geteste simulator en een bron voor ultrasoon geluid (p. 55–56).'
+
+# Feedbackronde: klasbrede Newton-data, ECB-inleiding, vragen over v(t′).
+p=LABOS[1]['delen'][0]
+p['grafieken'] += [
+ 'Voeg in Excel een LINEAIRE trendlijn toe: v = a·t′ + v₀. Laat de vergelijking op de grafiek zien. De constante term v₀ is het snijpunt met de verticale v-as bij t′ = 0; de rico a is de gemiddelde versnelling.',
+ 'Los voor het snijpunt met de horizontale t′-as v = 0 op: t′_0 = −v₀/a (als a ≠ 0). Leg uit of dit punt binnen jouw GEMETEN beweging ligt; bij versnellen met v₀ > 0 ligt het doorgaans vóór stip 0.'
+]
+p['vragen'] += [
+ 'Je trendlijn is v(t′) = a·t′ + b. Hoe lees je de beginsnelheid v₀ af? Waarom hoeft de snelheid bij jouw stip 0 niet nul te zijn?',
+ 'Wat betekent de rico van de trendlijn en welke eenheid heeft hij?',
+ 'Bereken de plaats van het snijpunt met de horizontale t′-as. Kun je dit punt als een werkelijk gemeten stopmoment beschouwen? Waarom wel/niet?'
+]
+LABOS[1]['delen'][1]['vragen'] += [
+ 'Wat is voor jouw opwaartse beweging de betekenis van het snijpunt van v(t′) met de t′-as? Waar eindigt de geldigheid van de lineaire benadering?'
+]
+
+# Groepen meten VERSCHILLENDE condities en bouwen klassikaal één dataset.
+force=LABOS[4]['delen'][0]
+force['stappen']=[
+ 'De leerkracht verdeelt 2, 3, 4 en 5 hangschijfjes van 10,0 g over vier (of meer) groepen. Noteer jouw toegekende n en de groep. Houd de totale bewegende massa gelijk door niet-hangende schijfjes op de wagen te leggen; gebruik ook de aanwezige 150 g ballast.',
+ 'Neem met jouw groep minstens twee onafhankelijke tijdtikkerbandjes voor dezelfde n op. Bepaal op elk bandje a uit de rico van v(t′); geef ruwe bandjes en Excel-bestand door.',
+ 'Schrijf beide a-waarden en het gemiddelde van JOUW groep in de gedeelde klassentabel; kopieer ook de data van groepen met ANDERE aantallen schijfjes, inclusief m_tot.',
+ 'Maak met de VOLLEDIGE klassendataset een a(F)-grafiek bij constante m_tot. Toon punten, trendlijn en interpretatie van de rico. Leg mogelijke verschillen tussen groepen uit.'
+]
+force['extra_tabellen']=[
+ {'titel':'KLASOVERZICHT a(F): iedere groep meet een andere kracht; pas uit alle rijen volgt het verband.',
+  'kop':['groep','hangschijfjes','F (N)','m_tot (kg)','a₁ (m/s²)','a₂ (m/s²)','a_gem (m/s²)'],
+  'rijen':[[str(i+1),str(n),'','','','',''] for i,n in enumerate([2,3,4,5,2,3,4,5])]},
+ force['extra_tabellen'][0]
+]
+mass=LABOS[4]['delen'][1]
+mass['stappen']=[
+ 'De leerkracht verdeelt de vier ballastwaarden 50,0; 100,0; 150,0 en 200,0 g over de groepen. Iedereen houdt PRECIES twee hangschijfjes van 10,0 g; tel hun massa altijd bij m_tot.',
+ 'Neem met jouw groep minstens twee tijdtikkerbandjes voor de toegewezen ballast, bereken de twee rico’s a uit v(t′) en noteer het gemiddelde.',
+ 'Voeg jouw rij toe aan de gezamenlijke tabel en kopieer de gegevens van groepen met ANDERE ballastmassa’s. Controleer dat de aandrijfkracht in alle rijen gelijk is.',
+ 'Teken voor de VOLLEDIGE klasgegevens a tegen 1/m_tot. Beoordeel het verband en bespreek wrijving en meetspreiding.'
+]
+mass['extra_tabellen']=[
+ {'titel':'KLASOVERZICHT a(m): iedere groep meet een andere massa; twee hangschijfjes blijven constant.',
+  'kop':['groep','ballast (g)','m_tot (kg)','1/m_tot (1/kg)','F (N)','a₁ (m/s²)','a₂ (m/s²)','a_gem (m/s²)'],
+  'rijen':[[str(i+1),str(m),'','','','','',''] for i,m in enumerate([50,100,150,200,50,100,150,200])]},
+ mass['extra_tabellen'][0]
+]
+LABOS[4]['sturing']='Onderzoek in klasverband: elke groep verricht een deel van de F- en m-metingen met dezelfde aanwezige tijdtikkeropstelling; pas de gedeelde overzichtstabellen geven de volledige verbanden.'
+
+# Inleidend ECB-labo uit het beschikbare practicum-PDF p. 29–31.
+p=LABOS[7]['delen'][0]
+p['titel']='Deel 1 – Eenparige cirkelbeweging: speelgoedtrein en platenspeler'
+p['stappen']=[
+ 'Onderzoek vooraf de betekenis van ECB, T, f, v en ω en hun eenheden. Bespreek waarom een constante baansnelheid toch een veranderende snelheidsVECTOR geeft.',
+ 'Laat de speelgoedtrein op zijn aanwezige sporen MINSTENS twintig rondjes opwarmen, zodat de aandrijving stabiel is. Kies zelf hoe je straal r en de tijd voor ten minste twintig TOEREN herhaaldelijk meet.',
+ 'Bereken voor de trein T, f = 1/T, ω = 2π/T en v = 2πr/T. Geef de gekozen r op de opstellingsschets aan.',
+ 'Wissel nu naar de aanwezige platenspeler. Markeer twee krijtstreepjes op VERSCHILLENDE stralen; herhaal de tijdmeting en vergelijk ω en v van beide streepjes.',
+ 'Vergelijk nauwkeurigheid met een tijdtikkerproef. Indien de klas tijd en het materiaal heeft, onderzoek ook de reflector op een draaiend fietswiel; vermeld dat hij langzaam afremt.'
+]
+p['vragen']=[
+ 'Waarvoor staat ECB en waarom is de beweging van trein of platenspeler slechts bij BENADERING een ECB?',
+ 'Hoe hangen omlooptijd T (s), frequentie f (Hz), hoeksnelheid ω (rad/s) en baansnelheid v (m/s) samen?',
+ 'Zijn ω en v van twee krijtstreepjes op VERSCHILLENDE stralen van dezelfde platenspeler gelijk? Leg uit.',
+ 'Waarom warmt de trein eerst minstens twintig rondjes op? Welke fout krijg je anders?'
+]
+
+# Het oude Soundry-simulatieblad en zijn niet-gecontroleerde links verdwijnen.
+# Een lokale browserpagina (geluidlab.html, zonder accounts of installatie) toont
+# dezelfde fysica met beschikbaar laptop-/smartphonemateriaal.
+LABOS[12]['titel']='GELUID: TOON, ZWEVING, SUPERPOSITIE EN KLANKKLEUR'
+LABOS[12]['materiaal']=['schoollaptop of smartphone met browser en bestaand geluidmateriaal op laag volume',
+                       'het lokaal meegeleverde geluidlab.html (kan offline openen); papier/Excel voor schetsen en resultaten']
+LABOS[12]['delen'][0].update(
+ titel='Deel 1 – Tonen en zwevingen (437 Hz en 443 Hz)',
+ stappen=['Open het meegeleverde offline geluidlab op de schoollaptop; zet het volume LAAG. Bekijk eerst de afzonderlijke golven van 437 Hz en 443 Hz.',
+          'Schakel beide tonen samen in. Luister kort en bekijk het trage omhullende patroon van de som; voorspel en meet het aantal zwevingen per seconde.',
+          'Stel gelijke frequenties in en varieer het faseverschil tussen 0° en 180°. Schets versterking en uitdoving en benoem één bruikbare toepassing.',
+          'Maak voor elke situatie een schets of schermafbeelding en noteer frequenties, fase en waarneming.'],
+ verwerking='Bereken f_zweving = |f₂−f₁| en leg met superpositie uit waarom gelijkfasige en tegengestelde golven anders klinken.'
+)
+LABOS[12]['delen'][1].update(
+ titel='Deel 2 – Doppler: bewegende geluidsbron',
+ stappen=['Stel in de offline pagina of met een veilige bestaande klasdemonstratie een stilstaande bron voor en teken golffronten rondom.',
+          'Laat de bron bewegen met minder dan de geluidssnelheid. Vergelijk de frontafstand vóór en achter de bron en de bijbehorende waargenomen toonhoogte.',
+          'Bespreek wat de simulatie toont als de bron sneller zou bewegen dan geluid; simuleer dit zonder gevaarlijk hard geluid. Schets het golffront.' ]
+)
+LABOS[12]['delen'][2].update(
+ titel='Deel 3 – Harmonischen, klankkleur en ultrasoon',
+ stappen=['Bekijk in het offline geluidlab een zuivere sinus en de som van een grondtoon met harmonischen. Leg uit waarom de golfvorm verandert.',
+          'Vergelijk de golfvorm van een klarinetachtige en trompetachtige klank; teken beide en verklaar het verschil in klankkleur.',
+          'Maak een zaagtand en een blokgolf en noteer wat de toevoeging van hogere harmonischen zichtbaar verandert.',
+          'Definieer ultrasoon (>20 kHz) en noteer twee toepassingen met een geschikte informatiebron; niet op een hoog volume nadoen.']
+)
+LABOS[12]['delen'][2]['materiaal_deel']='schoollaptop of smartphone, offline geluidlab.html, papier voor schetsen; geen historische applet nodig.'
+LABOS[12]['veiligheid']=[
+ 'Zet het geluid en het toestelvolume vooraf zacht; vermijd harde hoofdtelefoon of plotselinge tonen.',
+ 'Open de meegeleverde offline HTML-pagina lokaal in een moderne browser; er is geen account, netwerk of installatie nodig.',
+ 'Geen microfoonopnames van medeleerlingen zonder toestemming. Ultrasoon wordt niet afgespeeld.'
+]

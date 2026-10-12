@@ -1,45 +1,35 @@
-# Labocursus Toegepaste fysica 6BCW — fase 1
+# 6BCW-labocursus · één cursus met 25 OVUR-labo's
 
-Deze map bevat bronkaart, generator, antwoorden, figuren, PDF-renderer en technische tests. **Wijzig werkbladen in de Python-bronnen en genereer opnieuw**, niet rechtstreeks in het DOCX. De inhoud is een didactische herwerking; voor resterende bronvergelijking zie `bronaftekening.md` en het eindrapport.
+De leerling- en leerkrachtenversies zijn verschillende uitgaven van **dezelfde cursus**. Er is geen afzonderlijke bronpracticumbundel. De werkbladen gebruiken de bestaande schoolopstellingen en geven geen bronpagina's of directe theorielinks aan leerlingen.
 
-## Resultaten (in de repositoryhoofdmap)
+## Resultaten in de repositoryhoofdmap
 
-- `Labocursus_6BCW_LEERLING.docx` en `.pdf` — 16 werkbladen en Bijlagen A–F;
-- `Labocursus_6BCW_LEERKRACHT.docx` en `.pdf` — dezelfde invulvakken, met aanvullend rode modelantwoorden en leerkrachtnotities;
-- `Bronpractica_6BCW_LEERLING.docx` en `.pdf` / `Bronpractica_6BCW_LEERKRACHT.docx` en `.pdf` — **26 zelfstandige bronpracticumbladen** met eigen OVUR, materiaal, meettabel, grafieken en besluiten. Gebruik deze afzonderlijk afdrukbare bladen wanneer je de oorspronkelijke proef als losse les uitvoert; de 16-labocursus levert de doorlopende leerlijn en bijlagen.
-- `Bestellijst_nieuw_materiaal_6BCW.docx` en `.pdf` — te verifiëren raming;
-- `Eindrapport_6BCW_fase1.md` — besluit, controle en open punten.
+- `Labocursus_6BCW_LEERLING.docx` / `.pdf` — 25 zelfstandige labo's en Bijlagen A–F.
+- `Labocursus_6BCW_LEERKRACHT.docx` / `.pdf` — dezelfde proeven/invulvakken plus rode modelantwoorden.
+- `Blanco_verslag_6BCW_CONCEPT.xlsx` — **voorlopig invulbaar verslag, géén letterlijke 5BCW-kopie**. De oorspronkelijke lege 5BCW-Exceltemplate staat volgens de referentiecursus op Smartschool, maar was niet meegeleverd. Vervang dit concept na ontvangst.
+- `geluidlab.html` — zelfstandig, offline geluidshulpmiddel voor labo 20. Open lokaal in een browser; test geluid op de schoollaptop met laag volume.
+- `Bestellijst_nieuw_materiaal_6BCW.docx` / `.pdf` — indicatieve checklist; voorraad/prijzen niet bevestigd.
+- `Eindrapport_6BCW_fase1.md`, `work/bronaftekening.md` — wijzigingen in beproefde practica, open controlepunten en brontraceerbaarheid (niet voor leerlingen).
 
-## Herbouw
-
-Vanuit de repositoryhoofdmap, Python 3.11+:
+## Herbouw vanuit de repositoryhoofdmap (Python 3.11+)
 
 ```bash
 python3 -m venv .venv
 . .venv/bin/activate
 pip install -r work/requirements.txt
-python3 work/schems.py     # eigen schema's opnieuw tekenen
-python3 work/build.py
-python3 work/build.py --teacher
-python3 work/build.py --source-worksheets
-python3 work/build.py --source-worksheets --teacher
+python3 work/schems.py                    # alleen wanneer schema's gewijzigd zijn
+python3 work/blanco_verslag.py
+python3 work/build.py                    # leerling + bestellijst
+python3 work/build.py --teacher          # leerkracht
 python3 work/render_pdf.py Labocursus_6BCW_LEERLING.docx
 python3 work/render_pdf.py Labocursus_6BCW_LEERKRACHT.docx
-python3 work/render_pdf.py Bronpractica_6BCW_LEERLING.docx
-python3 work/render_pdf.py Bronpractica_6BCW_LEERKRACHT.docx
 python3 work/render_pdf.py Bestellijst_nieuw_materiaal_6BCW.docx
 python3 work/controle.py
-python3 work/package.py      # ververs de download-ZIP pas na de inhoudelijke controle
+python3 work/package.py                  # bouw ZIP pas na controle
 ```
 
-`build.py` regenereert bij de eerste aanroep ook de bestellijst. Met `--source-worksheets` maakt dezelfde generator de bronproeven als zelfstandige werkbladen uit `source_sheets.py`; zonder die vlag bouwt hij de thematische cursus. `labs.py` bevat alleen leerlingvragen en werkplangegevens; **de brongetrouwe correcties staan onderaan dit bestand** (proefopstellingen, ingevulde originele meetstippen en t′-kolommen). `answers.py` bevat alle modelantwoorden en leerkrachtinhoud. `deel1.py` bevat de inleiding, `rubric_data.py` de letterlijk uit de 5BCW-referentiecursus overgenomen 10×5-rubric, `kit.py`/`omml.py` de Word- en OMML-hulpen. `schems.py` genereert de eigen schema's in `figs/`. `render_pdf.py` gebruikt Mammoth + xhtml2pdf en het meegeleverde DejaVu-lettertype (`fonts/LICENSE.txt`); Word-pagina-einden en typografie zijn **niet pixelidentiek** aan de PDF-leesversies. OfficeMath blijft in de DOCX als echte OMML; voor de PDF worden leesbare tekstequivalenten ingevoegd. De Word-inhoudsopgave is een veld: open in Word en werk het veld in zijn geheel bij (F9) vóór de definitieve druk.
+`course_sheets.py` bepaalt de 25 afzonderlijke OVUR-bladen en de SMART-leerlijn: labo 1 krijgt een volledig voorbeeld; labo 2 kiest uit vier vragen; vanaf labo 3 formuleren leerlingen zelfstandig. `labs.py` bewaart de opstellingen, tabelkolommen en stappen, inclusief brongetrouwe protocollen en gerichte verbeteringen onderaan; `answers.py` geeft de docentsleutels. `rubric_data.py` bevat de **ongewijzigde** 5BCW-proces-/attituderubric. `build.py` voegt de gemeenschappelijke bijlagen toe; `kit.py` levert de Word-opmaak. `blanco_verslag.py` regenereert het als concept gemarkeerde spreadsheet. Bewerk eerst de Python-bron en regenereer alle uitgaven; corrigeer niet alleen één DOCX.
 
-## Bron en bewaking
+`render_pdf.py` gebruikt Mammoth/xhtml2pdf en het ingesloten DejaVu-lettertype. PDF- en Word-paginering hoeven niet precies overeen te komen. `controle.py` test 25 koppen, gescheiden antwoorden, alle t′/v-kolomparen, het onveranderde 5BCW-rubric, PDF-inhoud en het gemarkeerde spreadsheet; dit is **geen inhoudelijke aftekening** van de volledige 118 pagina’s of de daadwerkelijke schoolvoorraad.
 
-- `bronoverzicht.md` groepeert de ongeordende 118 PDF-pagina's thematisch;
-- `theorie_index.md` geeft de volgorde en hoofdstukken van de 17 theorie-PDF's;
-- `bronaftekening.md` koppelt elke bronproef aan een labo, documenteert de gerichte tekst- en protocolaudit van de eigen practica en benoemt **niet-afgevinkte** detailvergelijkingen;
-- `broninventaris.md` is de pagina-voor-pagina lijst; `figs/bron_manifest.tsv` inventariseert ingesloten rasterobjecten;
-- `controle.py` test structurele eisen (16 koppen, 16 OMML, afbeeldingen, antwoordisolatie, PDF-uitvoer), niet de juistheid van elke bronzin.
-
-De theorie-PDF's staan in `leerstof 6BCW/` op `main` van de GitHub-repository. De DOCX bevat per labo klikbare links naar de betrokken bestanden. Het bronpracticum en het leerplan staan lokaal in dezelfde map. Materiaalprijzen en voorraad zijn schattingen; apps en screenshots moeten vóór klasgebruik gecontroleerd worden.
+`bronaftekening.md` koppelt de proeven aan de voorlopige 6BCW-cursus en documenteert wat is aangepast/geschrapt. `broninventaris.md` en `figs/UITSLUITINGEN.txt` bevatten nog niet gecontroleerde vectorfiguren/uitgesloten foto's. Theorieonderwerpen volgen de PDF-volgorde in `leerstof 6BCW/`, maar de werkbladen geven bewust geen dianummers of externe links.

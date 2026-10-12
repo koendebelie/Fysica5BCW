@@ -8,12 +8,12 @@ OUTPUT=ROOT/'Fysica6BCW_fase1_download.zip'
 REQUIRED=[
  'Labocursus_6BCW_LEERLING.docx','Labocursus_6BCW_LEERLING.pdf',
  'Labocursus_6BCW_LEERKRACHT.docx','Labocursus_6BCW_LEERKRACHT.pdf',
- 'Bronpractica_6BCW_LEERLING.docx','Bronpractica_6BCW_LEERLING.pdf',
- 'Bronpractica_6BCW_LEERKRACHT.docx','Bronpractica_6BCW_LEERKRACHT.pdf',
+ 'Blanco_verslag_6BCW_CONCEPT.xlsx','geluidlab.html',
  'Bestellijst_nieuw_materiaal_6BCW.docx','Bestellijst_nieuw_materiaal_6BCW.pdf',
  'Eindrapport_6BCW_fase1.md',
  'leerstof 6BCW/Labocursus 6BCW voorlopig.pdf',
  'leerstof 6BCW/III-BCSW-d_juni_24.pdf',
+ 'Labocursus_5BCW_LEERLING.docx',  # origineel voor de rubric-reproductiecontrole
 ]
 if __name__=='__main__':
     files=REQUIRED+[str(p.relative_to(ROOT)) for p in (ROOT/'work').rglob('*')

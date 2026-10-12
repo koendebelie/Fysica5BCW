@@ -361,3 +361,15 @@ ANSWERS['L9:SMART']='Hoe veranderen k en T bij veer 1 (30–150 g) en veer 2 (50
 ANSWERS['L10:SMART']='Hoe verandert de periode T van de eigen slinger bij 10° versus 5°, metalen versus houten bolletje op 1,00 m, en bij circa tien verschillende slingerlengten, gemeten als tijd voor 20 cycli tijdens dit labo?'
 ANSWERS['L3:SMART']='Wat is g uit een 50 Hz-bandje van een vrijvallende massa en welke v₀, t_top en y_max leveren de originele handmatige en Tracker-methoden bij een verticale tennisbalworp tijdens dit labo?'
 ANSWERS['L4:SMART']='Welke positie-, snelheids- en versnellingscomponenten vind je uit een zelf ontworpen horizontale Trackerworp, en tonen drie kogelsporen op de schuine plank y ∝ x² tijdens dit labo?'
+ANSWERS.update({
+ 'L2:deel1:vraag3': 'Bij v(t′)=a t′+b is v₀=b: de constante term, dus de hoogte van de rechte bij t′=0. Stip 0 mag gekozen zijn terwijl de wagen al beweegt.',
+ 'L2:deel1:vraag4': 'De rico is Δv/Δt′ en geeft de gemiddelde versnelling a van de geregistreerde fase in m/s².',
+ 'L2:deel1:vraag5': 'Stel v=0 en los t′=-v₀/a op. Bij a>0 en v₀>0 is dit een negatieve, EXTRAPOLEERDE tijd vóór de gekozen stip 0; geen gemeten stopmoment.',
+ 'L2:deel2:vraag3': 'Bij een opwaarts positief assenstelsel is het snijpunt t_stop=-v₀/a een schatting van de tijd tot het keerpunt, MAAR alleen als het na loslaten en vóór het keerpunt geldige lineaire model tot daar toepasbaar is.',
+ 'L8:deel1:vraag1': 'ECB is eenparige cirkelvormige beweging: T ongeveer constant, r constant, gelijk aantal toeren per tijdsduur. Trein/schijf benaderen dit doordat aandrijving, wrijving en slingering kleine afwijkingen veroorzaken.',
+ 'L8:deel1:vraag2': 'f=1/T, ω=2π/T=2πf, v=ωr=2πr/T; respectievelijk T in s, f in Hz, ω in rad/s, v in m/s.',
+ 'L8:deel1:vraag3': 'ω is voor beide streepjes gelijk (dezelfde plaat/zelfde omlooptijd); v=ωr groeit met r.',
+ 'L8:deel1:vraag4': 'De aandrijving bereikt pas na opwarmen een stabiele snelheid; tijdens optrekken verandert T en zou de gemiddelde v het stabiele bedrijf niet beschrijven.',
+})
+ANSWERS['L5:docent'] += ['Zet klasoverzicht vóór aanvang klaar: verdeel 2,3,4,5 hangschijfjes en 50,100,150,200 g ballast over de groepen. Elke groep meet minimaal twee bandjes per toegewezen conditie en deelt F, m_tot, a₁, a₂ en a_gem; bespreek spreiding vóór het a(F)- en a(1/m)-besluit.']
+ANSWERS['L8:docent'] += ['ECB-inleiding uit eigen lespraktijk: trein minstens twintig rondjes laten opwarmen, trein én platenspeler vergelijken, twee radiale markeringen op de plaat. Alleen optioneel fietswiel.']
