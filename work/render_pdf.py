@@ -30,27 +30,9 @@ def _stable_image_name(self):
     return 'PmlImageObject_' + hashlib.sha256(self.getRGBData()).hexdigest()
 PmlImageReader.__str__ = _stable_image_name
 
-from labs import LABOS
+from course_guidance import FORMULA_DISPLAY
 
 ROOT=Path(__file__).resolve().parent.parent
-FORMULAS={
- 1:'v = Δx/Δt     [v] = m/s',
- 2:'a = Δv/Δt     [a] = m/s²',
- 3:'y(t) = y₀ + v₀t − ½gt²     [g] = m/s²',
- 4:'x = v₀t ; y = ½gt²     [x] = [y] = m',
- 5:'Fᵣ = mₜₒₜ·a     [Fᵣ] = N',
- 6:'W = F·s ; ΔE_z = mgh     [W] = J',
- 7:'M = F·d     [M] = N·m',
- 8:'F_cp = m·v²/r = m·ω²r     [F_cp] = N',
- 9:'T = 2π√(m/k) ; k = F/Δy     [k] = N/m',
- 10:'T = 2π√(l/g)     [T] = s',
- 11:'A = (B−O)/2 ; f = N/t     [A] = cm ; [f] = Hz',
- 12:'v = λf ; L = nλ/2     [v] = m/s',
- 13:'f = 1/T     [f] = Hz',
- 14:'a·sin θ = nλ ; θ = arctan(y/l)',
- 15:'n = sin α/sin β',
- 16:'x̄ = (x₁+x₂+x₃)/3',
-}
 
 CSS = '''
 @font-face {font-family: Dejavu; src: url("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf");}
@@ -89,20 +71,6 @@ a {color:#1F4E79;}
 def _html(docx):
     with open(docx,'rb') as f:
         raw=mammoth.convert_to_html(f).value
-    # formele OMML ontbreekt in de HTML, maar is wel aanwezig in Word: toon dezelfde symbolische formule.
-    parts=re.split(r'(<h1>LABO \d+ – .*?</h1>)',raw)
-    for i in range(1,len(parts)-1,2):
-        m=re.search(r'LABO (\d+)',parts[i]);
-        if not m:continue
-        n=int(m.group(1)); formula=FORMULAS.get(n,'')
-        if formula:
-            parts[i+1]=parts[i+1].replace('<h3>Hypothese</h3>',
-                '<p class="formula">'+html.escape(formula)+'</p><h3>Hypothese</h3>',1)
-    raw=''.join(parts)
-    # Mammoth negeert de expliciete Word-pagebreaks bij afzonderlijke bronpractica.
-    # Herstel ze zodat elk oorspronkelijk practicum als apart werkblad start.
-    raw=re.sub(r'<p><strong>(LABO \d+ · bronpracticum [2-9]\d*)',
-               r'<p style="page-break-before: always"><strong>\1',raw)
     # Vakken/kleurkaders herkennen op hun unieke titel; lege invulvakken apart stylen.
     def mark(m):
         table=m.group(0)
@@ -115,8 +83,8 @@ def _html(docx):
             cls='box antw'
         else:
             for prefix,label in [('LESDOELEN','doel'),('LEERPLANDOELEN','lp'),('VOORKENNIS','voor'),
-                                 ('VEILIGHEID //','veilig'),('STEM-ONTWERPOPDRACHT','stem'),
-                                 ('UITLEG –','uitleg'),('WAT, HOE EN WANNEER','eval'),
+                                 ('VEILIGHEID //','veilig'),('VEILIGHEID –','veilig'),('STEM-ONTWERPOPDRACHT','stem'),('OPEN ONDERZOEK','stem'),
+                                 ('UITLEG –','uitleg'),('BEGRIPPEN EN MODEL','uitleg'),('TIJDTIKKER →','uitleg'),('EVALUATIE EN INDIENEN','eval'),('MINICHECK','eval'),('WAT, HOE EN WANNEER','eval'),
                                  ('LEERKRACHTENINFO','lkr')]:
                 if first.startswith(prefix): cls='box '+label;break
         if cls=='fill':
@@ -125,6 +93,18 @@ def _html(docx):
             return table.replace('<table>','<table class="fill" width="100%">',1).replace('<td>','<td width="100%">&#160;',1)
         return table.replace('<table>','<table class="'+cls+'">',1) if cls else table
     raw=re.sub(r'<table>.*?</table>',mark,raw,flags=re.S)
+    # De DOCX bevat OfficeMath, dat Mammoth overslaat. Plaats de correcte
+    # tekstweergave NA het conceptenkader van het juiste zelfstandige werkblad;
+    # de oude themanummers zouden hier inhoudelijk fout zijn.
+    parts=re.split(r'(<h1>LABO \d+ – .*?</h1>)',raw)
+    for i in range(1,len(parts)-1,2):
+        n=int(re.search(r'LABO (\d+)',parts[i]).group(1))
+        if n not in FORMULA_DISPLAY:continue
+        match=re.search(r'<table[^>]*>.*?BEGRIPPEN EN MODEL.*?</table>',parts[i+1],flags=re.S)
+        if not match:raise ValueError(f'Begrippenkader ontbreekt bij labo {n}')
+        formula='<p class="formula">'+html.escape(FORMULA_DISPLAY[n])+'</p>'
+        parts[i+1]=parts[i+1][:match.end()]+formula+parts[i+1][match.end():]
+    raw=''.join(parts)
     def expand_blank_row(m):
         tr=m.group(0)
         cells=re.findall(r'<td[^>]*>(.*?)</td>',tr,flags=re.S)
@@ -160,8 +140,10 @@ def _make(htmlpart,landscape=False):
     css=css.replace('/usr/share/fonts/truetype/dejavu/',str(Path(__file__).resolve().parent/'fonts')+'/')
     if landscape:
         css=css.replace('font-size:8.4pt','font-size:6.5pt').replace('padding:3pt 4pt','padding:2pt 2pt')
-    # De eerste h1 van een PDF-deel krijgt geen extra pagina vóór zich.
-    htmlpart=re.sub(r'<h1>', '<h1 style="page-break-before:auto">',htmlpart,count=1)
+    # Enkel wanneer het PDF-DEEL met h1 begint, onderdrukken we een lege
+    # voorafgaande pagina. Bij de titelpagina moet 'Inhoud' wél nieuw starten.
+    if re.match(r'^\s*<h1>',htmlpart):
+        htmlpart=re.sub(r'<h1>', '<h1 style="page-break-before:auto">',htmlpart,count=1)
     doc='<!doctype html><html><head><meta charset="utf-8"><style>'+css+'</style></head><body>'+htmlpart+'</body></html>'
     output=io.BytesIO()
     result=pisa.CreatePDF(io.BytesIO(doc.encode('utf-8')),dest=output,encoding='utf-8',

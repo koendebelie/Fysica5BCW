@@ -10,6 +10,7 @@ from pathlib import Path
 import kit as K
 from labs import LABOS
 from answers import ANSWERS
+from course_guidance import G, FORMULAS, SMART_EXAMPLES
 
 ROOT=Path(__file__).resolve().parent.parent
 # (data uit labs.py, onderdelen 1-based, titel voor de leerlingen)
@@ -81,6 +82,24 @@ SHEET_SAFETY={
  (14,(2,)):['Gebruik een intacte CD. Kras of verwijder geen reflectielaag en kijk niet in de laserbundel; vang de bundel op het scherm op.'],
  (14,(3,)):['De leerkracht bedient een eventuele hete/UV-emitterende kwikdamplamp. Volg de afscherming en kijk niet in de lichtbron.'],
 }
+SHEET_SAFETY.update({
+ (1,(1,)):['Fixeer de glazen luchtbelbuis op het statief; laat haar niet vallen.',
+             'Volg bij elke stand dezelfde kant van de bel; meet herhaaldelijk en noteer de afleesnauwkeurigheid.'],
+ (1,(2,)):['Laat de leerkracht de tijdtikker en de bijbehorende lage wisselspanning controleren; geen netspanning op de tijdtikker.',
+             'Plaats een stootblok achter de baan. Schakel voeding uit vóór je carbonlint of bandje verschuift.'],
+ (3,(1,)):['Zet opvangmat en vrije valzone klaar; niemand staat onder de vallende massa.',
+             'Laat 50 Hz-triller, laagspanningsvoeding, bandje en hoog statief vóór loslaten controleren.'],
+ (3,(2,3)):['Gebruik een tennisbal en houd de ruimte tussen bal en lamp/plafond vrij.',
+                'Zet camera’s stabiel opzij; film uitsluitend de proef en respecteer de privacy van leerlingen. Leg de meetlat in hetzelfde vlak als de bal.'],
+ (4,(1,)):['Laat de bal vanaf een lage, veilige tafel in een zachte opvangbak landen; niemand staat in de baan.',
+             'Film opzij met een vaste camera en meetlat in het bewegingsvlak; laat je meetplan vooraf goedkeuren.'],
+ (4,(2,)):['Gebruik een opvangbak en laat de plank, blokken en valgeul vooraf controleren.',
+             'Gebruik weinig afwasbare verf op beschermpapier en ruim gemorste verf direct op.'],
+ (12,(1,)):['Zet de waterbak stabiel neer; houd alle snoeren en stekkers droog en schakel de voeding uit voor je water toevoegt of schermpjes wisselt.',
+              'Leerkracht controleert triller en geschikte voedingsspanning.'],
+ (12,(2,)):['Leerkracht controleert touw, statief en passende voeding; houd handen uit de buurt van het trillende touw.',
+              'Zet de voeding uit vóór je de spanning of de opstelling wijzigt.'],
+})
 TEACHER_NOTES={
  (8,(1,)):['Laat de trein minstens twintig rondjes stabiliseren. Wissel werkelijk naar de platenspeler en meet twee verschillende stralen. Het fietswiel is facultatief.'],
  (8,(2,)):['Weeg m van de stop vóór montage en let op twee uitgelijnde merktekens bij het draaien; r kan pas na stop veilig worden nagemeten.'],
@@ -109,28 +128,9 @@ def rows(headers, source):
 
 
 def intro(doc, teacher):
-    K.p(doc,'LABOCURSUS TOEGEPASTE FYSICA · 6BCW',bold=True,size=22,color='1F4E79',align='c',space_after=14)
-    K.p(doc,'HAST · leerkracht De Belie K.',align='c',size=14)
-    K.p(doc,'Leerlingenversie' if not teacher else 'Leerkrachtenversie met modelantwoorden',align='c',size=11)
-    K.p(doc,'Naam: ………………………………………………  Klas: …………  Schooljaar: …………',size=11)
-    K.h1(doc,'Inhoud')
-    for idx,(_,_,title) in enumerate(SHEETS,1):K.p(doc,f'{idx:02d} · {title}',size=9)
-    K.h1(doc,'Zo gebruik je deze cursus')
-    K.p(doc,'Elke proef heeft een eigen werkblad met Oriënteren, Voorbereiden, Uitvoeren en Reflecteren. '
-        'Voer de aangegeven proef uit met het beschikbare schoolmateriaal; vervang de opstelling niet door een andere meetmethode. '
-        'Noteer de echte ruwe gegevens en bewaar het papierbandje of de video. Laat een open werkplan eerst controleren.')
-    K.kader(doc,'ONDERZOEKSVRAGEN: SNEL ZELFSTANDIG',[
-        'Labo 1: je krijgt een volledige onderzoeksvraag en onderzoekt waarom die SMART is.',
-        'Labo 2: kies uit vier mogelijke onderzoeksvragen en verantwoord je keuze.',
-        'Vanaf labo 3: formuleer vóór de proef zelf een SMART-onderzoeksvraag; vermeld onafhankelijke en afhankelijke grootheid, gecontroleerde omstandigheden, meetwijze en de beschikbare lestijd.'
-    ],soort='uitleg',size=9.5)
-    K.kader(doc,'TIJDTIKKER EN EXCEL',[
-        'Bij 50 Hz is één tikinterval 0,020 s. Kies je om de twee stippen een meetpunt, dan is Δt = 0,040 s.',
-        'Een uit Δx/Δt berekende snelheid hoort bij de tussentijd t′ = (t_begin + t_eind)/2. In elke tijdtikkertabel staat t′ DIRECT LINKS van v: kopieer deze aangrenzende kolommen naar Excel voor de XY-grafiek v(t′).',
-        'Δt betekent tijdsduur. Δv betekent verandering in snelheid en is geen naam voor de kolom met tussentijdstippen.'
-    ],soort='uitleg',size=9.5)
-    K.p(doc,'Beoordeling: product 60 % en proces/attitude 40 %. De volledige, ongewijzigde procesrubric en het blanco verslagoverzicht staan achteraan. Raadpleeg je theoriedocumenten per onderwerp, niet op een vast dianummer.',size=9.5)
-    K.pagebreak(doc)
+    # De 5BCW-referentie is didactische basis, maar niet de oude 16-laboinleiding.
+    from course_intro import build as build_intro
+    build_intro(doc,teacher,SHEETS)
 
 
 def smart(doc, idx, lab, parts, teacher):
@@ -157,7 +157,7 @@ def smart(doc, idx, lab, parts, teacher):
                  'Schrijf O (wat verander je?), A (wat meet je?), C (wat blijft gelijk?) en hoe je meet. Eindig op “tijdens dit labo”.')
         K.tabel(doc,['Mijn onderzoeksvraag','S','M','A','R','T'],[['','','','','','']],size=8.5)
         K.invul(doc,regels=2)
-        if teacher:K.modelantwoord(doc,' / '.join(lab['delen'][j-1]['vraag'] for j in parts) + ' (met meetwijze, voorwaarden en lestijd concretiseren)',label='Mogelijke richting; pas aan per proef')
+        if teacher:K.modelantwoord(doc,SMART_EXAMPLES[idx-1],label='Mogelijke SMART-vraag; niet vooraf uitdelen')
 
 
 def build(doc,teacher):
@@ -168,10 +168,20 @@ def build(doc,teacher):
         lab=LABOS[n-1]
         K.pagebreak(doc)
         K.h1(doc,f'LABO {idx:02d} – {title}')
+        guide=G[idx-1]
         K.p(doc,'Naam: …………………………………………………   Klas: …………  Datum: ……/……/……  Groep: …………',size=9.5)
+        K.p(doc,'Mate van sturing: '+guide.steering+'  ·  Werkwijze: OVUR',size=9,color='1F4E79')
+        K.p(doc,'Rollen (wissel tijdens de meetreeks): opstelling/veiligheid ……………  meter ……………  notulist/verwerker ……………',size=9)
         K.kader(doc,'LEERPLANDOELEN',[lab['lp']],soort='lp',size=9)
         K.h2(doc,'O – ORIËNTEREN')
-        K.p(doc,'Doel: '+clean(' / '.join(lab['delen'][j-1]['titel'] for j in parts)).replace('Deel 1 –','').replace('Deel 2 –','').replace('Deel 3 –',''),size=9.5)
+        K.h3(doc,'Context')
+        K.p(doc,guide.context,size=9.7)
+        K.h3(doc,'Doel van het onderzoek')
+        K.bullets(doc,list(guide.goals),size=9.3)
+        K.h3(doc,'Oriëntatievragen (vóór je begint)')
+        for number,(question,answer) in enumerate(guide.prior,1):
+            K.vraag(doc,number,question,size=9.3);K.invul(doc,regels=1)
+            if teacher:K.modelantwoord(doc,answer)
         smart(doc,idx,lab,parts,teacher)
         K.h2(doc,'V – VOORBEREIDEN')
         material=SHEET_MATERIAL.get((n,parts))
@@ -180,7 +190,9 @@ def build(doc,teacher):
             if not material:material=lab['materiaal']
         material=list(dict.fromkeys(clean(item) for item in material))
         K.h3(doc,'Benodigdheden');K.bullets(doc,material,size=9.5)
-        K.p(doc,'Theorie: '+THEORY[n]+'. Gebruik het actuele theoriedocument; dianummers veranderen.',size=9)
+        K.p(doc,'Thema uit de theorie: '+THEORY[n]+'.',size=9)
+        K.kader(doc,'BEGRIPPEN EN MODEL – gebruik dit bij je hypothese',[guide.concept],soort='uitleg',size=9.2)
+        if idx in FORMULAS:K.formule(doc,FORMULAS[idx])
         K.kader(doc,'VEILIGHEID – laat de opstelling controleren',
                 [clean(s) for s in SHEET_SAFETY.get((n,parts),lab['veiligheid'])],soort='veilig',size=9)
         K.p(doc,'Hypothese (vóór de meting) en een korte verklaring:');K.invul(doc,regels=2)
@@ -211,7 +223,7 @@ def build(doc,teacher):
                 K.tabel(doc,extra['kop'],rows(extra['kop'],extra['rijen']),size=8.2)
             for graph in p.get('grafieken',[]):K.p(doc,'Excel/grafiek: '+clean(graph),size=9.2,color='1F4E79')
             K.p(doc,'Verwerking: '+clean(p['verwerking']),size=9.2)
-            K.p(doc,'Bewaar de ruwe data, de opstellingsschets en het papierbandje of de video:');K.invul(doc,regels=2)
+            K.p(doc,'Bewaar ruwe data en meetbewijs (bandje, schets, foto of video waar van toepassing):');K.invul(doc,regels=2)
             K.h2(doc,'R – REFLECTEREN')
             for qnum,q in enumerate(p.get('vragen',[]),1):
                 K.vraag(doc,qnum,clean(q),size=9.5);K.invul(doc,regels=2)
@@ -219,9 +231,16 @@ def build(doc,teacher):
             # Bij iedere deelproef een echt besluit vóór de volgende proef start.
             K.p(doc,'Besluit bij deze proef: toets je hypothese met concrete meetwaarden, grafiek en onzekerheid.')
             K.invul(doc,regels=3)
-        K.kader(doc,'WAT WORDT BEOORDEELD?',[
-            'Product (60 %): volledige ruwe meettabel, berekeningen, grafieken en besluit. Proces/attitude (40 %): voorbereiding, veilig werken, zelfstandig meten, samenwerken en opruimen.',
-            'Bij een open onderzoek hoort het vooraf goedgekeurde eigen werkplan. De volledige rubric en het blanco verslagoverzicht staan achteraan.'
+        K.h3(doc,'Toepassen: wat zeggen jouw gegevens buiten dit labo?')
+        K.p(doc,guide.transfer[0],size=9.4,bold=True);K.invul(doc,regels=2)
+        if teacher:K.modelantwoord(doc,guide.transfer[1],label='Mogelijke toepassing')
+        product=('poster (PDF) én bestand met de ruwe meetgegevens' if idx==25 else
+                 'ingevuld werkblad met waarnemingen en schetsen als één PDF' if idx in (10,18,19,20) else
+                 'Excel-verslag (.xlsx) met de gevraagde meettabel/grafiek en besluit')
+        K.kader(doc,'EVALUATIE EN INDIENEN',[
+            'PRODUCT (60 %): '+product+'. Lever complete ruwe gegevens, berekeningen en het onderbouwde besluit aan; controleer het door de leerkracht bevestigde verslagbestand en de deadline.',
+            'PROCES & ATTITUDE (40 %): voorbereiding, veilig werken, meetnauwkeurigheid, rolwisseling, samenwerken en opruimen; zie de ongewijzigde 5BCW-rubric in Bijlage C.',
+            'Bij een open onderzoek telt ook het vooraf goedgekeurde eigen werkplan. Vul eerst de minicheck van Deel 1 in; gebruik Bijlagen A en B voor verslag/feedback.'
         ],soort='eval',size=9)
         if teacher:
             K.teacher_note(doc,['Gebruik het aanwezige schoolmateriaal; vervang de beproefde opstelling niet zonder bespreking.',
