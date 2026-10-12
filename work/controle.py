@@ -12,6 +12,7 @@ from course_sheets import SHEET_SAFETY
 from labs import LABOS
 from answers import ANSWERS
 from rubric_data import RUBRIC
+from learning_targets import STEM, STEM_BORGING, T
 from review_data import PRODUCTBEWIJS, REFLECTIE, WERKBLAD_PDF
 from build import FIG_BEST, FIG_SHEET, EXTRA_FIGS
 from docx.oxml.ns import qn
@@ -20,6 +21,9 @@ import hashlib
 ROOT=Path(__file__).resolve().parent.parent
 assert len(SHEETS)==len(G)==len(SMART_EXAMPLES)==25 and len({title for _,_,title in SHEETS})==25
 assert len(FORMULAS)>=20 and all(len(g.prior)==2 and all(g.transfer) for g in G)
+assert len(T)==25 and set().union(*(set(t.stem) for t in T))==set(STEM)==set(range(1,7))
+assert all(len(t.additions)==len(t.checks)==2 and t.physics and t.physics_meaning and t.checkpoint for t in T)
+assert STEM_BORGING[4]==(7,) and STEM_BORGING[5]==(20,) and STEM_BORGING[6]==(25,)
 assert not any(n in (6,7) for n,_,_ in SHEETS), 'Arbeid/momenten opnieuw opgenomen'
 assert [(n,p) for n,p,_ in SHEETS[:6]]==[(1,(1,)),(1,(2,)),(2,(1,)),(2,(2,)),(3,(1,)),(3,(2,3))]
 assert [p for n,p,_ in SHEETS if n==14]==[(1,),(2,),(3,)]
@@ -94,6 +98,11 @@ assert len(figure_files)==25
 # Verifieer ook de data tegen de ECHTE 5BCW-DOCX, niet alleen tegen de Python-constante.
 source=Document(ROOT/'Labocursus_5BCW_LEERLING.docx')
 assert any([[c.text for c in row.cells] for row in t.rows]==RUBRIC for t in source.tables), '5BCW-rubric wijkt af van de referentie'
+assert sum(t.cell(0,0).text.startswith('LESDOELEN – na dit labo kan je') for t in source.tables if t.rows)==11
+assert [c.text for c in source.tables[9].rows[0].cells]==['Labo','Titel','Fysica-LPD','STEM-LPD','Sturing']
+assert '16 F' not in ' '.join(t.physics for t in T), 'lokale g is geen volledige 16 F'
+assert '22 F' not in T[17].physics and T[18].physics.startswith('22 F')
+
 
 for label in ('LEERLING','LEERKRACHT'):
  docx=ROOT/f'Labocursus_6BCW_{label}.docx';pdf=ROOT/f'Labocursus_6BCW_{label}.pdf'
@@ -121,6 +130,7 @@ for label in ('LEERLING','LEERKRACHT'):
  assert sum('EVALUATIE EN INDIENEN – WAT, HOE EN WANNEER' in t.cell(0,0).text for t in d.tables if t.rows)==25
  text='\n'.join(p.text for p in d.paragraphs)+'\n'+'\n'.join(' | '.join(c.text for c in row.cells) for t in d.tables for row in t.rows)
  assert 'BRONPRACTICA' not in text.upper() and 'oorspronkelijk practicum' not in text.lower()
+ assert '(eigen schema naar' not in text.lower() and '(schema naar' not in text.lower()
  assert 'Bron: Labocursus' not in text and 'Soundry' not in text
  assert 'blz. 79' not in text and 'theorie-PDF' not in text
  assert 'LUCHTBEL' in text.upper() and 'KLASOVERZICHT a(F)' in text and 'KLASOVERZICHT a(m)' in text
@@ -128,7 +138,14 @@ for label in ('LEERLING','LEERKRACHT'):
  assert 'A. Wat gebeurt er met een wagen' in text and 'Vanaf labo 03' in text
  assert 'CARBONLINT' in text and '4π²/rico' in text and 'Mach-kegel' in text
  assert 'TWINTIG rondjes' in text and 'krijtstreepjes' in text and 'motorkop' in text
- assert '1.1 De OVUR-methode' in text and '1.4 Het verslag' in text and '1.5 Overzicht' in text
+ assert '1.1 De OVUR-methode' in text and '1.4 Het verslag' in text and '1.5 Lesdoelen' in text and '1.6 Overzicht' in text
+ assert sum(t.cell(0,0).text.startswith('LESDOELEN – na dit labo kan je') for t in d.tables if t.rows)==25
+ assert sum(t.cell(0,0).text.startswith('LEERPLANDOELEN – wat oefen je hier?') for t in d.tables if t.rows)==25
+ assert sum('CONTROLEER ZELF – hoe toon je deze lesdoelen aan?' in p.text for p in d.paragraphs)==25
+ assert 'STEM 4 S – ontwerp vóór de worp' in text and 'STEM 5 S – maatschappelijke vraag' in text and 'STEM 6 S – bewijs van de volledige onderzoekscyclus' in text
+ assert 'Bijlage G – STEM-doelkaart' in text
+ assert 'dezelfde originele videodata' in text.lower() and 'passieve demping' in text and 'zeven onderzoeksfasen' in text
+
  assert 'Blanco_verslag_6BCW_CONCEPT.xlsx' in text and 'De leerkracht bevestigt' in text
  assert 'één week na het labo' in text and '23.59 u' in text and 'product + 0,40 × proces' in text
  assert sum(p.text=='Context' and p.style.name=='Heading 3' for p in d.paragraphs)==25
@@ -164,6 +181,18 @@ for label in ('LEERLING','LEERKRACHT'):
  assert 'LABO 25' in pdftext and 'Bijlage F' in pdftext
  assert any('puntbron lage f' in page.get_text() and 'situatie' in page.get_text() for page in pdfdoc), 'Golfbaktabel is gesplitst zonder kop'
  assert ('modelantwoord' not in pdftext.lower()) if label=='LEERLING' else ('modelantwoord' in pdftext.lower())
+ # Bewijs zit in het juiste werkblad, niet alleen ergens in een bijlage.
+ sections={};current=None
+ for pg in pdfdoc:
+  page_text=pg.get_text()
+  m=re.search(r'^LABO (\d{2}) –',page_text,re.M)
+  if m:current=int(m.group(1))
+  if current and current<=25:sections[current]=sections.get(current,'')+page_text
+ for i in range(1,26):
+  assert 'LESDOELEN – na dit labo' in sections[i] and 'DOELCHECK' in sections[i],(label,i)
+ assert all(x in sections[7] for x in ('STEM 4 S – ontwerp vóór de worp','test en verbeter je opvangontwerp','hertoets aan video'))
+ assert all(x in sections[20] for x in ('STEM 5 S – maatschappelijke vraag','dB','passieve demping','actieve ruisonderdrukking'))
+ assert all(x in sections[25] for x in ('STEM 6 S – bewijs','Onderzoeksmethode','Gegevensverzameling','Rapportering / poster'))
  print(f'{label}: {len(headings)} labo’s, {len(d.tables)} tabellen, {len(FORMULAS)} OfficeMath-formules, {len(d.inline_shapes)} figuren, PDF {len(pdfdoc)} pagina’s; rubric letterlijk.')
 
 report=load_workbook(ROOT/'Blanco_verslag_6BCW_CONCEPT.xlsx')
@@ -171,4 +200,6 @@ assert report.active['B2'].value.startswith('TOEGEPASTE FYSICA')
 assert report.active['B3'].value.startswith('Niet identiek')
 assert report.active['E86'].value=='=SUM(E82:E85)'
 assert 'Smartschool' in report.active['B88'].value
-print('OK — 25 tabelsets/OVUR-cycli, alle reflecties en antwoordsets, passende figuren en evaluatiekaders gecontroleerd; schoolvoorraad en volledige 118-pagina-bronvergelijking blijven open')
+assert 'STEM-doelkaart' in report.sheetnames
+assert [report['STEM-doelkaart'].cell(r,1).value for r in range(3,9)]==[f'{k} S' for k in range(1,7)]
+print('OK — 25 werkbladen met 4 lesdoelen en 2 controlepunten, zes STEM-bewijslijnen inclusief 4 S/5 S/6 S, 25 OVUR-cycli en rubric intact; fysieke validatie blijft open')

@@ -9,6 +9,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.page import PageMargins
+from learning_targets import STEM
 
 OUT=Path(__file__).resolve().parent.parent/'Blanco_verslag_6BCW_CONCEPT.xlsx'
 DARK='173859'; BLUE='DDEEF4'; PALE='F2F7FA'
@@ -72,5 +73,40 @@ s.freeze_panes='B30'
 s.sheet_properties.pageSetUpPr.fitToPage=True
 s.page_setup.orientation='landscape';s.page_setup.paperSize=s.PAPERSIZE_A4;s.page_setup.fitToWidth=1;s.page_setup.fitToHeight=3
 s.print_options.horizontalCentered=True;s.print_area='B2:H88';s.page_margins=PageMargins(left=.3,right=.3,top=.5,bottom=.5,header=.2,footer=.2)
+kaart=w.create_sheet('STEM-doelkaart')
+kaart.sheet_view.showGridLines=False
+for col,width in {'A':13,'B':55,'C':67,'D':27,'E':26,'F':55}.items():
+ kaart.column_dimensions[col].width=width
+kaart.merge_cells('A1:F1');kaart['A1']='STEM-DOELKAART 6BCW · bewijs en feedforward (geen extra cijfer)'
+kaart['A1'].font=Font(size=14,bold=True,color='FFFFFF')
+kaart['A1'].fill=PatternFill('solid',fgColor=DARK)
+kaart.append(['Leerplandoel','Wat moet je aantonen?','Verplicht bewijs in deze cursus',
+              'Vindplaats','Nog niet / op weg / aangetoond','Feedback + volgende stap'])
+verplicht={
+ 1:'Labo 04/07/15/25: vraag, hypothese, data en besluit.',
+ 2:'Labo 02/09/21/25: symbolen, SI, meetresolutie, beduidende cijfers en machten van tien.',
+ 3:'Labo 05/12/21/25: veilige opstelling, betrouwbaar meetbewijs en duurzaam opruimen.',
+ 4:'Labo 07: twee opvangontwerpen, model, videotoets en hertoets na bijsturing.',
+ 5:'Labo 20: dB-berekening en twee maatschappelijke perspectieven op geluidsbeperking.',
+ 6:'Labo 25: alle zeven fasen in plan, ruwe data en poster.'
+}
+for k,betekenis in STEM.items():
+ r=k+2
+ kaart.cell(r,1,f'{k} S');kaart.cell(r,2,betekenis);kaart.cell(r,3,verplicht[k])
+ for col in range(1,7):
+  c=kaart.cell(r,col);c.alignment=Alignment(vertical='top',wrap_text=True)
+  c.border=Border(bottom=Side(style='thin',color='B8CEDA'))
+ kaart.row_dimensions[r].height=60
+for c in kaart[2]:
+ c.font=Font(bold=True,color=DARK);c.fill=PatternFill('solid',fgColor=BLUE)
+ c.alignment=Alignment(wrap_text=True,vertical='top')
+kaart.row_dimensions[2].height=32
+kaart.merge_cells('A10:F10')
+kaart['A10']='De docent kent geen zes bonuspunten toe: zie product /10 (60 %) en proces /10 (40 %) in Bijlage B/C.'
+kaart['A10'].alignment=Alignment(wrap_text=True)
+kaart.sheet_properties.pageSetUpPr.fitToPage=True
+kaart.page_setup.orientation='landscape';kaart.page_setup.paperSize=kaart.PAPERSIZE_A3
+kaart.page_setup.fitToWidth=1;kaart.page_setup.fitToHeight=1
+kaart.print_area='A1:F10'
 w.save(OUT)
 print(OUT)

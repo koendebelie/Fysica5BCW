@@ -7,6 +7,7 @@ Bewust geen didactisch onjuiste 5BCW-elektriciteitsvoorbeelden of verouderde
 import kit as K
 from course_guidance import G
 from labs import LABOS
+from learning_targets import T, STEM, STEM_BORGING
 
 
 def build(doc,teacher,sheets):
@@ -32,9 +33,10 @@ def build(doc,teacher,sheets):
         size=9,italic=True)
     fallback=[(0,'Deel 1 · Werken en leren in het fysica-labo')]
     fallback += [(0,f'LABO {i:02d} · {title}') for i,(_,_,title) in enumerate(sheets,1)]
-    fallback += [(0,f'Bijlage {letter} · {title}') for letter,title in zip('ABCDEF',
+    fallback += [(0,f'Bijlage {letter} · {title}') for letter,title in zip('ABCDEFG',
        ('Verslagsjabloon: opbouw en checklist','Productevaluatie','Proces- en attituderubric',
-        'Zelfreflectie en peer-evaluatie','Begrippen en formules','Tracker en tijdtikker'))]
+        'Zelfreflectie en peer-evaluatie','Begrippen en formules','Tracker en tijdtikker',
+        'STEM-doelkaart en feedforward'))]
     K.toc(doc,fallback,levels='1-2')
     K.pagebreak(doc)
 
@@ -78,7 +80,7 @@ def build(doc,teacher,sheets):
     K.tabel(doc,['Moment','Afspraak'],[
         ['Voor de proef','Lees het veiligheidskader, controleer klemmen, baan en voeding en vraag akkoord vóór inschakelen of loslaten.'],
         ['Tijdens de proef','Houd omstanders uit val- en draaicirkel. Gebruik lage, passende voeding; houd water bij golfbak/motor van stekkers weg. Richt een laser nooit op ogen. Zet geluid zacht.'],
-        ['Na de proef','Schakel voeding uit; berg massa’s, linten, spelden en laser op; meld schade en ruim de werkplek op.'],
+        ['Na de proef','Schakel voeding uit; berg massa’s, linten, spelden en laser op; meld schade, hergebruik veilig bruikbaar materiaal en ruim de werkplek op.'],
     ],widths=[1750,7888],size=9)
     K.p(doc,'Leg meetrollen vast: opsteller/veiligheidscontrole, meter en notulist/verwerker. Wissel bij '
         'een reeks van rol, zodat ieder de meting kan uitleggen. Eén groepsproduct betekent dat iedereen '
@@ -88,7 +90,8 @@ def build(doc,teacher,sheets):
     K.tabel(doc,['Afspraak','Concreet bij deze cursus'],[
         ['Ruwe data','Noteer waarden onmiddellijk met symbool én eenheid. Verwijder een opvallend meetpunt niet zonder te onderzoeken waarom. Bewaar bandje, video of foto.'],
         ['Herhalingen','Volg het aantal uit het werkblad; bij perioden meet je vaak 10 of 20 omwentelingen tegelijk. Noteer afzonderlijke metingen vóór het gemiddelde.'],
-        ['Grootheid en eenheid','Gebruik SI-eenheden bij formules; zet g→kg en cm→m om wanneer nodig. Rond pas aan na de berekening.'],
+        ['Grootheid en eenheid','Gebruik SI-eenheden bij formules; zet g→kg en cm→m om wanneer nodig. Schrijf bv. 0,020 s = 2,0×10⁻² s en 500 nm = 5,0×10⁻⁷ m; rond pas aan na de berekening.'],
+        ['Beduidende cijfers','Noteer de resolutie/afleesnauwkeurigheid van ieder meettoestel. Rond berekende waarden niet nauwkeuriger af dan de meting toelaat.'],
         ['Excel-grafiek','Gebruik XY-spreiding met losse punten, benoemde assen en eenheden; trendlijn/vergelijking alleen als het model dat rechtvaardigt. Verbind ruwe punten niet zomaar.'],
         ['Rico en afsnede','Noem de eenheid én betekenis: v₀ is de y-asafsnede van v(t′), a de rico; bij T²(l) is de rico 4π²/g. Extrapolatie is geen meetpunt.'],
         ['Onzekerheid','Bespreek minstens één concrete bron: tikinterval, bandwrijving, reactietijd, schaal/parallax, scheve opstelling of meetspreiding. Zeg welke richting/omvang het effect heeft.'],
@@ -131,11 +134,44 @@ def build(doc,teacher,sheets):
         'Heeft ieder groepslid het geheel nagelezen en is de juiste bestandsvorm bevestigd?',
     ],soort='eval',size=9)
 
-    K.h2(doc,'1.5 Overzicht van de 25 labo’s en leerplandoelen')
-    K.p(doc,'Elk nummer hieronder is een zelfstandig werkblad. De theorie wordt per onderwerp aangeduid; '
-        'we gebruiken geen wisselende dianummers of directe bestandslinks.',size=9)
-    K.tabel(doc,['Nr.','Practicum','Mate van sturing','Leerplandoel'],[
-        [f'{i:02d}',title,G[i-1].steering,LABOS[n-1]['lp'].split(';')[0].strip()]
-        for i,(n,_,title) in enumerate(sheets,1)
-    ],widths=[500,4250,2480,2408],size=8.1)
+    K.h2(doc,'1.5 Lesdoelen en alle zes STEM-doelen: bewijs en feedback')
+    K.p(doc,'De lesdoelen bovenaan ieder blad zeggen wat je na dat labo aantoonbaar moet kunnen. '
+        'Daaronder staan de betrokken Fysica- en STEM-leerplandoelen en twee concrete controlepunten: '
+        'bewijs is een meetwaarde, ontwerp, grafiek, verklaring of besluit, niet alleen een afgevinkt nummer. '
+        'Een F-doel kan slechts gedeeltelijk in één proef aan bod komen; de beperking staat dan expliciet op het blad. '
+        'De zes STEM-doelen uit het leerplan (III-BCSW-d, blz. 17–21) zijn over de HELE cursus gespreid:',size=9.3)
+    K.tabel(doc,['STEM-LPD','Wat leer je doen?','Waar is verplicht, toetsbaar bewijs?'],[
+        [f'{k} S',STEM[k],('Labo '+', '.join(f'{i:02d}' for i in STEM_BORGING[k])+
+                        (': beide opvangontwerpen, model, videotoets en bijsturing.' if k==4 else
+                         ': dB-vergelijking en afweging van geluidstechniek voor betrokkenen.' if k==5 else
+                         ': zeven fasen in goedgekeurd plan, data en wetenschappelijke poster.' if k==6 else
+                         '; zie ook de concrete doelen op ieder werkblad.'))]
+        for k in STEM
+    ],widths=[900,4170,4568],size=8.2)
+    K.p(doc,'Onderzoek is GEEN star recept: een observatie kan een nieuwe vraag opleveren; je mag een '
+        'hypothese eerlijk herzien als je het originele bewijs bewaart. Labo 07 vereist naast de eigen '
+        'horizontale-worpmeting een kleine veilige ontwerp-/testlus (4 S), labo 20 een maatschappelijke '
+        'afweging (5 S); labo 25 doorloopt aantoonbaar alle zeven onderzoeksfasen (6 S). '
+        'Dit fysicabewijs vervangt niet de andere inhoudelijke doelen van Biologie, Chemie en Informatica '
+        'in de volledige studierichting. Behaald betekent: je laat het bewijs werkelijk zien, niet: de code staat op papier.',size=9.2)
+    K.h3(doc,'Hoe beoordeelt de leerkracht lesdoelen en STEM zonder extra punten?')
+    K.tabel(doc,['Moment','Doelbewijs','Hoe krijg je feedback / punten?'],[
+        ['Vooraf, formatief','Vraag, hypothese, variabelen, veiligheids- en ontwerpplan; bij labo 07 beide opvangvarianten.','De leerkracht geeft gerichte feedback en keurt risico’s goed vóór meten. Een fout verbeteren is hier leren, nog geen apart cijfer.'],
+        ['Tijdens, formatief + observatie','Ruwe data, meetresolutie, SI, machten van tien, veilige samenwerking; één tussentijds meetpunt controleren.','Bijsturen met een volgende actie; individueel geobserveerd proces volgens de ONGEWIJZIGDE rubric C (/10, 40 %).'],
+        ['Na afloop, product','Onderzoeksvraag/plan; tabellen/grafiek/ontwerptest; conclusie/maatschappelijke keuze of postercyclus.','Groepsproduct /10: verkennen 2, uitvoeren 3, concluderen 3, verzorging/indienen 2 (Bijlage B); dit telt voor 60 %. 4 S, 5 S en 6 S zitten IN deze punten.'],
+        ['Feedforward','Bespreek met de twee controlepunten bovenaan je blad welk bewijs ontbreekt of overtuigt.','Schriftelijke productfeedback en individuele procesfeedback: benoem een sterk punt, een tekort én een haalbare volgende stap; peerfiche alleen indien aangekondigd.'],
+    ],widths=[1750,3990,3898],size=8.4)
+    K.p(doc,'Differentiatie: gebruik bij een moeilijkere opgave het voorbeeld van een tabel, een '
+        'rekenstap of gerichte docentfeedback; wie sneller werkt onderzoekt een extra onzekerheid of '
+        'alternatief. De vereiste doelen en veiligheidsgrenzen blijven voor iedereen gelijk. '
+        'Een hogere orde in een rooster of een onverwacht meetpunt hoeft geen extra cijfer te geven; '
+        'de argumentatie met eigen data bepaalt de kwaliteit.',size=9.3)
+
+    K.h2(doc,'1.6 Overzicht van de 25 labo’s en leerplandoelen')
+    K.p(doc,'Elk nummer hieronder is een zelfstandig werkblad. Fysica-codes met “deelvaardigheid” '
+        'of “ondersteuning” betekenen niet dat die hele leerplandoelen in dit ene practicum afgetekend zijn.',size=9)
+    K.tabel(doc,['Nr.','Practicum','Sturing','Fysica-LPD','STEM-LPD'],[
+        [f'{i:02d}',title,G[i-1].steering,T[i-1].physics,', '.join(f'{k} S' for k in T[i-1].stem)]
+        for i,(_,_,title) in enumerate(sheets,1)
+    ],widths=[490,3400,1800,2050,1898],size=7.8)
     K.pagebreak(doc)

@@ -13,6 +13,7 @@ from pathlib import Path
 
 import kit as K
 from rubric_data import RUBRIC
+from learning_targets import STEM, STEM_BORGING
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -91,6 +92,16 @@ def appendices(doc, teacher):
         ['4. Attitude en verzorging','2','Gevraagde bestandssoort, op tijd ingediend, feedbackblok bewaard, verzorgd en aantoonbaar als groep.','Verkeerd sjabloon • te laat • instructietekst niet verwijderd']
     ],widths=[2200,600,4438,2400],size=8.8)
     K.p(doc,'De 2 productpunten voor bestandsvorm, tijdigheid en verzorging beoordelen het INGELEVERDE product; de individuele werkhouding tijdens het practicum staat uitsluitend in Bijlage C. Product- en procespunten worden elk eerst /10 berekend: eindpunt = 0,60 × product + 0,40 × proces.',size=9.5)
+    K.h3(doc,'STEM-doelbewijs binnen deze /10, geen bonuspuntentabel')
+    K.tabel(doc,['STEM-doel','Waar beoordeel je het productbewijs?','Wat is minimaal zichtbaar?'],[
+        ['1 S + 6 S','/2 vraag/plan en /3 besluit','Een toetsbare eigen vraag en een controleerbare conclusie; bij labo 25 alle zeven onderzoeksfasen.'],
+        ['2 S + 3 S','/3 uitvoeren, en individueel proces in Bijlage C','Originele meetreeks met SI, beduidende cijfers, nauwkeurigheid; veilige opstelling en echte observatie. Geen dubbel procespunt.'],
+        ['4 S – labo 07','/2 model/keuze; /3 test; /3 besluit/bijsturing','Twee opvangvarianten met x≈v₀√(2h/g), twee keer getoetst aan originele video (voor en na bijsturing).'],
+        ['5 S – labo 20','/3 analyse; /3 afgewogen besluit','dB-rekenstap, twee maatregelen, twee betrokkenen en minstens één beperking.'],
+    ],widths=[1450,2330,5858],size=8.2)
+    K.p(doc,'De docent noteert per doel in Bijlage G aangetoond / op weg / nog niet, citeert het bewijs en '
+            'geeft één volgende stap. Het hele STEM-leerplan omvat ook andere vakken: deze cursus '
+            'tekent uitsluitend de hier zichtbare fysica-gerelateerde doelbewijzen af.',size=9.2)
     K.p(doc,'Bij het open onderzoek telt bij onderdeel 1 de eigen vraag en het plan; bij onderdeel 3 de kwaliteit '
             'van de wetenschappelijke poster. Een peerfactor kan alleen worden toegepast wanneer de leerkracht dit vooraf aankondigt.',size=9.5)
 
@@ -198,6 +209,33 @@ def appendices(doc, teacher):
         K.teacher_note(doc,['De werking van Tracker moet vóór de eerste meting op de schoollaptop getest worden. '
                   'Controleer de actuele schoolversie en voeg echte screenshots van het lokale menu toe vóór verspreiding.',
                   'Gebruik de geteste laagspanningsvoeding bij de tijdtikker; de werkelijke typeplaat en schoolvoeding zijn leidend.'])
+
+
+    _start_appendix(doc,'Bijlage G – STEM-doelkaart: bewijs, feedback en volgende stap')
+    K.p(doc,'Groep: ………………………  Klas: ………  Periode: ………………  Leerkracht: ………………………',size=9.5)
+    K.p(doc,'De zes STEM-doelen zijn leerplandoelen, geen zes bijkomende punten. Schrijf per doel '
+            'waar het bewijs in je werk staat. De leerkracht noteert nog niet / op weg / aangetoond '
+            'en één concrete volgende stap. Een doel is niet automatisch behaald omdat het op een blad staat.',size=9.5)
+    evidence={
+        1:'Onderzoeksvraag, hypothese, ruwe data, onderbouwd besluit (o.a. 04, 07, 15, 25).',
+        2:'Symbool, SI, resolutie, beduidende cijfers, machten van tien (o.a. 02, 09, 21).',
+        3:'Veiligheidscontrole, juist meetinstrument, duurzaam opruimen en brondata (o.a. 05, 12, 21).',
+        4:'Labo 07: twee opvangvarianten, formule/model, videotoets, bijsturing en hertoets.',
+        5:'Labo 20: geluidsadvies met dB-getallen, techniek, twee betrokkenen en beperking.',
+        6:'Labo 25: plan, goedkeuring, data, analyse, conclusie en poster; zeven fasen.',
+    }
+    K.tabel(doc,['LPD','Verplicht zichtbaar bewijs','Vindplaats in mijn werk','Status + datum','Feedforward'],[
+        [f'{k} S',evidence[k],'','',''] for k in STEM
+    ],widths=[590,3910,1920,1530,1688],size=8.2)
+    K.p(doc,'Terugblik leerling: wat kan ik aantonen met getallen, en wat moet ik volgende keer oefenen?')
+    K.invul(doc,regels=3)
+    if teacher:
+        K.teacher_note(doc,['Noteer een vindplaats in het origineel (werkblad/Excel/video/poster) en '
+                            'een observeerbaar sterk punt en verbeteractie. Status is bewijsgericht, '
+                            'geen nieuw cijfer buiten product 60 % / proces 40 %.',
+                            '4 S vereist een ontwikkellus, 5 S een maatschappelijke afweging en '
+                            '6 S een volledige cyclus. Ontbrekend werk uit andere wetenschapsvakken '
+                            'niet automatisch als behaald aftekenen.'])
 
 
 def order_list():

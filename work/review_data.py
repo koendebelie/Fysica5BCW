@@ -44,7 +44,7 @@ PRODUCTBEWIJS = [
  'Goedgekeurd open plan, bandje en v(t′)-fit met stopmoment en geldigheidsgebied.',
  'Valbandje, v(t′)-fit en vergelijking van g met de verwachte waarde.',
  'Handmatige meetreeks én Tracker-baan, met vergelijking en videomeetbewijs.',
- 'Goedgekeurd meetplan en Tracker-metingen met x(t) en y(t) en grafieken.',
+ 'Goedgekeurd meetplan en Tracker-metingen x(t), y(t); TWEE opvangontwerpen, berekende landing/marge, videotoets en bijgestelde oplossing.',
  'Sporen op papier voor drie hellingen, meettabel en toets van y tegen x².',
  'Eigen ritten én gemeenschappelijke a(F)- en a(1/m)-klastabellen met twee grafieken.',
  'Krachtenconstructie op schaal, dynamometermeting en vergelijking met onzekerheid.',
@@ -57,12 +57,12 @@ PRODUCTBEWIJS = [
  'Vrije eigenfrequentie en gedwongen A(f)-resonantiecurve met uitleg.',
  'Appletbeelden én foto’s/metingen van de vijf fysieke golfbakexperimenten.',
  'Schets/foto van knopen en buiken voor vier standen met berekening λ en v.',
- 'Beelden van tonen/zwevingen, Dopplerschets en vergelijking van harmonischen/klankkleur.',
+ 'Beelden van tonen/zwevingen, Dopplerschets, harmonischen; dB-rekenstap en advies met twee maatschappelijke perspectieven.',
  'Vier roosterreeksen met maxima links/rechts, λ per rooster en onzekerheid.',
  'CD-maxima, ringstralen, sporenafstand, aantal sporen en spoorlengte.',
  'Twee roosterreeksen met kleurgrenzen én schets van continu en lijnenspectrum.',
  'Schetsen van de speldenlijnen, zes hoekparen en vergelijking van brekingsindexen.',
- 'Goedgekeurd plan, originele meettabel/grafiek, wetenschappelijke poster en taakbijdragen.',
+ 'Goedgekeurd plan, originele meettabel/grafiek, wetenschappelijke poster met zeven onderzoeksfasen en taakbijdragen.',
 ]
 assert len(PRODUCTBEWIJS)==25
 WERKBLAD_PDF={10,18,19,20}

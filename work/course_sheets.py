@@ -11,6 +11,7 @@ import kit as K
 from labs import LABOS
 from answers import ANSWERS
 from course_guidance import G, FORMULAS, SMART_EXAMPLES
+from learning_targets import T
 
 ROOT=Path(__file__).resolve().parent.parent
 # (data uit labs.py, onderdelen 1-based, titel voor de leerlingen)
@@ -169,15 +170,26 @@ def build(doc,teacher):
         K.pagebreak(doc)
         K.h1(doc,f'LABO {idx:02d} – {title}')
         guide=G[idx-1]
+        target=T[idx-1]
         K.p(doc,'Naam: …………………………………………………   Klas: …………  Datum: ……/……/……  Groep: …………',size=9.5)
         K.p(doc,'Mate van sturing: '+guide.steering+'  ·  Werkwijze: OVUR',size=9,color='1F4E79')
         K.p(doc,'Rollen (wissel tijdens de meetreeks): opstelling/veiligheid ……………  meter ……………  notulist/verwerker ……………',size=9)
-        K.kader(doc,'LEERPLANDOELEN',[lab['lp']],soort='lp',size=9)
         K.h2(doc,'O – ORIËNTEREN')
         K.h3(doc,'Context')
         K.p(doc,guide.context,size=9.7)
-        K.h3(doc,'Doel van het onderzoek')
-        K.bullets(doc,list(guide.goals),size=9.3)
+        K.kader(doc,'LESDOELEN – na dit labo kan je …',
+                [f'{i}. '+clean(g)[0].lower()+clean(g)[1:] for i,g in enumerate((*guide.goals,*target.additions),1)],soort='doel',size=9)
+        K.kader(doc,'LEERPLANDOELEN – wat oefen je hier?',
+                ['Fysica '+target.physics+': '+target.physics_meaning,
+                 'STEM '+', '.join(f'{k} S' for k in target.stem)+': zichtbaar bewijs via je plan, metingen en besluit. '
+                 'Zie de doelenmatrix in Deel 1; een code is geen automatisch behaald doel.'],soort='lp',size=8.8)
+        K.p(doc,'CONTROLEER ZELF – hoe toon je deze lesdoelen aan?',bold=True,size=9)
+        K.bullets(doc,list(target.checks),size=9)
+        K.h3(doc,'DOELCHECK – toon je vier lesdoelen aan (geen extra punten)')
+        K.p(doc,'Vul dit tijdens of na het meten in. Verwijs per nummer naar een meetrij, grafiek, ontwerp of besluit. De leerkracht noteert '
+                'nog niet / op weg / aangetoond met één volgende stap; gebruik Bijlage G voor de zes STEM-doelen.',size=8.9)
+        K.tabel(doc,['Lesdoel hierboven','Mijn vindplaats / meetgegeven','Status + feedback leerkracht'],
+                [[str(i),'',''] for i in range(1,5)],widths=[1550,4400,3688],size=8.3)
         K.h3(doc,'Oriëntatievragen (vóór je begint)')
         for number,(question,answer) in enumerate(guide.prior,1):
             K.vraag(doc,number,question,size=9.3);K.invul(doc,regels=1)
@@ -199,6 +211,23 @@ def build(doc,teacher):
         K.p(doc,'Schets de opstelling; noteer je variabelen, meetinstrumenten, aantal herhalingen en veilige grenzen:')
         K.invul(doc,regels=3)
         K.tabel(doc,['O – onafhankelijk','A – afhankelijk','C – constant','Meetwijze / eenheid'],[['','','','']],size=9)
+        if idx==7:
+            K.kader(doc,'STEM 4 S – ontwerp vóór de worp een VEILIGE opvangoplossing',[
+                'Behoud de bestaande horizontale-worp- en Trackeropstelling. Bereken de voorspelde landingsafstand x≈v₀√(2h/g) '
+                'met de gemeten tafelhoogte h en een veilige bovengrens voor v₀ die de leerkracht vooraf opgeeft of goedkeurt; maak twee schetsen van een plaats/breedte voor de bestaande zachte opvangbak.',
+                'Kies een veiligheidsmarge voor de onzekerheid in v₀ en h. Leg de twee voorstellen en het opvangplan vóór de eerste worp aan de leerkracht voor; '
+                'niemand mag in de baan staan. Gebruik later de originele videometing als test. Geen extra worp zonder docentakkoord.'
+            ],soort='stem',size=8.9)
+            K.tabel(doc,['Variant opvangbak','voorspelde x (m)','marge (m)','keuze en veiligheidsreden'],
+                    [['A','','',''],['B','','','']],size=8.3)
+        if idx==20:
+            K.kader(doc,'STEM 5 S – maatschappelijke vraag: veilig geluid zonder buitensluiten',[
+                'Een school overweegt rustplekken met passieve demping of actieve ruisonderdrukking. '
+                'Wat geven de gemodelleerde niveaus 60, 70 en 80 dB je wel en niet over geluidsintensiteit?',
+                'Vergelijk na de geluidsproef minstens twee oplossingen voor leerlingen én begeleiders: '
+                'fysisch principe, technologie, kost/toegang of batterijgebruik, veiligheid en een beperking. '
+                'Werk uitsluitend met de gegeven dB-voorbeelden; het offline geluidlab is GEEN dB-meter.'
+            ],soort='stem',size=8.9)
         K.h2(doc,'U – UITVOEREN')
         for j in parts:
             p=lab['delen'][j-1]
@@ -209,7 +238,8 @@ def build(doc,teacher):
             if not images and j==parts[0]:images=[FIG_SHEET.get(idx,FIG_BEST[n])]
             for fname,caption in images[:2]:
                 # Geen herkomstetiketten bij een figuur. Alleen nuttige labels behouden.
-                K.figuur(doc,fname,clean(caption.split('(bron:')[0].split('(schema naar')[0].strip(' .'))+'.',breedte_cm=7.8)
+                useful_caption=re.sub(r'\([^)]*(?:bron|schema naar|blz\.)[^)]*\)', '',caption,flags=re.I)
+                K.figuur(doc,fname,clean(useful_caption).strip(' .')+'.',breedte_cm=7.8)
             if p.get('open_opdracht'):
                 K.kader(doc,'OPEN ONDERZOEK – maak eerst je eigen werkplan',[clean(s) for s in p['open_opdracht']],soort='stem',size=9)
                 K.p(doc,'Mijn werkwijze vóór de goedkeuring door de leerkracht:');K.invul(doc,regels=4)
@@ -239,6 +269,41 @@ def build(doc,teacher):
         if len(parts)>1:
             K.p(doc,'Synthese: wat leren de deelproeven samen over de onderzoeksvraag?')
             K.invul(doc,regels=2)
+        if idx==7:
+            K.h3(doc,'STEM 4 S – test en verbeter je opvangontwerp')
+            K.p(doc,'Gebruik de echte videowaarde van x, de spreiding en de getekende veiligheidsmarge om A en B te toetsen. '
+                    'Welke variant werkte volgens het bewijs? Teken één bijgestuurde opvangpositie of -breedte. '
+                    'Toets deze nieuwe variant aan DEZELFDE originele videodata en onzekerheid; een extra echte worp '
+                    'mag uitsluitend als de leerkracht die veilig vindt. Bespreek waarom het model niet exact is.',size=9)
+            K.tabel(doc,['gemeten x ± onzekerheid (m)','test A/B aan video','wijziging + reden','hertoets aan video'],
+                    [['','','','']],size=8.4)
+            K.invul(doc,regels=2)
+            if teacher:K.modelantwoord(doc,'S4: x≈v₀√(2h/g); de opvangbak moet het interval van geschatte landingsplaatsen plus veiligheidsmarge omvatten. '
+                'Vergelijk beide varianten met de ORIGINELE video, kies of vergroot/verplaats de bak en toets opnieuw aan het gemeten interval. '
+                'Geen gefingeerde tweede worp; bij een afwijkend model parallax, v₀- of h-fout onderzoeken.',label='Modelantwoord STEM 4 S')
+        if idx==20:
+            K.h3(doc,'STEM 5 S – besluit over de geluidsuitdaging')
+            K.p(doc,'Reken ΔL=10 log₁₀(I₂/I₁) om: +10 dB = 10× de intensiteit en +20 dB = 100×. '
+                    'Vergelijk gegeven 60, 70 en 80 dB (géén metingen met deze app). '
+                    'Maak een beargumenteerde keuze tussen twee maatregelen; benoem fysica van fase/absorptie, '
+                    'technologie, wiskundig verschil, ten minste twee betrokkenen en een sociaal/duurzaam nadeel.',size=9)
+            K.tabel(doc,['maatregel','natuurkundig bewijs','technologie / kosten / toegang','keuze + beperking'],
+                    [['passieve demping','','',''],['actieve ruisonderdrukking','','','']],size=8.2)
+            K.invul(doc,regels=2)
+            if teacher:K.modelantwoord(doc,'70 dB betekent t.o.v. 60 dB een factor 10 in intensiteit, 80 dB factor 100; '
+                'dit is GEEN uitspraak dat de toon 10× luider wordt ervaren. Passieve demping verbruikt weinig energie '
+                'maar werkt niet bij alle frequenties; actieve tegenfase vraagt energie/elektronica en kan duur zijn. '
+                'Weeg leerling, docent, kosten/toegang en afval/batterij tegen elkaar af, met beperking van de simulatie.',label='Modelantwoord STEM 5 S')
+        if idx==25:
+            K.h3(doc,'STEM 6 S – bewijs van de volledige onderzoekscyclus')
+            K.p(doc,'Vul voor ieder van de zeven fasen de vindplaats in het goedgekeurde plan, de ruwe data '
+                    'of de poster in. Een lege fase is nog geen behaald onderzoeksdoel.',size=9)
+            K.tabel(doc,['Fase','Vindplaats / concreet bewijs','Mijn verbetering na feedback'],
+                    [[f,'',''] for f in ('Oriëntatie','Vraag + hypothese','Onderzoeksmethode','Gegevensverzameling',
+                                      'Analyse','Conclusie + onzekerheid','Rapportering / poster')],size=8)
+            if teacher:K.modelantwoord(doc,'LPD 6 S #: kijk of elke fase aantoonbaar is en samenhangt met een gekozen '
+                'fysica-inhoud. De poster bevat de vraag, gekende grenzen, vijf O-waarden, drie ruwe herhalingen '
+                'per waarde, analyse, conclusie en open bespreking van afwijkingen.',label='Modelantwoord STEM 6 S')
         K.h3(doc,'Toepassen: wat zeggen jouw gegevens buiten dit labo?')
         K.p(doc,guide.transfer[0],size=9.4,bold=True);K.invul(doc,regels=2)
         if teacher:K.modelantwoord(doc,guide.transfer[1],label='Mogelijke toepassing')
@@ -253,10 +318,16 @@ def build(doc,teacher):
             'WANNEER? Lever als groep één bestand per gevraagd type in via de Smartschool-uploadzone uiterlijk één week na het labo om 23.59 u. '
             'De leerkracht bevestigt de concrete lesdatum, uploadzone en welke schooltemplate gebruikt wordt; het beschikbare Excel-bestand heet CONCEPT.',
             'FEEDBACK: groepsproduct schriftelijk in het feedbackblok (of bij de werkblad-PDF/poster); proces individueel na observatie tijdens het labo. '
-            'Peerfactor uitsluitend indien vooraf aangekondigd. Beantwoord ook de reflectievragen.'
+            'Peerfactor uitsluitend indien vooraf aangekondigd. Beantwoord ook de reflectievragen.',
+            ('SPECIFIEK DOELBEWIJS: '+('STEM 4 S: beide ontwerpen, berekening, videotoets en bijsturing.' if idx==7 else
+                                      'STEM 5 S: dB-berekening en onderbouwde maatschappelijke keuze.' if idx==20 else
+                                      'STEM 6 S: zeven fasen met bewijs in plan, data en poster.' if idx==25 else
+                                      'Toon de twee controlepunten bovenaan aan met je ruwe data en besluit.')+
+             ' Dit telt binnen de bestaande /10-criteria, niet als extra punten.')
         ],soort='eval',size=8.9)
         if teacher:
             K.teacher_note(doc,['Gebruik het aanwezige schoolmateriaal; vervang de beproefde opstelling niet zonder bespreking.',
-                                'Vergelijk cijferwaarden met de echte opstelling en bewaar het bewijs van de ruwe meting.']
+                                'Vergelijk cijferwaarden met de echte opstelling en bewaar het bewijs van de ruwe meting.',
+                                'Formatieve tussenstop: '+target.checkpoint+' Noteer feedback bij de betreffende doelbewijzen; beoordeel pas het ingediende werk en de geobserveerde individuele bijdrage.']
                                +TEACHER_NOTES.get((n,parts),[]),title='LEERKRACHTENINFO')
     return doc
