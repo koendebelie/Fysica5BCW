@@ -512,9 +512,14 @@ def order_list():
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--teacher',action='store_true')
     ap.add_argument('--list-only',action='store_true')
+    ap.add_argument('--source-worksheets',action='store_true',
+                    help='Maak elk oorspronkelijk practicum tot een zelfstandig OVUR-werkblad')
     args=ap.parse_args()
     if args.list_only:
         print(order_list());return
+    if args.source_worksheets:
+        from source_sheets import write
+        write(args.teacher);return
     T=args.teacher
     doc=K.new_document()
     cover(doc,T); contents(doc); deel1.build(doc,T)

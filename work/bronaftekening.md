@@ -1,6 +1,6 @@
 # Bronaftekening — voorlopige 6BCW-practicumbladen
 
-**Bron:** `leerstof 6BCW/Labocursus 6BCW voorlopig.pdf` (118 PDF-pagina's). Dit document is een **traceerbaarheidskaart**, geen verklaring dat alle tekst en tekeningen letterlijk zijn overgenomen. De 16 nieuwe werkbladen zijn didactische herwerkingen met bronvermelding per deel. In de kolom 'Detailcheck' blijft de letterlijke vergelijking van elke vraag, meetrij, figuur en bronvector **open**. Vink een vakje pas af na vergelijking met het originele PDF op dat paginanummer. Bladzijde 118 is leeg.
+**Bron:** `leerstof 6BCW/Labocursus 6BCW voorlopig.pdf` (118 PDF-pagina's). Dit document is een **traceerbaarheidskaart**, geen verklaring dat alle tekst en tekeningen letterlijk zijn overgenomen. Naast de 16 thematische labo's zijn er nu **26 zelfstandig afdrukbare bronwerkbladen** (`Bronpractica_6BCW_*.docx/.pdf`); zie `work/source_sheets.py` voor hun volgorde. Zo zijn val, EVRB met beginsnelheid, open vertraagde beweging, verticale worp en horizontale worp niet afhankelijk van een overkoepelend themablad. De 16 nieuwe werkbladen zijn didactische herwerkingen met bronvermelding per deel. In de kolom 'Detailcheck' blijft de letterlijke vergelijking van elke vraag, meetrij, figuur en bronvector **open**. Vink een vakje pas af na vergelijking met het originele PDF op dat paginanummer. Bladzijde 118 is leeg.
 
 | Bron-PDF | Inhoud | Nieuwe plek | Detailcheck |
 |---|---|---|---|

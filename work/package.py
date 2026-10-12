@@ -8,6 +8,8 @@ OUTPUT=ROOT/'Fysica6BCW_fase1_download.zip'
 REQUIRED=[
  'Labocursus_6BCW_LEERLING.docx','Labocursus_6BCW_LEERLING.pdf',
  'Labocursus_6BCW_LEERKRACHT.docx','Labocursus_6BCW_LEERKRACHT.pdf',
+ 'Bronpractica_6BCW_LEERLING.docx','Bronpractica_6BCW_LEERLING.pdf',
+ 'Bronpractica_6BCW_LEERKRACHT.docx','Bronpractica_6BCW_LEERKRACHT.pdf',
  'Bestellijst_nieuw_materiaal_6BCW.docx','Bestellijst_nieuw_materiaal_6BCW.pdf',
  'Eindrapport_6BCW_fase1.md',
  'leerstof 6BCW/Labocursus 6BCW voorlopig.pdf',

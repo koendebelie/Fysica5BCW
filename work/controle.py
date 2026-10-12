@@ -40,6 +40,34 @@ def check_original_protocols():
     assert len(LABOS[12]['delen'])==3 and '443' in str(LABOS[12]['delen'][0]['rijen'])
 
 
+def check_source_booklet(label):
+    """Elke oude bronproef heeft ook een zelfstandig afdrukbaar OVUR-werkblad."""
+    from source_sheets import SHEETS
+    path=ROOT/f'Bronpractica_6BCW_{label}.docx'
+    doc=Document(path)
+    titles=[p.text for p in doc.paragraphs if p.style.name.startswith('Heading 1') and p.text.startswith('PRACTICUM ')]
+    assert len(titles)==len(SHEETS)==26,titles
+    assert 'EVRB met beginsnelheid' in titles[2]
+    assert 'vertraagde beweging' in titles[3]
+    assert 'De valbeweging' in titles[4]
+    assert 'De verticale worp' in titles[5]
+    assert 'horizontale worp' in titles[6]
+    for table in doc.tables:
+        if not table.rows:continue
+        header=[c.text for c in table.rows[0].cells]
+        if 't′ (s)' in header:
+            pos=header.index('t′ (s)')
+            assert pos+1<len(header) and ('v' in header[pos+1] or '⟨v⟩' in header[pos+1]),header
+    text=' '.join(c.text for t in doc.tables for r in t.rows for c in r.cells)
+    if label=='LEERLING':assert 'modelantwoord' not in text.lower()
+    else:assert text.lower().count('modelantwoord')>20
+    pdf=pymupdf.open(ROOT/f'Bronpractica_6BCW_{label}.pdf')
+    assert len(pdf)>50
+    assert len({img[0] for page in pdf for img in page.get_images()})>=20
+    assert all(len(page.get_text())>100 for page in pdf)
+    print('BRONWERKBLADEN',label,len(titles),'zelfstandige proeven, PDF',len(pdf),'blz.')
+
+
 def check_doc(label):
     path=ROOT/f'Labocursus_6BCW_{label}.docx'
     d=Document(path)
@@ -85,5 +113,6 @@ if __name__=='__main__':
     assert all(l['nr'] in THEORY_LABS for l in LABOS)
     check_original_protocols()
     check_doc('LEERLING');check_doc('LEERKRACHT')
+    check_source_booklet('LEERLING');check_source_booklet('LEERKRACHT')
     f=pymupdf.open(ROOT/'Bestellijst_nieuw_materiaal_6BCW.pdf');assert len(f)>0
     print('OK — technische controles; geen inhoudelijke goedkeuring van alle 118 bronpagina’s')
