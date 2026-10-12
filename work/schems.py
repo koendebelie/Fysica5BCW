@@ -476,10 +476,68 @@ def cd_sporen():
     f.save('sch_cd_sporen.png')
 
 
+def verticale_worp_tweecamera():
+    """Privacyvriendelijk overzicht van de ECHTE tweecamera-opstelling (bron p. 16–20)."""
+    f=Fig(900,460)
+    f.line((100,380),(800,380),INK,3)
+    f.text((650,390),'vloer: y = 0',FS)
+    f.line((560,75),(560,382),INK,3)
+    for y,lab in [(355,'0,3 m'),(265,'0,6 m'),(175,'0,9 m'),(85,'1,2 m')]:
+        f.line((548,y),(572,y),INK,2);f.text((577,y),lab,FS,anchor='lm')
+    f.ellipse((425,340,451,366),fill='#FFF0C2',outline=INK)
+    f.arrow((438,335),(438,85),GREEN,3)
+    f.text((365,75),'top y_max',FB,ACC)
+    f.text((400,373),'loslaatpositie y₀',FS,ACC,anchor='rb')
+    f.rect((115,70,210,120),fill='#E8F1FA',outline=ACC)
+    f.text((162,96),'camera 1',FS,ACC,anchor='mm')
+    f.dash((212,96),(438,90),GREY)
+    f.text((120,132),'hoogste punt filmen',FS)
+    f.rect((115,285,210,335),fill='#E8F1FA',outline=ACC)
+    f.text((162,311),'camera 2',FS,ACC,anchor='mm')
+    f.dash((212,311),(438,352),GREY)
+    f.text((120,347),'loslaten filmen',FS)
+    f.text((495,415),'bal en meetlat even ver van camera',FS,GREEN,anchor='mb')
+    f.save('sch_verticale_worp_tweecamera.png')
+
+
+def luchtbel_twee_standen():
+    f=Fig(780,400)
+    f.line((205,335),(205,75),ACC,15)
+    f.ellipse((198,173,212,188),fill='#E6F7FF',outline=INK)
+    f.text((185,55),'90°',FB,ACC)
+    f.line((450,335),(625,155),ACC,15)
+    f.ellipse((510,267,525,282),fill='#E6F7FF',outline=INK)
+    f.text((580,95),'45°',FB,ACC)
+    for x,y in [(205,335),(205,95),(450,335),(617,160)]:
+        f.ellipse((x-3,y-3,x+3,y+3),fill=RED,outline=RED)
+    f.text((205,365),'0–100 cm',FS,anchor='mm')
+    f.text((545,365),'dezelfde voorkant van de bel volgen',FS,anchor='mm')
+    f.save('sch_luchtbel_twee_standen.png')
+
+
+def tijdtikker_wagentje():
+    f=Fig(800,340)
+    f.line((75,270),(735,270),INK,4)
+    f.rect((430,175,600,260),fill='#FFF0C2',outline=INK)
+    f.ellipse((455,245,482,272),fill=INK)
+    f.ellipse((555,245,582,272),fill=INK)
+    f.text((515,165),'elektrisch wagentje',FS,ACC,anchor='mm')
+    f.rect((95,188,245,258),fill='#E8F1FA',outline=ACC)
+    f.text((170,213),'tijdtikker',FS,ACC,anchor='mm')
+    f.text((170,241),'50 Hz / 6 V~',FS,ACC,anchor='mm')
+    f.line((245,228),(432,228),GREY,7)
+    for x in range(265,420,19): f.ellipse((x-2,225,x+2,229),fill=RED)
+    f.text((327,200),'papierbandje met carbonlint',FS,ACC,anchor='mm')
+    f.arrow((615,215),(690,215),GREEN,3)
+    f.text((685,190),'rijrichting',FS,GREEN,anchor='mm')
+    f.save('sch_tijdtikker_wagentje.png')
+
+
 ALL = [helling_sensor, worp, kracht_wagentje, wrijving, val_fluïdum, veerpistool,
        conische_slinger, massa_veer, slinger, golfbak, melde, resonantie,
        geluid_buis, rooster, energie_achtbaan, valproef, lichtbreking, hefboom,
-       geluid, cd_sporen]
+       geluid, cd_sporen, verticale_worp_tweecamera, luchtbel_twee_standen,
+       tijdtikker_wagentje]
 
 if __name__ == '__main__':
     for fn in ALL:

@@ -71,12 +71,13 @@ def build(doc, T):
     K.tabel(doc,
             ["Niveau", "Wie bepaalt wat?", "Labo's"],
             [["Gesloten", "Vraag, werkwijze en tabel gegeven – jij meet, noteert en redeneert nauwkeurig.",
-              "1, 12, 13 (basisdelen)"],
-             ["Begeleid", "Jij formuleert de vraag en kiest meetstrategie, variabelen, bereik "
-                          "en tabelopbouw. Ontwerpopdrachten met randvoorwaarden.",
-              "2–11, 14–15"],
-             ["Open", "Jij stelt het werkplan én de onderzoeksvraag op; de leerkracht keurt goed en coacht.",
-              "16"]],
+              "1; sommige basisdelen van 12 en 13"],
+             ["Begeleid", "De eigen opstelling en meetgang uit de oorspronkelijke practica zijn gegeven; "
+                          "jij verantwoordt nulpunt, meetbereik, herhalingen en verwerking.",
+              "2 deel 1; 3; 4 deel 2; 5–11; 14–15"],
+             ["Open", "Jij stelt werkplan en meetkeuzes op, binnen de originele bronopstelling; "
+                       "de leerkracht keurt plan en veiligheid goed.",
+              "2 deel 2 (vertragen); 4 deel 1 (horizontale worp); 9 deel 2; 16"]],
             widths=[1500, 6100, 2038])
 
     K.h3(doc, "Een goede onderzoeksvraag is SMART")
@@ -169,6 +170,11 @@ def build(doc, T):
               "laten schrijven zijn niet toegelaten: het antwoord moet in je eigen woorden en vanuit jouw "
               "metingen komen."]],
             widths=[2800, 6838])
+    K.kader(doc, "TIJDTIKKER → EXCEL: DE JUISTE TIJDKOLOM", [
+        "Bij 50 Hz valt elke stip 0,020 s later. Sla je één stip over, dan is het meetvenster Δt = 0,040 s; bij vrije val wordt iedere stip gebruikt en is Δt = 0,020 s.",
+        "Bereken Δx tussen de gekozen stippen. De snelheid v = Δx/Δt hoort bij het MIDDEN van dit venster: t′ = (t_begin+t_eind)/2. t′ is een tijdstip, niet Δt en zeker niet Δv.",
+        "Op elk tijdtikkerwerkblad staat t′ DIRECT LINKS van de v-kolom. Selecteer juist die twee aangrenzende kolommen in Excel om v(t′) als XY-spreidingsgrafiek te tekenen. Voor x(t) kies je de t- en x-kolom. Bewaar ook het oorspronkelijke papierbandje."
+    ], soort="uitleg", size=9.5)
 
     # ------------------------------------------------------------------ 1.4
     K.h2(doc, "1.4 Het laboverslag: Excel-sjabloon, groepswerk en deadline")

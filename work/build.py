@@ -54,7 +54,10 @@ THEORY_LABS={1:['02','03'],2:['03','04'],3:['04','06'],4:['04'],
              14:['13A','16'],15:['16'],16:[]}
 
 EXTRA_FIGS = {
+ (1,2):[('sch_tijdtikker_wagentje.png','Eigen elektrisch wagentje met 50 Hz-tijdtikker, papierbandje en 6 V~-voeding (schema naar bron blz. 68–72).')],
  (2,2):[('bron_p086_2.png','Wagentje op stijgende helling (bron: voorlopige cursus blz. 86).')],
+ (3,2):[('sch_verticale_worp_tweecamera.png','Twee camera’s: één filmt de loslaathoogte, één het hoogste punt; hetzelfde meetlatvlak (eigen schema naar bron blz. 16–18).')],
+ (4,1):[('sch_worp.png','Horizontale worp: leg zelf x- en y-assen en schaal vast (eigen schema naar bron blz. 56–57).')],
  (5,3):[('bron_p104_1.png','Krachtenparallellogram met twee dynamometers (bron: voorlopige cursus blz. 104).')],
  (7,1):[('bron_p109_1.png','Krachtarm bij een draaibaar statiefje (bron: voorlopige cursus blz. 109).')],
  (7,2):[('bron_p116_1.png','Tussenstandige last (bron: voorlopige cursus blz. 116).'),
@@ -63,7 +66,7 @@ EXTRA_FIGS = {
 }
 
 FIG_BEST = {
- 1:('sch_helling_sensor.png','Beweging langs een rechte baan (schematische tekening).'),
+ 1:('sch_luchtbel_twee_standen.png','Dezelfde luchtbel bij 90° en 45°; volg steeds dezelfde voorkant (schema naar bron blz. 63–67).'),
  2:('bron_p079_1.png','Tijdtikker en hellend vlak (bron: voorlopige 6BCW-cursus, blz. 79).'),
  3:('bron_p026_1.png','Voorbeeld van een v(t)-grafiek bij valbeweging (bron: voorlopige cursus, blz. 26).'),
  4:('bron_p093_1.png','Geverfd kogelspoor op een schuine plank (bron: voorlopige cursus, blz. 93).'),
@@ -232,7 +235,22 @@ def worksheet(doc, lab, teacher):
     img,caption=FIG_BEST[n]
     K.figuur(doc,img,caption,breedte_cm=9.0)
     for j,part in enumerate(lab['delen'],1):
+        if part.get('nieuw_blad'):
+            # Deel 1 sluit aan op het overzicht en de bronfiguur. Volgende
+            # afzonderlijke bronpractica krijgen een eigen afdrukblad.
+            if j > 1: K.pagebreak(doc)
+            K.p(doc, f'LABO {n} · bronpracticum {j} — naam: ……………………………… datum: ……/……/……',
+                bold=True, color='1F4E79', size=9)
         K.h3(doc,part['titel'])
+        if part.get('materiaal_deel'):
+            K.p(doc,'Oorspronkelijk materiaal voor dit practicum: '+part['materiaal_deel'],size=9.4)
+        if part.get('open_opdracht'):
+            K.kader(doc,'OPEN PRACTICUM – jouw eigen meetplan, dezelfde oorspronkelijke proef',
+                    part['open_opdracht'],soort='stem',size=9.5)
+            K.tabel(doc,['Onderzoeksvraag / toetsbare hypothese','O: wat verander je?','A: wat meet je?',
+                         'C: wat houd je gelijk?'],[['','','','']],size=8.5)
+            K.p(doc,'Eigen werkplan, keuze van stip 0 en veilige schets (laat goedkeuren vóór je meet):',size=9.5)
+            _lines(doc,4,teacher)
         for ef,cap in EXTRA_FIGS.get((n,j),[]):
             K.figuur(doc,ef,cap,breedte_cm=7.0)
         K.p(doc,'Onderzoeksvraag: '+part['vraag'],bold=True,size=10)
@@ -240,13 +258,21 @@ def worksheet(doc, lab, teacher):
         _lines(doc,1,teacher)
         K.p(doc,'Uitvoering:',bold=True,size=10)
         K.numbered(doc,part['stappen'],size=10)
-        # tabel met rijen volgens bron of lege vooraf gelinieerde meetvelden
-        rows=[]
-        rr=part['rijen']
-        if isinstance(rr,int): rows=[['']*len(part['kop']) for _ in range(rr)]
-        else:
-            rows=[[str(x)]+['']*(len(part['kop'])-1) for x in rr]
+        if part.get('tabel_uitleg'):
+            K.p(doc,part['tabel_uitleg'],size=9.3,italic=True,color='1F4E79')
+        # Bronkolommen met vooraf ingevulde stippen en midden-tijdstippen zijn echte
+        # volledige rijen, niet enkel een label met daarachter lege cellen.
+        def table_rows(headers, rr):
+            if isinstance(rr,int): return [['']*len(headers) for _ in range(rr)]
+            return [([str(v) if v is not None else '' for v in r] if isinstance(r,(list,tuple))
+                     else [str(r)]+['']*(len(headers)-1)) for r in rr]
+        rows=table_rows(part['kop'],part['rijen'])
         K.tabel(doc,part['kop'],rows,size=8.4)
+        for extra in part.get('extra_tabellen',[]):
+            K.p(doc,extra['titel'],bold=True,size=9.5)
+            K.tabel(doc,extra['kop'],table_rows(extra['kop'],extra['rijen']),size=8.4)
+        for instruction in part.get('grafieken',[]):
+            K.p(doc,'GRAFIEK: '+instruction,size=9.5,color='1F4E79')
         K.p(doc,'Verwerking: '+part['verwerking'],size=9.6,italic=True)
         K.p(doc,'Foto / schets van de echte opstelling (benoem de onderdelen):',size=9.5)
         _lines(doc,2,teacher)
@@ -470,6 +496,7 @@ def order_list():
       ['Overhead-golfbak of gelijkwaardig camerasysteem','1–2','offerte','schoolleverancier fysicalabo','☐'],
       ['Laagtoerige regelbare motor met excenter (resonantie)','2','offerte','schoolleverancier STEM','☐'],
       ['Statieven + zachte valmat/opvangbak voor werpproeven','8 sets','€10–25/set','schoolvoorraad / sporthandel','☐'],
+      ['Twee stabiele smartphonehouders + twee verticale meetlatten per groep (handmatige verticale worp)','8 sets','offerte / voorraad','schoolvoorraad / schoolleverancier','☐'],
       ['Plexiglazen balkjes + spelden (optica)','8 sets','€10–30/set','schoolleverancier optica','☐'],
       ['Papieren tijdtikkerbandjes + carbonlint','8 × verbruiksset','€10–20/set','schoolleverancier fysicalabo','☐'],
       ['Veiligheidsbrillen voor ECB-rotatie','24','€5–12/stuk','schoolleverancier PBM','☐'],

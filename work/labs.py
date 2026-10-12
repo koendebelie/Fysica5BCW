@@ -1406,3 +1406,325 @@ INSPIRATIE = ['Hoe hangt de periode van een slinger af van de lengte bij een kle
  'Hoe hangt de gemeten brekingshoek af van de invalshoek bij hetzelfde plexiglas?',
  'Hoe hangt de plaats van een roostermaximum af van de roosterafstand bij dezelfde veilige laser en '
  'schermafstand?']
+
+# ---------------------------------------------------------------------------
+# Brongetrouwe uitvoeringsversie (vakgroepfeedback oktober 2026)
+# De originele practicumopstellingen blijven staan. De rijen hieronder geven
+# de concrete tijdtikkerstippen en tussentijdstippen weer; alleen de werkbladen,
+# veiligheid en Excel-instructies zijn gemoderniseerd. t′ is de MIDDELTIJD van
+# twee meetstippen. Δt is het interval (0,020 of 0,040 s), NOOIT de kolomnaam t′.
+# t′ staat in elke tijdtikkertabel onmiddellijk LINKS van v voor Excel v(t′).
+
+def _ticker_rows(n, dt, stride=1, x0=False, last_col=True):
+    def dutch(v): return f'{v:.3f}'.replace('.', ',')
+    rows=[]
+    for i in range(n):
+        t=i*dt
+        rows.append([str(i*stride), dutch(t), '0' if i==0 and x0 else '', '',
+                     dutch(t+dt/2) if i<n-1 else '', '', ''] if last_col else
+                    [str(i*stride), dutch(t), '0' if i==0 and x0 else '', '',
+                     dutch(t+dt/2) if i<n-1 else '', ''])
+    return rows
+
+_TICKER_NOTE = ('Kopieer in Excel voor x(t) de kolommen t en x. Bereken Δx tussen twee '
+                'opeenvolgende gekozen meetstippen; Δt is per venster constant. '
+                't′ = (t_begin + t_eind)/2 is het TIJDSTIP van de berekende snelheid, '
+                'geen Δt en geen Δv. In de tabel staat t′ direct links van v: '
+                'selecteer deze twee aangrenzende kolommen voor een XY-spreidingsgrafiek v(t′). '
+                'De laatste meetstip levert geen nieuw venster en dus geen t′ of v.')
+
+# Labo 1, deel 2: de eigen elektrische wagen en de tijdtikker (bron 68–72).
+p=LABOS[0]['delen'][1]
+p.update(titel='Deel 2 – Oorspronkelijk practicum: ERB met elektrisch wagentje en tijdtikker',
+         nieuw_blad=True,
+         stappen=[
+          'Laat de leerkracht de passende 6,0 V~ laagspanningsbron en de wisselspanningsvoltmeter controleren. Zet de bron UIT vóór je carbonlint en bandje vastmaakt.',
+          'Kleef het papieren bandje aan de aangedreven wagen, leid het recht door de klemmen van de tijdtikker en houd het vrije uiteinde zó dat de stippen midden op het bandje staan.',
+          'Start de tijdtikker en het elektrisch wagentje; laat de wagen de rechte baan doorlopen. Stop met de schakelaar van het wagentje, zet de voeding uit en kleef het bandje RECHT op de tafel.',
+          'Negeer de stippen bij optrekken en remmen. Kies stip 0 in het gelijkmatige middendeel, nummer telkens om de twee tijdtikkerstippen (Δt = 0,040 s), meet x in meter en bewaar het originele bandje.',
+          'Vul de eigen meetwaarden in, bereken Δx en v = Δx/0,040 s, teken x(t) en v(t′) en bespreek de wiskundige kenmerken van beide grafieken.'],
+         kop=['stip','t (s)','x (m)','Δx in 0,040 s (m)','t′ (s)','⟨v⟩ (m/s)'],
+         rijen=_ticker_rows(22,0.040,x0=True,last_col=False),
+         tabel_uitleg=_TICKER_NOTE,
+         grafieken=['x(t): t op de horizontale as, x op de verticale; bepaal de richtingscoëfficiënt.',
+                    'v(t′): selecteer de aangrenzende kolommen t′ en ⟨v⟩; is de snelheid ongeveer constant?'],
+         verwerking='Bepaal de snelheid uit de rico van x(t) én de gemiddelde waarde van Δx/0,040 s. Licht afwijkingen door optrekken, remmen en bandwrijving toe.',
+         vragen=['Waarom blijven de optrek- en remstippen buiten de ERB-meetreeks?',
+                 'Hoe werkt de tijdtikker bij 50 Hz, en waarom is één tik 0,020 s maar één rij 0,040 s?'])
+LABOS[0]['materiaal'][1]='elektrisch wagentje met schakelaar, rechte baan; tijdtikker (50 Hz), carbonlint, recht papierbandje ca. 1,1 m, kleefband, lange lat, wisselspanningsvoltmeter en gecontroleerde passende 6,0 V~ laagspanningsbron (bron blz. 68)'
+
+# Labo 2: bron 79–85 en 86–92 blijven twee afzonderlijk uitvoerbare
+# tijdtikkerpractica. Het tweede is uitdrukkelijk OPEN, niet slechts begeleid.
+LABOS[1]['sturing']='DEEL 1 BEGELEID: originele EVRB met beginsnelheid. DEEL 2 OPEN PRACTICUM: ontwerp zelf de vertraagde-meting; behoud wagentje, tijdtikker en stijgende helling.'
+p=LABOS[1]['delen'][0]
+p.update(titel='Deel 1 – Oorspronkelijk practicum: EVRB met beginsnelheid op helling',
+         nieuw_blad=True,
+         stappen=[
+          'Bouw de circa 1 m lange hellende baan met het wagentje (50 g) en ballast (bv. 200 g). Controleer de 50 Hz-tijdtikker, het carbonlint, de circa 1,10 m papierband, de veilige 6 V~ bron en een opvangblok.',
+          'Laat het wagentje omlaag rijden. Negeer de te dicht bij elkaar liggende beginstippen: kies stip 0 iets verderop, waar de wagen AL een snelheid heeft. Kleef het bandje recht op de tafel.',
+          'Meet vanaf stip 0 de plaats x om de twee tikken (tiknummers 0, 2, 4, …; Δt = 0,040 s). Behoud het bandje als bewijs en noteer x in de vooraf ingevulde tabel.',
+          'Bereken de afstand Δx in elk venster van 0,040 s. Plaats v = Δx/0,040 s bij het midden van dat venster, t′ = 0,020; 0,060; 0,100 s …',
+          'Teken x(t) en v(t′) in Excel als spreidingsgrafieken met trendlijn; extrapoleer de v(t′)-rechte naar t = 0 om v₀ te schatten; bereken a uit de rico en desgewenst per rij (v−v₀)/t′.'],
+         kop=['stip','t (s)','x (m)','Δx in 0,040 s (m)','t′ (s)','vₜ via ⟨v⟩ (m/s)','(vₜ−v₀)/t′ (m/s²)'],
+         rijen=_ticker_rows(9,0.040,stride=2,x0=True),tabel_uitleg=_TICKER_NOTE,
+         grafieken=['x(t) uit t,x; beschrijf waarom de kromme geen rechte is.',
+                    'v(t′) uit de twee aangrenzende kolommen t′,vₜ: snijpunt is v₀, rico is a.'],
+         verwerking='Extrapoleer v₀ uit het assensnijpunt en bereken a eerst uit één grote driehoek op de trendlijn, daarna als gemiddelde van (vₜ−v₀)/t′. De nulpuntkeuze betekent niet v₀ = 0.',
+         vragen=['Waarom is v₀ op de gekozen stip 0 niet nul?',
+                 'Wat betekenen snijpunt en rico van v(t′)? Waarom is t′ niet de intervalduur Δt?'])
+p=LABOS[1]['delen'][1]
+p.update(titel='Deel 2 – Oorspronkelijk OPEN practicum: eenparig vertraagde beweging omhoog',
+         nieuw_blad=True,
+         open_opdracht=[
+          'Onderzoek met het eigen wagentje en de tijdtikker of de beweging op een stijgende helling na het LOSLATEN eenparig vertraagt. Jij kiest de meetstrategie, de veilige helling, het passende duwtje, de nulstip, herhalingen en controlevariabelen.',
+          'Behoud de originele proefopstelling: baan circa 1 m, wagentje met ballast (bron: 3 × 50 g), verticale bevestigingsstift, 50 Hz-tijdtikker, carbonlint, papierband, blokken en een gecontroleerde 6 V~ wisselspanningsbron. Laat plan en nulstip vóór het opmeten controleren.',
+          'Randvoorwaarde: gebruik uitsluitend de stijgende fase NA loslaten en VÓÓR het keerpunt; meet elke twee tikken (Δt = 0,040 s). Leg zelf uit hoe je uit het bandje x(t) en v(t′) maakt.'],
+         stappen=[
+          'Ontwerp en noteer eerst je eigen reproduceerbare werkwijze. Oefen een veilig duwtje naar ongeveer de bovenkant van de baan ZONDER bandje; plaats een vangblok en houd een hand klaar om de wagen bovenaan veilig op te vangen.',
+          'Laat de leerkracht de helling, voeding, handpositie en je plan goedkeuren. Bevestig het bandje, start de tijdtikker, geef het afgesproken duwtje en laat volledig los.',
+          'Verantwoord zelf op het originele bandje waar stip 0 mag liggen: niet tijdens handcontact en niet na het keerpunt. Kleef recht, nummer 0, 2, 4 …, meet x en noteer t in de eigen tabel.',
+          'Bereken Δx per 0,040 s, t′ en vₜ. Maak x(t) en v(t′) ONDER elkaar in Excel, met de corresponderende tabel links van elke grafiek; voeg trendlijn en vergelijking toe.',
+          'Verklaar met de gekozen positieve richting het teken van snelheid en versnelling, en vergelijk de v(t′)-rico met de dalende-rit bij dezelfde baanhelling.'],
+         kop=['stip','t (s)','x (m)','Δx in 0,040 s (m)','t′ (s)','vₜ via ⟨v⟩ (m/s)','a uit v(t′) (m/s²)'],
+         rijen=_ticker_rows(9,0.040,stride=2,x0=True),tabel_uitleg=_TICKER_NOTE,
+         grafieken=['x(t) en v(t′) onder elkaar met de bijbehorende tabel LINKS van elke grafiek (bron blz. 91).',
+                    'Voeg aan beide grafieken een trendlijn met vergelijking toe; interpreteer het NEGATIEVE hellingsgetal van v(t′).'],
+         verwerking='Een open practicum vraagt een eigen vooraf goedgekeurd plan én bewijs: origineel bandje met gekozen stip 0, ingevulde bronkolommen, twee Excel-grafieken, vergelijking en foutenanalyse.',
+         vragen=['Waarom mag je de eerste stip tijdens het duwtje niet als meetnul kiezen?',
+                 'Hoe herken je uit de trendlijn dat de opwaartse snelheid eenparig kleiner wordt?'])
+
+# Labo 3: bron 20–26 / 73–78 (val); 15–20 / 58–61 (worp).
+p=LABOS[2]['delen'][0]
+p.update(titel='Deel 1 – Oorspronkelijk practicum: vrije val met triller en bandje',
+         nieuw_blad=True,
+         stappen=[
+          'Klem de tijdtikker/triller aan een groot statief (dubbelnoot), controleer de passende voeding en leid een circa 1,5 m lang papierbandje RECHT door het toestel. Kleef onderaan circa 50 g vast en plaats een zachte opvangmat.',
+          'Laat de triller eerst heel even op snelheid komen; laat het bandje met de massa daarna zonder extra duw los. Zet de voeding na de opname uit, kleef het bandje recht op de tafel en bewaar het.',
+          'Kies stip 0 bij het begin van de vrije beweging. Nummer ELKE tik (Δt = 0,020 s) en meet x op het bandje vanaf een duidelijk nulpunt.',
+          'Bereken per venster Δx en vₜ = Δx/0,020 s. Ken die snelheid toe aan de middentijd t′: 0,010; 0,030; 0,050 s …, NIET aan de tijd van een stip.',
+          'Maak Excel-grafieken v(t′) en x(t). Bepaal g uit de rico van v(t′), vergelijk met ongeveer 9,81 m/s² en bespreek waarom vₜ op een middentijd de ogenblikkelijke snelheid bij constante a benadert.'],
+         kop=['stip','t (s)','x (m)','Δx in 0,020 s (m)','t′ (s)','vₜ via ⟨v⟩ (m/s)','vₜ/t′ (m/s²)*'],
+         rijen=_ticker_rows(17,0.020,x0=True),tabel_uitleg=_TICKER_NOTE+' *Laatste kolom alleen als de gekozen stip 0 praktisch samenvalt met het loslaten (v₀ ≈ 0); anders bepaal je g uit de rico van v(t′).',
+         grafieken=['v(t′): selecteer alleen de direct aangrenzende kolommen t′ en vₜ; rico ≈ g.',
+                    'x(t): gebruik t en x; vergelijk de kromming met x = ½gt² wanneer v₀ ≈ 0.'],
+         verwerking='Toon één voorbeeld van Δx, t′ en vₜ met eenheden. Kies bij een niet-nul startsnelheid g uit de trendlijn in plaats van uit vₜ/t′.',
+         vragen=['Waarom staan 0,010; 0,030; 0,050 s in de kolom t′, terwijl stippen op 0,000; 0,020; 0,040 s liggen?',
+                 'Welke grootheid levert de rico van v(t′), en waarom kan vₜ/t′ fout zijn als de eerste stip pas na het loslaten gekozen is?'])
+p=LABOS[2]['delen'][1]
+p.update(titel='Deel 2 – Oorspronkelijk practicum: verticale worp, HANDMATIGE meetmethode',
+         nieuw_blad=True,bron='15–18 en 58–59',
+         vraag='Wat zijn de beginsnelheid, snelheid vlak voor de grond en maximale hoogte bij jouw verticale tennisbalworp?',
+         stappen=[
+          'Plaats TWEE meetlatten verticaal vanaf de vloer of op exact gemeten hoogte boven de vloer. Kies y = 0 op de vloer (of de bovenkant van de rustende bal) en spreek een loslaathoogte y₀ af, bijvoorbeeld 0,30 m.',
+          'Zet twee stabiele smartphones/camera’s op: één filmt de regio van het hoogste punt, één de regio van de loslaathoogte. Houd in beide opnames de meetlat ongeveer even ver van de camera als de bal (parallaxcontrole).',
+          'Verdeel de bronrollen: werper, timer, filmer hoogste punt, filmer loslaten; bij 2–3 leerlingen mogen rollen gecombineerd worden zonder het protocol te wijzigen. Werp de tennisbal zo verticaal mogelijk; meet met de stopwatch de TOTALE tijd t van loslaten tot de grond.',
+          'Pauzeer de beelden op loslaten en hoogste punt. Lees y₀ en de GEMETEN maximale hoogte y_max met dezelfde rand van de bal af; herhaal de worp drie keer.',
+          'Neem de positieve y-richting omhoog en g = 9,81 m/s². Bereken v₀ uit 0 = y₀ + v₀t − ½gt², v_grond = v₀ − gt, t_top = v₀/g en y_max,berekend = y₀ + v₀t_top − ½g t_top². Vergelijk de berekende hoogte met het filmbeeld.'],
+         kop=['herhaling','y₀ uit loslaatfilm (m)','t tot vloer (s)','y_max uit topfilm (m)','v₀ (m/s)','v_grond (m/s)','t_top (s)','y_max,berekend (m)'],
+         rijen=3,
+         tabel_uitleg='Hier is t_top de berekende tijd tot de top van de WORP; dit is niet de middentijd t′ van de tijdtikker in deel 1.',
+         grafieken=['Bij dit oorspronkelijke handmatige deel maak je eerst de hoogte- en tijdvergelijking; de volledige y(t)-grafiek volgt in Tracker in deel 3.'],
+         verwerking='Werk de vier bronberekeningen uit en bereken per herhaling het verschil tussen de gefilmde en berekende tophoogte.',
+         vragen=['Waarom moeten bal en meetlat ongeveer in hetzelfde cameravlak staan?',
+                 'Waarom is v_grond negatief wanneer omhoog de positieve y-richting is?'])
+LABOS[2]['delen'].append(dict(
+    titel='Deel 3 – Oorspronkelijk practicum: volledige verticale worp met Tracker',
+    bron='19–20 en 60–61',nieuw_blad=True,
+    vraag='Leveren Tracker en de handmatige proef vergelijkbare y₀, v₀ en maximale hoogte?',
+    stappen=[
+     'Film een nieuwe verticale tennisbalworp van VÓÓR het loslaten tot NA het bereiken van de grond in één stabiele opname. Zet een verticale meetlat volledig in beeld, in hetzelfde vlak als de bal.',
+     'Open het videobestand in Tracker, kalibreer de afstand met de meetlat en kies dezelfde oorsprong y = 0 op de vloer als in deel 2. Markeer tijdens de HELE beweging telkens dezelfde rand of het massamiddelpunt van de bal.',
+     'Exporteer de Tracker-tabel met frame, tijd en y naar Excel; maak een XY-spreidingsgrafiek y(t) met punten. Bepaal y₀, y_max, v₀ en v_grond; toon de gebruikte berekening of modelvergelijking.',
+     'Vergelijk Tracker met deel 2 voor y₀, t_top en y_max. Bespreek invloed van reactietijd, beeldfrequentie, schaal, camera-parallax en keuze van het gevolgde punt.'],
+    kop=['frame','t (s)','y (m)','vᵧ (m/s)'],rijen=12,
+    tabel_uitleg='Gebruik voor de video de door Tracker geëxporteerde echte frametijden; de 0,020 s-tiktijd uit het vrije-vallabo geldt NIET voor een camera.',
+    grafieken=['y(t) uit de Tracker-gegevens in Excel: afzonderlijke meetpunten, gepaste trend en vergelijking.'],
+    verwerking='Maak een vergelijkingstabel handmatig versus Tracker en geef per verschil een concrete meetoorzaak.',
+    vragen=['Welke instelling kalibreert de schaal in Tracker en waarom moet de meetlat in het bewegingsvlak staan?',
+            'Welke van de twee methoden geeft doorgaans de betrouwbaardere volledige baan, en waarom?']))
+LABOS[2]['materiaal']=['deel 1: 50 Hz-triller/tijdtikker op groot statief, dubbelnoot, veilige voeding, twee snoeren, papierbandje ca. 1,5 m, circa 50 g massa, kleefband, rolmeter en zachte opvangmat',
+                         'deel 2: tennisbal, twee VERTICALE meetlatten, stopwatch, twee smartphones op stabiele steunen voor loslaten en top',
+                         'deel 3: één stabiele camera/smartphone die de hele baan filmt, zichtbare meetlat, computer met Tracker en Excel']
+LABOS[2]['sturing']='Bronprotocol blijft intact: vrije val met triller; daarna de eigen verticale worp eerst handmatig met twee camera’s en stopwatch, dan de hele worp met Tracker; meetkeuzes en foutenanalyse door leerling.'
+
+# Labo 4: de eigen open horizontale Trackerworp én de geverfde kogelbaan.
+LABOS[3]['sturing']='Deel 1 OPEN: ontwerp zelf de volledige horizontale Trackerworp (bron blz. 56–57). Deel 2 BEGELEID: oorspronkelijke kogel/valgeul/verfproef op de plank (blz. 93–97).'
+p=LABOS[3]['delen'][0]
+p.update(titel='Deel 1 – Oorspronkelijk OPEN practicum: horizontale worp met Tracker',nieuw_blad=True,
+         open_opdracht=[
+          'Ontwerp ZELF de volledige opstelling en werkwijze om de balworp met Tracker te filmen en te analyseren. Kies uit eigen voorstel wat je meet (plaats, snelheid, versnelling), hoe je die berekent en welke formules je nodig hebt; leg dit vooraf ter goedkeuring voor.',
+          'Beschikbare bronmiddelen: computer met Tracker, camera/smartphone, tennisbal, statief of stabiel oppervlak en zichtbare meetlat met cm-verdeling. Zorg voor een veilige opvang, een stabiele opname van de VOLLEDIGE worp en minimale parallax.'],
+         stappen=[
+          'Teken jouw eigen onderzoeksopzet, met assen, oorsprong, kalibratie en meetstrategie. Beslis zelf welke variabelen, formules en Tracker-data de horizontale en verticale component toetsbaar maken.',
+          'Laat plan, camerastandpunt, meetlat in het baanvlak en veilige opvang vóór de uitvoering goedkeuren.',
+          'Voer je eigen worp uit, bewaar de film, markeer de bal consequent in Tracker en exporteer je gekozen dataset met frametijden.',
+          'Analyseer de volledige beweging: beschrijf horizontale én verticale positie, snelheid en eventuele versnelling. Maak bruikbare grafieken en trek een besluit over je oorspronkelijke onderzoeksvraag.'],
+         kop=['frame','t (s)','x (m)','y (m)','vₓ (m/s)','vᵧ (m/s)'],rijen=10,
+         tabel_uitleg='Dit is een hulpmiddel voor je EIGEN onderzoeksplan, niet een voorgeschreven meetreeks. Geef t, x en y (en berekende v indien gekozen) steeds met eenheid en de gekozen positieve richting.',
+         grafieken=['Ontwerp zelf passende grafieken voor de horizontale en verticale component (bijvoorbeeld x(t), y(t) en y(x)).'],
+         verwerking='Onderbouw het besluit met je zelf gekozen modellen, meetresultaten en onzekerheden; het verslag bevat het vooraf goedgekeurde onderzoeksplan.',
+         vragen=['Hoe beperk je perspectieffouten als bal en meetlat in de video worden gevolgd?',
+                 'Welke twee componenten verwacht je bij een horizontale worp zonder noemenswaardige luchtweerstand?'])
+p=LABOS[3]['delen'][1]
+p.update(titel='Deel 2 – Oorspronkelijk practicum: geverfde kogelbaan op schuine plank',nieuw_blad=True,
+         stappen=[
+          'Kleef één groot blad (of vier A4-bladen) op de circa 45 × 55 cm plank. Plaats de kleine valgeul EVENWIJDIG aan de bovenrand; laat de grote metalen kogel op papier een spoor maken met weinig afwasbare verf. Voorkom spatten en vang de kogel op.',
+          'Vergelijk eerst de twee bewegingen afzonderlijk: plank VLAK, kogel BOVENAAN de kleine geul loslaten (ERB in x); plank SCHUIN, kogel BENEDEN op de kleine geul loslaten (EVRB in y). Noteer of schets beide sporen.',
+          'Combineer nu beide: plank SCHUIN, kogel BOVENAAN dezelfde geul loslaten. Herhaal voor DRIE plankhellingen door het aantal houten blokken te veranderen; noteer het hoogteverschil per helling.',
+          'Teken op elk spoor x- en y-assen door het startpunt. Meet x = 10, 15, 20 … 55 cm en construeer de corresponderende y evenwijdig aan de assen, ook wanneer x en y op papier niet perfect loodrecht staan.',
+          'Vul voor elke x de drie gemeten y-waarden in en bereken y₁/x², y₂/x² en y₃/x²; maak voor de drie hellingen y(x) en een passend model.'],
+         kop=['x (cm)','y₁ helling 1 (cm)','y₂ helling 2 (cm)','y₃ helling 3 (cm)','y₁/x² (1/cm)','y₂/x² (1/cm)','y₃/x² (1/cm)'],
+         rijen=[str(x) for x in range(10,56,5)],
+         grafieken=['Vergelijk de drie kogelsporen y(x). Controleer per helling of y/x² ongeveer constant blijft.'],
+         verwerking='Behoud de drie beschilderde papieren sporen als bewijs, met plankenhoek, assen, 10–55 cm meetpunten en besluit waarom de combinatie ERB+EVRB een parabool is.',
+         vragen=['Waarom moet de valgeul evenwijdig staan met de bovenrand van de plank?',
+                 'Waarom helpt een constructielijn evenwijdig aan de y-as als de op papier getekende assen niet precies loodrecht staan?'])
+
+# Labo 5: Newton blijft de originele katrol/schijfjes/tijdtikkerproef.
+# De samenvatting wordt gekoppeld aan een echt invulbaar bandjesjabloon.
+_raw_tape=dict(titel='Voorbeeldbandje per kracht- of massareeks (kopieer dit tabelformaat in Excel voor ELKE rit)',
+               kop=['stip','t (s)','x (m)','Δx in 0,040 s (m)','t′ (s)','vₜ (m/s)','a uit trendlijn (m/s²)'],
+               rijen=_ticker_rows(9,0.040,stride=2,x0=True))
+for p in LABOS[4]['delen'][:2]:
+    p['tabel_uitleg']='Bereken a uit de rico van v(t′) op een ECHT tijdtikkerbandje; '+_TICKER_NOTE
+    p['extra_tabellen']=[_raw_tape]
+    p['grafieken']=['Per rit een Excel v(t′)-grafiek: t′ en vₜ staan direct naast elkaar; bepaal a uit de rico. Vat de verkregen a-waarden daarna samen in de tabel erboven.']
+LABOS[4]['delen'][0]['stappen'][0]='Behoud de eigen katrolopstelling: verplaats bij 2, 3, 4 en 5 schijfjes van 10,0 g de NIET-hangende schijfjes naar het wagentje, zodat de totale bewegende massa inclusief hangmassa constant blijft; gebruik de extra 150 g ballast uit de bron om wrijving te beperken.'
+LABOS[4]['delen'][1]['stappen'][0]='Laat precies twee schijfjes van 10,0 g aan de hangzijde; vergeet hun massa niet bij m_tot. Gebruik het bronwagentje (50,0 g) met achtereenvolgens 50,0; 100,0; 150,0; 200,0 g ballast.'
+
+# Labo 6: de bron HOUDT de lengte van de baan constant en stelt per hoek h=l sin α in.
+# Een gelijke eindhoogte voor alle hoeken (vorig concept) zou een andere proef zijn.
+p=LABOS[5]['delen'][0]
+p.update(stappen=[
+   'Meet de vaste BAANLENGTE l van het originele hellend vlak (ongeveer 40 cm) en de massa van het wagentje (bron 100 g). Bepaal voor α = 30°, 45° en 60° telkens de in te stellen hoogte h = l·sin α; de hoogte is dus NIET bij elke hoek gelijk.',
+   'Stel de plank voor elk van de drie hoeken in via de berekende h en controleer de werkelijke hoogte met de meetlat.',
+   'Trek hetzelfde wagentje per hoek eenmaal verticaal over h en eenmaal traag langs de helling over de vaste lengte l; meet F_vert en F_hel met dezelfde dynamometer.',
+   'Bereken voor ELKE hoek W_vert = F_vert·h en W_hel = F_hel·l. Vergelijk kracht, weg en geleverde arbeid; verklaar een verschil door wrijving.'],
+   kop=['α (°)','h = l sin α (m)','F_vert (N)','h (m)','F_hel (N)','l (m)','F_vert·h (J)','F_hel·l (J)'],
+   rijen=['30','45','60'],
+   verwerking='Vergelijk per hoek de twee producten F_vert·h en F_hel·l; een kleinere kracht werkt over een langere weg. De eindhoogte varieert in deze bronproef per hoek.',
+   vragen=['Waarom verandert de hoogte h als l constant blijft en α van 30° naar 60° verandert?'])
+
+# Labo 9: exacte bronreeksen voor beide veren en een apart vrij instructieblad.
+p=LABOS[8]['delen'][0]
+p.update(stappen=[
+  'Veer 1 (soepele veer): hang na elkaar 30,0; 60,0; 90,0; 120,0; 150,0 g; meet de statische uitrekking Δy, bepaal F_z en k = F_z/Δy, en bereken het gemiddelde k₁.',
+  'Meet met dezelfde vijf massa’s per keer de tijd van een gekozen vast aantal (bv. 20) kleine trillingen; bepaal T_gem, bereken T = 2π√(m/k₁) en de procentuele afwijking.',
+  'Veer 2 (minder soepele veer): herhaal met de oorspronkelijke reeks 50,0; 100,0; 150,0; 200,0; 250,0 g; bepaal k₂, T_gem, T_berek en de procentuele afwijking.',
+  'Bespreek waarom de grootste afwijking bij de kleinste massa kan optreden (masssa van de veer, reactietijd); maak voor elke veer een passende grafiek.'],
+  kop=['veer','m (g)','F_z (N)','Δy (m)','k = F_z/Δy (N/m)','t₂₀ (s)','T_gem (s)','T_berek (s)','afwijking (%)'],
+  rijen=[['veer 1',str(m),'','','','','','',''] for m in (30,60,90,120,150)] +
+        [['veer 2',str(m),'','','','','','',''] for m in (50,100,150,200,250)])
+p=LABOS[8]['delen'][1]
+p.update(open_opdracht=['Bepaal een onbekende massa zonder balans. De onbekende massa mag NIET van de veer gehaald worden. Je mag gekende massa’s toevoegen (bron: vier maal 50,0 g), een veer, chronometer en meetlat gebruiken. Maak EERST jouw eigen instructieblad en voer het DAARNA zelf uit.'],
+         tabel_uitleg='De onbekende massa blijft de hele tijd aan de veer; voeg telkens alleen een gekende massa toe.',
+         stappen=['Schrijf je eigen instructieblad met meetplan, veiligheid, voorbeeldberekening en tabel; laat goedkeuren.',
+                  'Houd de onbekende massa steeds aan dezelfde veer, voeg achtereenvolgens gekende massa’s toe en meet T per stap.',
+                  'Gebruik T² tegen toegevoegde massa en/of een correcte fysische redenering om de onbekende massa te bepalen zonder een balans.',
+                  'Vul en evalueer je eigen instructieblad: is de uitkomst reproduceerbaar?'])
+p=LABOS[8]['delen'][2]
+p.update(kop=['stip','t (s)','y (m)','Δy in 0,020 s (m)','t′ (s)','vₜ (m/s)'],
+         rijen=_ticker_rows(18,0.020,last_col=False),
+         tabel_uitleg=_TICKER_NOTE+' Voor de halve harmonische trilling wordt vₜ berekend uit Δy/0,020 s (teken volgens gekozen y-richting).',
+         grafieken=['y(t) én v(t′) op afzonderlijke grafieken uit dezelfde bronregistratie.'])
+
+# Labo 10: oorspronkelijke slingerproef: 10°/5°, houten/metalen bolletje,
+# circa TIEN lengten en vergelijking T(l), T²(l), T²/l en g.
+p=LABOS[9]['delen'][0]
+p.update(stappen=['Stel de lengte van het metalen bolletje in op 1,00 m (ophangpunt tot zwaartepunt). Houd massa en lengte vast.',
+                  'Meet voor een amplitude van circa 10° de tijd voor 20 hele cycli, start de stopwatch bij doorgang door de evenwichtsstand en tel daar vanaf nul. Herhaal drie keer.',
+                  'Halveer de hoek tot circa 5° en herhaal dezelfde drie metingen van 20 cycli.',
+                  'Vergelijk de twee gemiddelden binnen de meetonzekerheid.'],
+         kop=['amplitude (°)','t₂₀,1 (s)','t₂₀,2 (s)','t₂₀,3 (s)','T_gem (s)'],
+         rijen=['10','5'])
+p=LABOS[9]['delen'][1]
+p.update(stappen=['Laat de 1,00 m touwlengte en de hoek van hoogstens 10° gelijk. Meet eerst met het metalen bolletje en daarna met een houten bolletje.',
+                  'Meet bij elk bolletje driemaal de tijd voor 20 perioden, bereken T_gem en vergelijk de resultaten binnen de onzekerheid.'],
+         kop=['bolletje','t₂₀,1 (s)','t₂₀,2 (s)','t₂₀,3 (s)','T_gem (s)'],rijen=['metaal','hout'])
+p=LABOS[9]['delen'][2]
+p.update(stappen=['Gebruik opnieuw het metalen bolletje; kies circa TIEN slingerlengten, gemeten van ophangpunt tot massamiddelpunt. Houd de hoek kleiner dan 10°.',
+                  'Meet per lengte de tijd voor 20 perioden en bereken T, T², T²/l en g = 4π²l/T².',
+                  'Maak eerst T(l), daarna T²(l) in Excel; bepaal de vergelijking van de tweede trendlijn en vergelijk de gemiddelde g met 9,81 m/s².'],
+         kop=['l (m)','t₂₀ (s)','T (s)','T² (s²)','T²/l (s²/m)','g (m/s²)'],rijen=10,
+         grafieken=['Eerst T(l), dan T²(l); bepaal g per rij en via de rico van T²(l).'])
+
+# Labo 1, deel 1: ook de luchtbelproef volgt de werkelijke bron (p. 63–67):
+# twee buisstanden, tien afstanden en dezelfde voorzijde van de luchtbel.
+p=LABOS[0]['delen'][0]
+p.update(titel='Deel 1 – Oorspronkelijk practicum: luchtbel bij 90° en 45°',
+         nieuw_blad=True,
+         vraag='Is Δx/Δt ongeveer constant bij dezelfde buisstand en hoe verandert die verhouding tussen 90° en 45°?',
+         stappen=[
+          'Zet de vloeistofbuis op haar houten lat stevig VERTICAAL (90° met de horizontale). Gebruik de gradenboog en laat statief en klem controleren.',
+          'Gebruik consequent de VOORKANT van de luchtbel als referentie voor starten en stoppen. Meet achtereenvolgens de tijd Δt voor Δx = 10,0; 20,0; …; 100,0 cm op de schaal.',
+          'Stel dezelfde buis met dezelfde luchtbel in op 45° met de horizontale; meet voor DEZELFDE tien afstanden opnieuw Δt. Vul tijden en v = Δx/Δt voor BEIDE buisstanden in.',
+          'Teken beide reeksen in ÉÉN x(t)-spreidingsdiagram met twee aparte rechte trendlijnen, bepaal hun rico’s en vergelijk de snelheid bij 90° en 45°.'],
+         kop=['Δx (m)','Δt 90° (s)','v 90° = Δx/Δt (m/s)','Δt 45° (s)','v 45° = Δx/Δt (m/s)'],
+         rijen=[[f'{i/10:.3f}'.replace('.',','),'','','',''] for i in range(1,11)],
+         grafieken=['Beide standen in ÉÉN x(t)-spreidingsgrafiek met legendes 90° en 45°; x = Δx en t = Δt omdat je vanaf nul meet.'],
+         verwerking='Bepaal bij beide standen de gemiddelde verhouding Δx/Δt en de helling van x(t). Wat is het verband tussen buishelling en luchtbelsnelheid?',
+         vragen=['Waarom moet je telkens dezelfde VOORKANT van de luchtbel volgen?',
+                 'Waarom mag je hier x = Δx en t = Δt noteren als je vanaf dezelfde nulpositie meet?'])
+LABOS[0]['materiaal'][0]='luchtbel in vloeistofbuis op houten lat met schaal 0–100 cm, gradenboog, chronometer, statief, dubbelnoot en klem (bron blz. 63–64)'
+LABOS[0]['onderzoek']='Hoe hangen x(t) en de snelheid van dezelfde luchtbel samen bij 90° en 45° van de buis, en is de elektrisch aangedreven wagen in zijn gelijkmatige middenfase een ERB, gemeten met chronometer en 50 Hz-tijdtikker tijdens dit labo?'
+LABOS[0]['mc'][1]='Hoe hangen x(t) en de snelheid van dezelfde luchtbel samen bij 90° en 45° van de buis, en is de elektrisch aangedreven wagen in zijn gelijkmatige middenfase een ERB, gemeten met chronometer en 50 Hz-tijdtikker tijdens dit labo?'
+
+# Ook de andere bronproeven behouden hun concrete activiteiten, niet alleen
+# algemene 'golven' en 'geluid': golfbakbron p. 1 + 27–28; Soundry p. 55–56.
+p=LABOS[11]['delen'][0]
+p['stappen']=[
+ 'Applet (bron blz. 1): maak afzonderlijke schermafbeeldingen van puntbron met lage en hoge f, vlakke golf, 10 en 20 puntbronnen op een rij, Huygens bij smalle en brede opening, twee coherente bronnen in fase en tegenfase, en twee niet-coherente bronnen.',
+ 'Fysieke opstelling (bron blz. 27–28): plaats de golfbak op een overheadprojector of veilig gelijkwaardig projectiesysteem; vul met gedestilleerd water en laat stil worden. Houd alle elektrische kabels droog.',
+ 'Experiment 1: raak het wateroppervlak met de puntbron aan de elektromagnetische triller/frequentiegenerator en fotografeer de muurprojectie. Meet λ met de projectieschaal.',
+ 'Experiment 2: vervang door een staafvormige bron; fotografeer vlakke golffronten.',
+ 'Experiment 3 en 4: plaats weekijzeren kernen als smalle en vervolgens brede opening vóór de staafbron; fotografeer en verklaar de buiging.',
+ 'Experiment 5: bevestig twee coherente puntbronnen aan dezelfde triller (bv. met een latje), fotografeer de interferentie en vergelijk met de applet.' ]
+p['grafieken']=['Zet voor elk van de vijf fysieke experimenten foto, opstelling, frequentie en uitleg bij de bijbehorende appletafbeelding.']
+p['vragen']=['Welke bronopstelling in de fysieke golfbak levert nagenoeg rechte golffronten?',
+              'Waarom moeten twee fysieke puntbronnen aan dezelfde triller bevestigd zijn voor een stabiel interferentiepatroon?']
+p=LABOS[12]['delen'][0]
+p['titel']='Deel 1 – The Soundry: beats en golfinterferentie (geteste vervangapp toegestaan)'
+p['stappen']=[
+ 'Gebruik het oorspronkelijk Soundry-geluidlab indien nog bereikbaar; anders dezelfde opdrachten in een door de leerkracht VOORAF geteste app op laag volume. Noteer appnaam, versie en datum.',
+ 'BEATS: luister afzonderlijk naar 437 Hz en 443 Hz; combineer beide en leg periodieke zwevingen uit. Vergelijk ook twee tonen van dezelfde frequentie en twee andere ongelijke frequenties.',
+ 'WAVE: maak schermafbeeldingen van één golf, twee gelijke golven in fase en een golf met zijn tegengestelde (tegenfase); vergelijk optelling, versterking en uitdoving.',
+ 'Bewaar per situatie frequenties, fase, golfvorm/schermafbeelding en een toelichting in eigen woorden.' ]
+p['kop']=['signaal','f₁ (Hz)','f₂ (Hz)','fase','uitkomst / beats (Hz)','schermafbeelding']
+p['rijen']=[['toon A','437','','','',''],['toon B','443','','','',''],['A+B','437','443','','',''],
+            ['gelijke tonen','','','','',''],['tegenfase','','','','','']]
+p['vragen']=['Wat hoor je bij de afzonderlijke tonen 437 Hz en 443 Hz, en welke zwevingsfrequentie verwacht je bij hun combinatie?',
+              'Wat gebeurt er bij twee gelijke, respectievelijk tegengestelde golven? Noem een toepassing van uitdoving.']
+LABOS[12]['delen'].append(dict(
+ titel='Deel 3 – Bronopdracht: harmonischen, golfvormen en ultrasoon geluid',
+ bron='55–56',nieuw_blad=True,
+ vraag='Wat maakt de golfvorm van een instrument anders, en wat is ultrasoon geluid?',
+ stappen=['Gebruik de historische harmonics-applet uit de bron alleen indien die veilig en bereikbaar is; anders een vooraf geteste simulator met sinus, zaagtand, blokgolf en instrumentklanken. Noteer de gebruikte app.',
+           'Zoek in een betrouwbare bron wat een harmonische is; bekijk een zuivere sinus, een willekeurig samengesteld signaal, klarinet en trompet. Schets en label de golfvormen.',
+           'Stel een zaagtand en een blokgolf in; maak een schets of schermafbeelding van elk en leg uit welke harmonischen het verschil in klankkleur verklaren.',
+           'Zoek met bronvermelding de definitie van ultrasoon geluid en minstens twee toepassingen; geef de frequentiegrens in Hz.'],
+ kop=['signaal','grondfrequentie (Hz)','golfvorm: schets / afbeelding','harmonischen / klankkleur'],
+ rijen=['zuivere sinus','klarinet','trompet','zaagtand','blokgolf'],
+ verwerking='Benoem de harmonischen in de toon en beschrijf het effect op de klankkleur. Gebruik geen ongecontroleerde of verdwenen URL als zogenaamd gemeten bron.',
+ vragen=['Wat is een harmonische toon en hoe beïnvloedt de harmonischenmix de klankkleur van klarinet en trompet?',
+         'Wat is ultrasoon geluid? Geef twee toepassingen met bronvermelding.']))
+
+# Onderzoeksvragen en doelteksten horen bij de werkelijk uit te voeren bronproef.
+LABOS[5]['context']='Met hetzelfde originele hellend vlak (vaste baanlengte l) til je het wagentje voor 30°, 45° en 60° telkens over de bijbehorende hoogte h = l sin α. Binnen elke hoek vergelijk je verticaal en langs de helling; tussen de hoeken verandert h.'
+LABOS[5]['onderzoek']='Hoe verschillen F_vert·h en F_hel·l voor hetzelfde wagentje bij een vaste baanlengte l en drie hoeken (30°, 45°, 60°, elk met h = l sin α), gemeten met dynamometer en meetlat tijdens dit labo?'
+LABOS[5]['doelen']=['de hoogte h per hoek afleiden uit de vaste baanlengte l en α',
+                    'bij iedere hoek F_vert over h vergelijken met F_hel over l',
+                    'de arbeid F·s met eenheid J berekenen en een eventueel verschil door wrijving verklaren']
+LABOS[8]['onderzoek']='Hoe veranderen k en T bij veer 1 (30–150 g) en veer 2 (50–250 g), en hoe bepaal je daarna een onbekende massa zonder balans terwijl ze aan de veer blijft, gemeten met chronometer tijdens dit labo?'
+LABOS[9]['onderzoek']='Hoe verandert de periode T van de eigen slinger bij 10° versus 5°, metalen versus houten bolletje op 1,00 m, en bij circa tien verschillende slingerlengten, gemeten als tijd voor 20 cycli tijdens dit labo?'
+LABOS[2]['onderzoek']='Wat is g uit een 50 Hz-bandje van een vrijvallende massa en welke v₀, t_top en y_max leveren de originele handmatige en Tracker-methoden bij een verticale tennisbalworp tijdens dit labo?'
+LABOS[3]['onderzoek']='Welke positie-, snelheids- en versnellingscomponenten vind je uit een zelf ontworpen horizontale Trackerworp, en tonen drie kogelsporen op de schuine plank y ∝ x² tijdens dit labo?'
+
+# Per apart afdrukbaar bronpracticum de eigen materialen herhalen.
+LABOS[0]['delen'][1]['materiaal_deel']='eigen elektrisch wagentje met schakelaar, rechte baan, 50 Hz-tijdtikker, carbonlint, papierbandje, voltmeter en gecontroleerde 6 V~-bron (p. 68).'
+LABOS[1]['delen'][0]['materiaal_deel']='wagentje 50 g met ballast circa 200 g, helling van circa 1 m, tijdtikker, 1,10 m papierbandje, carbonlint, lange lat en gecontroleerde voeding (p. 79).'
+LABOS[1]['delen'][1]['materiaal_deel']='wagentje met drie ballastmassa’s van 50 g en verticaal staafje, helling van circa 1 m, blokken, tijdtikker, papierbandje, carbonlint en veilige 6 V~-bron (p. 86).'
+LABOS[2]['delen'][1]['materiaal_deel']='tennisbal, twee verticale meetlatten, stopwatch, twee stabiele smartphones/camera’s bij loslaathoogte en hoogste punt (p. 15–18/58–59).'
+LABOS[2]['delen'][2]['materiaal_deel']='computer met Tracker, smartphone/camera op statief, tennisbal en duidelijk zichtbare meetlat in dezelfde bewegingsvlakte (p. 19–20/60–61).'
+LABOS[3]['delen'][0]['materiaal_deel']='computer met Tracker, camera/smartphone, tennisbal, statief of stabiel oppervlak en stevige cm-meetlat (p. 56–57).'
+LABOS[3]['delen'][1]['materiaal_deel']='houten plank circa 45 × 55 cm, blokken, valgeul, grote metalen kogel, papier, weinig afwasbare verf, tekenlat en driehoek (p. 93).'
+LABOS[12]['delen'][2]['materiaal_deel']='historische Soundry-/harmonics-app indien bereikbaar, anders een vooraf geteste simulator en een bron voor ultrasoon geluid (p. 55–56).'

@@ -308,3 +308,56 @@ ANSWERS = {
                    'gering is.',
  'L9:voor:1': 'De tijd voor één volledige heen-en-weerbeweging.',
  'L9:voor:2': 'De reactietijdfout weegt minder zwaar wanneer je een langere tijd meet.'}
+
+# Modelantwoorden bij de brongetrouwe herwerking van de originele practica.
+# Getallen zijn voorbeeldwaarden; een echte meetsnelheid/g volgt uit de leerlingdata.
+ANSWERS.update({
+ 'L1:deel2:vraag1': 'Optrekken en remmen zijn geen eenparige fase; alleen het middendeel is geschikt om constante v te toetsen.',
+ 'L1:deel2:vraag2': '50 Hz betekent 50 tikken per seconde: 0,020 s per tik. Nummeren om de twee tikken geeft 0,040 s tussen gekozen meetstippen.',
+ 'L2:deel1:vraag1': 'Stip 0 ligt ná de dicht opeen liggende startstippen: de wagen beweegt daar al; extrapolatie van v(t′) levert v₀ > 0.',
+ 'L2:deel1:vraag2': 'Het snijpunt geeft v₀ en de rico a. t′ is de tijd op het midden van een venster; Δt = 0,040 s is de vaste vensterduur.',
+ 'L2:deel2:vraag1': 'Tijdens contact met de hand wordt de wagen aangedreven: zijn vertraging is dan niet alleen de langscomponent van de zwaartekracht. Kies stip 0 pas na loslaten en vóór het keerpunt.',
+ 'L2:deel2:vraag2': 'Bij omhoog positief daalt de snelheid: een nagenoeg rechte v(t′) met negatieve richtingscoëfficiënt toont bij benadering constante negatieve a.',
+ 'L3:deel1:vraag1': 'Het midden van de intervallen [0;0,020], [0,020;0,040] enz. is 0,010; 0,030; enz. v = Δx/0,020 s hoort bij die middentijd.',
+ 'L3:deel1:vraag2': 'De rico is de (val)versnelling. Bij een later gekozen stip 0 is v₀ niet nul, dus v/t′ = g + v₀/t′ en geen zuivere g.',
+ 'L3:deel2:vraag1': 'Bij verschillende afstand tot de camera veroorzaakt perspectief/parallax een fout in de afgelezen hoogte ten opzichte van de meetlat.',
+ 'L3:deel2:vraag2': 'Met y omhoog positief en een eindsnelheid naar beneden is de y-component van de snelheid negatief: v_grond = v₀ − gt.',
+ 'L3:deel3:vraag1': 'Kalibreer in Tracker met de zichtbare meetlat. De meetlat en de baan moeten op nagenoeg gelijke camera-afstand liggen om schijnbare schaalverandering te vermijden.',
+ 'L3:deel3:vraag2': 'Tracker levert meer tijd-/plaatsparen over de hele baan en vermijdt stopwatchreactie, mits correcte schaal, camera, frametijd en consequente puntkeuze; vergelijk de daadwerkelijke meetonzekerheden.',
+ 'L4:deel1:vraag1': 'Zet bal en meetlat in hetzelfde vlak evenwijdig aan het beeldvlak, camera loodrecht en stabiel; kalibreer in Tracker en volg consequent hetzelfde punt.',
+ 'L4:deel1:vraag2': 'Horizontaal: x(t) ongeveer lineair en vₓ bijna constant. Verticaal: y(t) ongeveer kwadratisch, aᵧ ongeveer g naar beneden (teken afhankelijk van gekozen as).',
+ 'L4:deel2:vraag1': 'Dan geeft de valgeul eerst vooral een snelheidscomponent langs de x-as; de plankhelling voegt een y-versnelling toe. Zo blijven de componenten interpreteerbaar.',
+ 'L4:deel2:vraag2': 'De gemeten y-afstand wordt evenwijdig aan de zelf getekende y-as geconstrueerd; hierdoor vergelijk je steeds dezelfde richting zonder een schijnbaar loodrechte projectie in een scheve tekening.',
+ 'L6:deel1:vraag1': 'Bij constante lengte l geldt h = l·sin α; sin 60° is groter dan sin 30°. Dit is niet een proef op telkens dezelfde eindhoogte.',
+})
+ANSWERS['L1:docent'] += ['Bron blz. 68–72: eerst voltmeter en 6,0 V~ controleren, wagentje met schakelaar; kies uitsluitend de gelijkmatige middensectie. Om de twee 50 Hz-stippen = 0,040 s.',
+                          'Laat de leerlingen t′ LINKS van ⟨v⟩ in Excel selecteren; t′ is een tijdstip op het midden van het venster, niet Δt of Δv.']
+ANSWERS['L2:docent'] += ['Bron blz. 79–85: oorspronkelijk bandje met 0,2,4,... en t′=0,020;0,060;...; extrapoleer v₀ en bepaal de rico van v(t′).',
+                          'Bron blz. 86–92: behoud het omhoog geduwde wagentje als APART OPEN PRACTICUM. Keur eigen plan en stip 0 na loslaten goed. Grafieken x(t) en v(t′) onder elkaar met tabellen links.']
+ANSWERS['L3:docent'] += ['Twee ECHTE proeven: 50 g aan bandje door statieftriller (blz. 20–26/73–78), en verticale tennisbalworp: eerst twee camerabeelden + stopwatch, daarna de hele baan met Tracker (blz. 15–20/58–61).',
+                          'Handmatige worp: 0 = y₀ + v₀t − ½gt², dus v₀=(½gt²−y₀)/t; v_grond=v₀−gt; t_top=v₀/g; y_top=y₀+v₀²/(2g). Noem tijd tot top t_top om niet te verwarren met tikker-middentijd t′.',
+                          'Uit 50 Hz-bandje volgt v voor t′ = 0,010;0,030;... s. Als nulstip later ligt, gebruik rico v(t′) voor g, niet v/t′.']
+ANSWERS['L4:docent'] += ['Horizontale Trackerworp uit bron 56–57 blijft ECHT OPEN: laat leerlingen zelf camerastand, meetvariabelen en formules voorstellen; keur pas na veiligheids- en perspectiefcontrole goed.',
+                          'Schuine-plankproef blz. 93–97: laat leerlingen vlak/boven, schuin/beneden en schuin/boven onderscheiden. Drie hellingen, x=10–55 cm in stappen van 5 cm, y₁/y₂/y₃ en y/x².']
+ANSWERS['L6:docent'] += ['Correctie op eerste concept: de originele bronproef heeft de baanlengte l CONSTANT en h=l·sin α per hoek; niet dezelfde hoogte bij alle drie hoeken.']
+ANSWERS.update({
+ 'L1:deel1:vraag1': 'Kies consequent voor- of achterkant: de bel heeft een lengte, zodat wisselen van referentie de afgelegde afstand systematisch vertekent.',
+ 'L1:deel1:vraag2': 'Bij dezelfde gekozen nulpositie geldt x₀ = 0 en t₀ = 0, zodat x−x₀ = x en t−t₀ = t. Bij een andere nul is dit niet vanzelf waar.',
+})
+ANSWERS['L1:SMART']='Hoe hangen x(t) en de snelheid van dezelfde luchtbel samen bij 90° en 45° van de buis, en is de elektrisch aangedreven wagen in zijn gelijkmatige middenfase een ERB, gemeten met chronometer en 50 Hz-tijdtikker tijdens dit labo?'
+ANSWERS['L1:docent'] += ['Bron p. 63–67: buis ECHT bij 90° en 45°, x = 0,100–1,000 m in stappen 0,100 m; bij elke afstand dezelfde voorkant van de luchtbel en beide x(t)-reeksen op één grafiek.']
+ANSWERS.update({
+ 'L12:deel1:vraag1': 'Een staafvormige bron genereert aan het midden van de bak bij benadering rechte, vlakke golffronten.',
+ 'L12:deel1:vraag2': 'Bevestiging aan dezelfde triller koppelt de frequentie en fase: daardoor blijft het faseverschil en dus het interferentiepatroon in de tijd stabiel.',
+ 'L13:deel1:vraag1': '437 en 443 Hz verschillen weinig in toonhoogte; samen geven ze 6 zwevingen per seconde (|443−437| = 6 Hz).',
+ 'L13:deel1:vraag2': 'Gelijke golven in fase versterken, precies tegengesteld en even sterk doven ze uit; bijvoorbeeld actieve ruisonderdrukking benadert dit met een antigeluid.',
+ 'L13:deel3:vraag1': 'Een harmonische heeft een frequentie die een geheel veelvoud is van de grondfrequentie; andere sterktes van harmonischen geven verschillende klankkleur bij dezelfde toonhoogte.',
+ 'L13:deel3:vraag2': 'Ultrasoon geluid heeft een frequentie hoger dan het menselijke gehoorbereik (ruwweg > 20 000 Hz); bijvoorbeeld medische echografie en afstandsmeting met echo. Vraag correcte bronvermelding.',
+})
+ANSWERS['L12:docent'] += ['Bron 27–28: laat ALLE vijf fysieke golfbakexperimenten uitvoeren: punt-, staafbron, smalle/brede opening, twee coherente bronnen; koppel ze aan negen appletbeelden uit bron blz. 1.']
+ANSWERS['L13:docent'] += ['Bewaar de eigen Soundry-vragen p. 55–56 ook bij vervangapp: 437+443 Hz beats, gelijke/tegengestelde golven, Doppler, harmonischen (klarinet/trompet, zaagtand, blokgolf), ultrasoon. Historische URL is niet geverifieerd.']
+ANSWERS['L6:SMART']='Hoe verschillen F_vert·h en F_hel·l voor hetzelfde wagentje bij een vaste baanlengte l en drie hoeken (30°, 45°, 60°, elk met h = l sin α), gemeten met dynamometer en meetlat tijdens dit labo?'
+ANSWERS['L9:SMART']='Hoe veranderen k en T bij veer 1 (30–150 g) en veer 2 (50–250 g), en hoe bepaal je daarna een onbekende massa zonder balans terwijl ze aan de veer blijft, gemeten met chronometer tijdens dit labo?'
+ANSWERS['L10:SMART']='Hoe verandert de periode T van de eigen slinger bij 10° versus 5°, metalen versus houten bolletje op 1,00 m, en bij circa tien verschillende slingerlengten, gemeten als tijd voor 20 cycli tijdens dit labo?'
+ANSWERS['L3:SMART']='Wat is g uit een 50 Hz-bandje van een vrijvallende massa en welke v₀, t_top en y_max leveren de originele handmatige en Tracker-methoden bij een verticale tennisbalworp tijdens dit labo?'
+ANSWERS['L4:SMART']='Welke positie-, snelheids- en versnellingscomponenten vind je uit een zelf ontworpen horizontale Trackerworp, en tonen drie kogelsporen op de schuine plank y ∝ x² tijdens dit labo?'
